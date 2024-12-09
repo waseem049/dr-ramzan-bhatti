@@ -8,7 +8,7 @@ export async function POST(request: Request) {
   // Validate input data
   if (!userName || !email || !password || !name || !salutation) {
     return NextResponse.json(
-      { message: "Missing required fields" },
+      { message: "Missing Required Fields" },
       { status: 400 }
     );
   }
@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     });
     if (existingUser) {
       return NextResponse.json(
-        { message: "User already exists" },
+        { message: "User Already Exists" },
         { status: 400 }
       );
     }
@@ -45,6 +45,7 @@ export async function POST(request: Request) {
       { status: 201 }
     );
   } catch (error) {
+    console.log(error);
     return NextResponse.json(
       { message: "Error creating user", error },
       { status: 500 }
