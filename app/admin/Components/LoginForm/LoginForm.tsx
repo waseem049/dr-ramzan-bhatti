@@ -36,7 +36,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <div className="bg-white rounded-xl w-[90%] h-[50%] lg:w-[50%] lg:h-[50%] p-10 lg:p-16">
+    <div className="glassbox w-[90%] lg:w-[50%]  p-10 lg:p-16">
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -45,12 +45,18 @@ export const LoginForm = () => {
         {({}) => (
           <Form>
             <div className="flex flex-col gap-5">
-              <InputBox label={"Email"} name={"email"} placeholder={"Email"} />
+              <InputBox
+                label={"Email"}
+                name={"email"}
+                placeholder={"Email"}
+                labelColor="text-foreground"
+              />
               <InputBox
                 label={"Password"}
                 name={"password"}
                 placeholder={"Password"}
                 type="password"
+                labelColor="text-foreground"
               />
               <FormButton label={"Login"} loading={isLoading} />
             </div>

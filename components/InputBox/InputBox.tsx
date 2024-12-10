@@ -8,6 +8,7 @@ interface InputBoxProps {
   placeholder: string;
   className?: string;
   type?: string;
+  labelColor?: string;
 }
 
 export const InputBox: React.FC<InputBoxProps> = ({
@@ -16,13 +17,14 @@ export const InputBox: React.FC<InputBoxProps> = ({
   placeholder,
   className = "",
   type = "text",
+  labelColor = "text-gray-700",
 }) => {
   const [field, meta] = useField(name);
 
   return (
     <div className={` ${className} `}>
       <div className="flex flex-row justify-between items-center px-2">
-        <h1 className="block text-sm font-poppinsRegular text-gray-700">
+        <h1 className={`block text-sm font-poppinsRegular ${labelColor}`}>
           {label}
         </h1>
         {meta.touched && meta.error ? (
