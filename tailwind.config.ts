@@ -9,8 +9,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "#000",
+        foreground: "#fff",
+      },
+      fontFamily: {
+        poppinsThin: ["PoppinsThin", "sans-serif"],
+        poppinsRegular: ["PoppinsRegular", "sans-serif"],
+        poppinsSemibold: ["PoppinsSemibold", "sans-serif"],
+        poppinsBold: ["PoppinsBold", "sans-serif"],
+        montserratThin: ["MontserratThin", "sans-serif"],
+        montserratRegular: ["MontserratRegular", "sans-serif"],
+        montserratSemibold: ["MontserratSemibold", "sans-serif"],
+        montserratBold: ["MontserratBold", "sans-serif"],
       },
     },
   },
