@@ -1,8 +1,10 @@
 "use client";
+import { Loading } from "@/components";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const AdminPage = () => {
+  const [checkingAuth, setCheckingAuth] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
@@ -13,8 +15,11 @@ export const AdminPage = () => {
       }
     };
     checkAuthToken();
+    setCheckingAuth(false);
     return () => {};
   }, [router]);
+
+  if (checkingAuth) return <Loading className="text-black" />;
 
   return (
     <div className="w-[100vw] h-[100vh] bg-background  flex justify-center items-center">

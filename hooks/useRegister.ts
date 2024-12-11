@@ -1,38 +1,39 @@
-import { Login } from "@/utils/types";
 import { useState } from "react";
+import { Registration } from "@/utils/types";
 
-export const useLogin = () => {
+export const useRegister = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const login = async ({ email, password }: Login) => {
+  const register = async ({
+    name,
+    email,
+    password,
+    salutation,
+    userName,
+  }: Registration) => {
     setIsLoading(true);
     setError(null);
-
     try {
-      const response = await fetch("/api/login", {
+      const response = await fetch("/api/registration", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ name, email, password, salutation, userName }),
       });
 
-      const data = await response.json();
-
       if (response.ok) {
-        localStorage.setItem("jb-admin-token", data.token);
-        return { token: data.token };
-      } else {
-        setError(data.message || "Login Failed");
+        return { message: "Account Created Successfully", status: 201 };
       }
     } catch (error) {
       console.error(error);
+      console.log(error);
       setError("Something Went Wrong");
     } finally {
       setIsLoading(false);
     }
   };
 
-  return { login, isLoading, error };
+  return { register, isLoading, error };
 };

@@ -45,7 +45,7 @@ export async function POST(request: Request) {
     );
 
     // Return the token
-    return NextResponse.json({ message: "Login successful", token });
+    return NextResponse.json({ message: "Login Successfull", token });
   } catch (error) {
     return NextResponse.json(
       { message: "Error logging in", error },
