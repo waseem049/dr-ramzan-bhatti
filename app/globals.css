@@ -65,10 +65,16 @@ body {
 }
 
 .glassbox {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(114, 105, 105, 0.1);
   border-radius: 10px;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(5px);
+}
+
+.bg-svg {
+  background-image: url("/login-bg.svg");
+  background-size: cover;
+  background-position: center;
 }
 
 .green-radial {

@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="w-[100vw] h-[100vh]">
+    <div className="w-[100vw] h-[100vh] bg-svg">
       <NavBar />
       {children}
     </div>

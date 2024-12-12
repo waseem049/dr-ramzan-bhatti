@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ActionButton } from "./Components/ActionButton";
+import { formatDate } from "@/utils/formatDate";
 
 type BlogCardProps = {
   slug: string;
@@ -25,7 +26,7 @@ export const BlogCard = ({
   const authorInitial = author?.charAt(0)?.toUpperCase() || "A";
 
   return (
-    <article className="group rounded-2xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+    <article className="rounded-2xl overflow-hidden bg-white flex flex-col">
       {/* Image Container */}
       <div className="relative h-48 w-full overflow-hidden">
         {coverImage ? (
@@ -76,8 +77,8 @@ export const BlogCard = ({
             </div>
             <span className="ml-2 text-gray-700 font-medium">{author}</span>
           </div>
-          {/* @ts-expect-error Type To Fix Later*/}
-          <h1 className="text-gray-500">{createdAt}</h1>
+
+          <h1 className="text-gray-500">{formatDate(createdAt)}</h1>
         </div>
         <ActionButton slug={slug} />
       </div>

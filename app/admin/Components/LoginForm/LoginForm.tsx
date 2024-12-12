@@ -111,7 +111,7 @@ export const LoginForm = () => {
                   <button
                     type="button"
                     onClick={() => setIsFlipped(true)}
-                    className="text-sm text-blue-500 hover:text-blue-600 mt-4"
+                    className="text-sm text-white hover:text-yellow-500 mt-4"
                   >
                     No Account? Register
                   </button>
@@ -176,7 +176,7 @@ export const LoginForm = () => {
                   <button
                     type="button"
                     onClick={() => setIsFlipped(false)}
-                    className="text-sm text-blue-500 hover:text-blue-600 mt-4"
+                    className="text-sm text-white hover:text-yellow-500 mt-4"
                   >
                     Already have an account? Login
                   </button>

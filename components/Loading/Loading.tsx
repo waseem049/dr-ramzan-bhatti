@@ -15,7 +15,9 @@ export const Loading: React.FC<LoadingProps> = ({
   containerWidth = "w-[100%]",
 }) => {
   return (
-    <div className={`p-5 ${containerHeight} ${containerWidth}`}>
+    <div
+      className={`p-5 ${containerHeight} ${containerWidth} flex justify-center items-center`}
+    >
       <Icon iconName="spinner" size={size} className={`fa-spin ${className}`} />
     </div>
   );
