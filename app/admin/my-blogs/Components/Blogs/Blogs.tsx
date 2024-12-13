@@ -8,7 +8,7 @@ export const Blogs: React.FC = () => {
   if (isLoading) return <Loading className="text-white" size="2x" />;
 
   return (
-    <div className="w-full flex flex-row flex-wrap">
+    <div className="w-full h-full flex flex-row flex-wrap overflow-y-auto">
       {blogs.map((b) => (
         <BlogCard
           key={b.id}

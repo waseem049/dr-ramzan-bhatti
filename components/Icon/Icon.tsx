@@ -3,6 +3,7 @@ import {
   faBars,
   faCircleExclamation,
   faClose,
+  faPlus,
   faRightFromBracket,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
@@ -22,6 +23,7 @@ const IconMap: Record<string, IconDefinition> = {
   close: faClose,
   spinner: faSpinner,
   logout: faRightFromBracket,
+  plus: faPlus,
 };
 
 export const Icon: React.FC<IconProps> = ({

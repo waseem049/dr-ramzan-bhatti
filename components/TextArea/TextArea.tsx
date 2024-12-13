@@ -4,14 +4,16 @@ import { useField } from "formik";
 
 interface TextAreaProps {
   label: string;
+  labelColor?: string;
   name: string;
   placeholder: string;
   className?: string;
   rows?: number;
 }
 
-const TextArea: React.FC<TextAreaProps> = ({
+export const TextArea: React.FC<TextAreaProps> = ({
   label,
+  labelColor = "text-white-700",
   name,
   placeholder,
   className = "",
@@ -20,9 +22,9 @@ const TextArea: React.FC<TextAreaProps> = ({
   const [field, meta] = useField(name);
 
   return (
-    <div className={` ${className} `}>
+    <div className={` ${className} flex flex-col gap-1`}>
       <div className="flex flex-row justify-between items-center px-2">
-        <h1 className="block text-sm font-poppinsRegular text-gray-700">
+        <h1 className={`block text-sm font-poppinsRegular ${labelColor}`}>
           {label}
         </h1>
         {meta.touched && meta.error ? (
@@ -42,5 +44,3 @@ const TextArea: React.FC<TextAreaProps> = ({
     </div>
   );
 };
-
-export default TextArea;

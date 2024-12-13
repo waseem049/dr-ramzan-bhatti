@@ -1,3 +1,4 @@
+import { BlogDataDto } from "@/hooks/useCreateBlog";
 import { Salutation } from "@prisma/client";
 
 export type Login = {
@@ -12,3 +13,5 @@ export type Registration = {
   userName: string;
   password: string;
 };
+
+export type UpdateBlogValues = BlogDataDto;

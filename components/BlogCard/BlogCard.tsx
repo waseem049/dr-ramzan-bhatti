@@ -26,7 +26,7 @@ export const BlogCard = ({
   const authorInitial = author?.charAt(0)?.toUpperCase() || "A";
 
   return (
-    <article className="rounded-2xl overflow-hidden bg-white flex flex-col">
+    <article className="rounded-2xl overflow-hidden bg-blue-950 flex flex-col">
       {/* Image Container */}
       <div className="relative h-48 w-full overflow-hidden">
         {coverImage ? (
@@ -36,7 +36,7 @@ export const BlogCard = ({
             className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-r from-purple-100 to-blue-100" />
+          <div className="w-full h-full bg-gradient-to-r from-blue-800 to-blue-950" />
         )}
         {category && (
           <span className="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-full text-sm font-medium text-gray-700">

@@ -47,9 +47,7 @@ export const NavBar = () => {
             >
               <h1
                 onClick={() => handleRouteChange(l.href)}
-                className={`${
-                  isActiveRoute(l.href) ? "text-[26px]" : "text-[20px]"
-                } font-poppinsSemibold cursor-pointer select-none text-white`}
+                className={`text-[20px] font-poppinsSemibold cursor-pointer select-none text-white`}
               >
                 {l.label}
               </h1>
@@ -59,7 +57,10 @@ export const NavBar = () => {
       </div>
 
       {/* Menu Icon (for mobile screens) */}
-      <div className="lg:hidden fixed top-5 left-5 z-30">
+      <div
+        className="w-full lg:hidden fixed top-0 left-0 z-40 glassbox p-5"
+        style={{ borderRadius: 0 }}
+      >
         <Icon
           iconName={"menu"}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -94,9 +95,7 @@ export const NavBar = () => {
                 handleRouteChange(l.href);
                 setIsMenuOpen(false);
               }}
-              className={`${
-                isActiveRoute(l.href) ? "text-[26px]" : "text-[20px]"
-              } font-poppinsSemibold cursor-pointer select-none`}
+              className={`text-[20px] font-poppinsSemibold cursor-pointer select-none`}
             >
               {l.label}
             </h1>
