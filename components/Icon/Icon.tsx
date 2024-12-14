@@ -4,6 +4,7 @@ import {
   faBars,
   faCircleExclamation,
   faClose,
+  faFilePen,
   faPlus,
   faRightFromBracket,
   faSpinner,
@@ -27,6 +28,7 @@ const IconMap: Record<string, IconDefinition> = {
   plus: faPlus,
   upload: faArrowUp,
   error: faCircleExclamation,
+  editDoc: faFilePen,
 };
 
 export const Icon: React.FC<IconProps> = ({

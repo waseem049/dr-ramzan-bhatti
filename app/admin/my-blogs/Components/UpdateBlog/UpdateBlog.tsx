@@ -8,13 +8,15 @@ import {
   TextArea,
 } from "@/components";
 import { useCreateBlog } from "@/hooks/useCreateBlog";
+import { useUpdateBlog } from "@/hooks/useUpdateBlog";
 import { BlogStatusList, Categories, Featured } from "@/utils/constants";
 import { LabelValue, UpdateBlogValues } from "@/utils/types";
-import { BlogStatus } from "@prisma/client";
+import { Blog, BlogStatus } from "@prisma/client";
 import { Formik, Form } from "formik";
+import { Dispatch, SetStateAction } from "react";
 import * as Yup from "yup";
 
-export const blogValidationSchema = Yup.object().shape({
+const blogValidationSchema = Yup.object().shape({
   slug: Yup.string()
     .required("Slug is required")
     .matches(
@@ -90,52 +92,83 @@ export const blogValidationSchema = Yup.object().shape({
 type UpdateBlogProps = {
   closeModal: () => void;
   refetch: () => void;
+  setSelectedBlog: Dispatch<SetStateAction<Blog | null>>;
   userId: string;
-};
-
-const initialValues: UpdateBlogValues = {
-  slug: "",
-  title: "",
-  subTitle: "",
-  description: "",
-  coverImage: "",
-  category: null,
-  media: [],
-  author: "",
-  excerpt: "",
-  isFeatured: Featured.find((f) => f.value)!,
-  tags: [],
-  status: BlogStatusList.find((b) => b.value === BlogStatus.DRAFT)!,
-  userId: "",
+  blog: Blog | null;
 };
 
 export const UpdateBlog: React.FC<UpdateBlogProps> = ({
   closeModal,
   refetch,
   userId,
+  blog,
+  setSelectedBlog,
 }) => {
-  const { createBlog, isLoading } = useCreateBlog();
+  const { createBlog, isLoading: creatingBlog } = useCreateBlog();
+  const { updateBlog, isLoading: updatingBlog } = useUpdateBlog();
+
+  const editMode = Boolean(blog?.id);
+  const initialValues: UpdateBlogValues = {
+    slug: blog?.slug || "",
+    title: blog?.title || "",
+    subTitle: blog?.subTitle || "",
+    description: blog?.description || "",
+    coverImage: blog?.coverImage || "",
+    category: Categories.find((c) => c.value === blog?.category) || null,
+    media: blog?.media || [],
+    author: blog?.author || "",
+    excerpt: blog?.excerpt || "",
+    isFeatured:
+      Featured.find((f) => f.value === blog?.isFeatured) ||
+      Featured.find((f) => f.value)!,
+    tags: (blog?.tags || []).map((tag: string) => ({
+      label: tag,
+      value: tag,
+    })),
+    status:
+      BlogStatusList.find((b) => b.value === blog?.status) ||
+      BlogStatusList.find((b) => b.value === BlogStatus.DRAFT)!,
+  };
 
   const handleSubmit = async (values: UpdateBlogValues) => {
     console.log(values);
     const tagsAsStringArray =
       values.tags && values.tags.map((t: LabelValue) => t.value);
     try {
-      await createBlog({
-        slug: values.slug,
-        title: values.title,
-        subTitle: values.subTitle,
-        description: values.description,
-        coverImage: values.coverImage,
-        category: values?.category?.value as string,
-        media: values.media,
-        author: values.author,
-        excerpt: values.excerpt,
-        isFeatured: values.isFeatured.value as boolean,
-        tags: tagsAsStringArray as string[],
-        status: BlogStatus.DRAFT,
-        userId,
-      });
+      if (editMode) {
+        await updateBlog(blog?.id, {
+          slug: values.slug,
+          title: values.title,
+          subTitle: values.subTitle,
+          description: values.description,
+          coverImage: values.coverImage,
+          category: values?.category?.value as string,
+          media: !values.media.length ? [] : values.media,
+          author: values.author,
+          excerpt: values.excerpt,
+          isFeatured: values.isFeatured.value as boolean,
+          tags: tagsAsStringArray as string[],
+          status: BlogStatus.DRAFT,
+          userId,
+        });
+      } else {
+        await createBlog({
+          slug: values.slug,
+          title: values.title,
+          subTitle: values.subTitle,
+          description: values.description,
+          coverImage: values.coverImage,
+          category: values?.category?.value as string,
+          media: !values.media.length ? [] : values.media,
+          author: values.author,
+          excerpt: values.excerpt,
+          isFeatured: values.isFeatured.value as boolean,
+          tags: tagsAsStringArray as string[],
+          status: BlogStatus.DRAFT,
+          userId,
+        });
+      }
+      setSelectedBlog(null);
       refetch();
       closeModal();
     } catch (e) {
@@ -146,7 +179,7 @@ export const UpdateBlog: React.FC<UpdateBlogProps> = ({
   return (
     <div className="w-full h-full md:w-[50%] max-h-[90%] flex flex-col gap-5 items-center">
       <h1 className="font-poppinsSemibold text-[32px] text-white">
-        Create Blog
+        {editMode ? "Update" : "Create"} Blog
       </h1>
       <Formik<UpdateBlogValues>
         initialValues={initialValues}
@@ -155,7 +188,7 @@ export const UpdateBlog: React.FC<UpdateBlogProps> = ({
       >
         {({ isValid, dirty }) => (
           <Form style={{ width: "100%" }}>
-            <div className="w-full flex flex-col gap-5 pb-5">
+            <div className="w-full flex flex-col gap-5 md:pb-5 pb-20">
               <div className="w-full flex flex-col md:flex-row gap-5">
                 <InputBox
                   label={"Slug"}
@@ -259,10 +292,10 @@ export const UpdateBlog: React.FC<UpdateBlogProps> = ({
                 />
               </div>
               <FormButton
-                disabled={!isValid || dirty}
+                disabled={!isValid || !dirty}
                 type="submit"
-                label={"Create Blog"}
-                loading={isLoading}
+                label={`${editMode ? "Update" : "Create"} Blog`}
+                loading={creatingBlog || updatingBlog}
               />
             </div>
           </Form>

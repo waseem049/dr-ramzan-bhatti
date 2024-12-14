@@ -58,8 +58,6 @@ export const MultiFileInputBox: React.FC<MultiFileInputBoxProps> = ({
   const hiddenFileInputRef = useRef<HTMLInputElement>(null);
 
   const handleUploadButtonClick = () => {
-    helpers.setTouched(true);
-    helpers.setTouched(true);
     if (field.value?.length >= maxFiles) {
       setUploadError(`Maximum ${maxFiles} files allowed`);
       return;
@@ -69,7 +67,6 @@ export const MultiFileInputBox: React.FC<MultiFileInputBoxProps> = ({
 
   const onChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const files = e.currentTarget.files;
-    helpers.setTouched(true);
     if (!files) return;
 
     const currentFileCount = field.value?.length || 0;
@@ -100,7 +97,6 @@ export const MultiFileInputBox: React.FC<MultiFileInputBoxProps> = ({
   };
 
   const removeFile = (indexToRemove: number) => {
-    helpers.setTouched(true);
     const newUrls = field.value.filter(
       (_: string, index: number) => index !== indexToRemove
     );
@@ -167,8 +163,9 @@ export const MultiFileInputBox: React.FC<MultiFileInputBoxProps> = ({
                       sizes="170px"
                     />
                   </div>
-                  <div onClick={(e) => e.stopPropagation()}>
+                  <div>
                     <button
+                      type="button"
                       onClick={() => removeFile(index)}
                       className="absolute top-2 right-2 bg-red-500 text-white rounded-full hover:bg-red-600 w-6 h-6 flex justify-center items-center"
                     >

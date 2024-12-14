@@ -23,6 +23,7 @@ export type UpdateBlogValues = Omit<
   | "tags"
   | "isFeatured"
   | "category"
+  | "userId"
 > & {
   status: LabelValue;
   tags: LabelValue[];

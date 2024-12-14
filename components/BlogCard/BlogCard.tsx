@@ -1,87 +1,111 @@
+import React, { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
-import { ActionButton } from "./Components/ActionButton";
+import { Blog } from "@prisma/client";
 import { formatDate } from "@/utils/formatDate";
+import { Icon } from "../Icon";
 
-type BlogCardProps = {
-  slug: string;
-  title: string;
-  coverImage?: string;
-  category?: string;
-  author: string;
-  excerpt: string;
-  tags?: string[];
-  createdAt: Date;
+type BlogCardProps = Blog & {
+  onAdminPanel: boolean;
+  selectedBlog?: Blog | null;
+  setSelectedBlog?: Dispatch<SetStateAction<Blog | null>>;
 };
 
-export const BlogCard = ({
-  slug,
-  title,
-  coverImage,
-  category,
-  author = "Anonymous",
-  excerpt,
-  tags = [],
-  createdAt,
-}: BlogCardProps) => {
-  const authorInitial = author?.charAt(0)?.toUpperCase() || "A";
+export const BlogCard: React.FC<BlogCardProps> = ({
+  onAdminPanel = false,
+  selectedBlog,
+  setSelectedBlog,
+  ...blog
+}) => {
+  const authorInitial = blog.author?.charAt(0)?.toUpperCase() || "A";
+  const isSelected = blog.id === selectedBlog?.id;
+
+  const handleClick = () => {
+    if (onAdminPanel && setSelectedBlog) {
+      setSelectedBlog(isSelected ? null : blog);
+    }
+  };
 
   return (
-    <article className="rounded-2xl overflow-hidden bg-blue-950 flex flex-col">
-      {/* Image Container */}
-      <div className="relative h-48 w-full overflow-hidden">
-        {coverImage ? (
-          <Image
-            src={coverImage}
-            alt={title}
-            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-          />
-        ) : (
-          <div className="w-full h-full bg-gradient-to-r from-blue-800 to-blue-950" />
-        )}
-        {category && (
-          <span className="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-full text-sm font-medium text-gray-700">
-            {category}
-          </span>
-        )}
-      </div>
+    <div
+      className={`
+      w-full 
+      sm:w-[calc(50%-0.625rem)] 
+      md:w-[calc(33.33%-0.835rem)]
+    `}
+    >
+      <article
+        className={`bg-blue-950 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-blue-900 ${
+          isSelected
+            ? "border-2 border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.3)]"
+            : ""
+        }`}
+      >
+        {/* Image Container */}
+        <div className="relative w-full pt-[60%]">
+          {blog.coverImage ? (
+            <Image
+              src={blog.coverImage}
+              alt={blog.title}
+              fill
+              className="absolute inset-0 object-cover hover:scale-105 transition-transform duration-500"
+            />
+          ) : (
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-950" />
+          )}
 
-      {/* Content Container */}
-      <div className="flex-1 p-6 flex flex-col">
-        {/* Title */}
-        <h3 className="text-xl font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors duration-200">
-          {title}
-        </h3>
-
-        {/* Excerpt */}
-        <p className="text-gray-600 mb-4 line-clamp-2 text-sm">{excerpt}</p>
-
-        {/* Tags */}
-        {tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-4">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium hover:bg-gray-200 transition-colors duration-200"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {/* Footer */}
-        <div className="mt-auto flex items-center justify-between text-sm">
-          <div className="flex items-center">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-200 to-blue-300 flex items-center justify-center text-blue-700">
-              {authorInitial}
+          {/* Category Badge */}
+          {blog.category && (
+            <span className="absolute top-4 left-4 bg-blue-100 px-3 py-1 rounded-full text-sm font-medium text-blue-900">
+              {blog.category}
+            </span>
+          )}
+          {onAdminPanel && (
+            <div
+              className="absolute top-4 right-4 bg-blue-100 px-3 py-1 rounded-full flex flex-row gap-3 items-center cursor-pointer"
+              onClick={handleClick}
+            >
+              <Icon iconName="editDoc" />
+              <h1 className="font-poppinsRegular text-xs">Select To Edit</h1>
             </div>
-            <span className="ml-2 text-gray-700 font-medium">{author}</span>
-          </div>
-
-          <h1 className="text-gray-500">{formatDate(createdAt)}</h1>
+          )}
         </div>
-        <ActionButton slug={slug} />
-      </div>
-    </article>
+
+        {/* Content */}
+        <div className="p-4 flex flex-col">
+          <h3 className="text-lg font-semibold text-blue-50 hover:text-blue-200 transition-colors duration-200 mb-2 line-clamp-2">
+            {blog.title}
+          </h3>
+
+          <p className="text-blue-200/80 text-sm mb-4 line-clamp-2">
+            {blog.excerpt}
+          </p>
+
+          {/* Tags */}
+          {blog.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mb-4">
+              {blog.tags.slice(0, 3).map((tag) => (
+                <span
+                  key={tag}
+                  className="px-2 py-1 bg-blue-900/50 text-blue-200 rounded-full text-xs font-medium"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {/* Footer */}
+          <div className="flex items-center justify-between text-sm">
+            <div className="flex items-center">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-800 to-blue-700 flex items-center justify-center text-blue-100 font-medium">
+                {authorInitial}
+              </div>
+              <span className="ml-2 text-blue-200">{blog.author}</span>
+            </div>
+            <span className="text-blue-300">{formatDate(blog.createdAt)}</span>
+          </div>
+        </div>
+      </article>
+    </div>
   );
 };
