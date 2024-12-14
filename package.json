@@ -16,6 +16,7 @@
     "@prisma/client": "^6.0.1",
     "@types/bcryptjs": "^2.4.6",
     "@types/jsonwebtoken": "^9.0.7",
+    "axios": "^1.7.9",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.7",
     "formik": "^2.4.6",
@@ -24,6 +25,7 @@
     "next": "15.0.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-select": "^5.9.0",
     "yup": "^1.5.0"
   },
   "devDependencies": {

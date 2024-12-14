@@ -1,7 +1,5 @@
-import { Blog } from "@prisma/client";
+import { BlogDataDto } from "@/utils/dto";
 import { useState } from "react";
-
-export type BlogDataDto = Omit<Blog, "createdAt" | "updatedAt" | "id" | "user">;
 
 interface UseCreateBlogReturn {
   createBlog: (data: BlogDataDto) => Promise<void>;

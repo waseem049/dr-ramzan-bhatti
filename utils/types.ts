@@ -1,5 +1,4 @@
-import { BlogDataDto } from "@/hooks/useCreateBlog";
-import { Salutation } from "@prisma/client";
+import { Blog, BlogStatus, Salutation } from "@prisma/client";
 
 export type Login = {
   email: string;
@@ -14,4 +13,24 @@ export type Registration = {
   password: string;
 };
 
-export type UpdateBlogValues = BlogDataDto;
+export type UpdateBlogValues = Omit<
+  Blog,
+  | "createdAt"
+  | "updatedAt"
+  | "id"
+  | "user"
+  | "status"
+  | "tags"
+  | "isFeatured"
+  | "category"
+> & {
+  status: LabelValue;
+  tags: LabelValue[];
+  isFeatured: LabelValue;
+  category: LabelValue | null;
+};
+
+export type LabelValue = {
+  label: string;
+  value: string | boolean | BlogStatus;
+};

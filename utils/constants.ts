@@ -1,4 +1,6 @@
-import { Salutation } from "@prisma/client";
+import { BlogStatus, Salutation } from "@prisma/client";
+
+export const uploadApiEndpoint = process.env.NEXT_PUBLIC_UPLOAD_ENDPOINT;
 
 export const AdminNavBarData = [
   { label: "Home", href: "/" },
@@ -11,4 +13,21 @@ export const Salutations = [
   { label: "Mr", value: Salutation.MR },
   { label: "Ms", value: Salutation.MS },
   { label: "Mrs", value: Salutation.MRS },
+];
+
+export const Categories = [
+  { label: "Surgery", value: "SURGERY" },
+  { label: "Prosthetics", value: "PROSTHETICS" },
+  { label: "Bone Grafting", value: "BONE_GRAFTING" },
+];
+
+export const Featured = [
+  { label: "Yes", value: true },
+  { label: "No", value: false },
+];
+
+export const BlogStatusList = [
+  { label: "Draft", value: BlogStatus.DRAFT },
+  { label: "Published", value: BlogStatus.PUBLISHED },
+  { label: "Withdrawn", value: BlogStatus.WITHDRAWN },
 ];

@@ -6,8 +6,12 @@ import { Blogs } from "./Components/Blogs";
 import { Modal } from "@/components/Modal";
 import { BlogControl } from "@/components/BlogControl";
 import { UpdateBlog } from "./Components/UpdateBlog";
+import { useUser } from "@/hooks/useUser";
+import { useFetchMyBlogs } from "@/hooks/useFetchMyBlogs";
 
 export const MyBlogsPage = () => {
+  const { blogs, isLoading: loadingBlogs, refetch } = useFetchMyBlogs();
+  const { user, isLoading: loadingUser } = useUser();
   const [checkingAuth, setCheckingAuth] = useState(true);
   const [modal, setModal] = useState(false);
   const router = useRouter();
@@ -41,18 +45,21 @@ export const MyBlogsPage = () => {
     setModal(!modal);
   };
 
-  if (checkingAuth) return <Loading className="text-white" size="4x" />;
+  if (checkingAuth || loadingUser || loadingBlogs)
+    return <Loading className="text-white" size="4x" />;
 
   return (
     <div className="w-[100vw] h-[100vh] flex flex-col justify-end items-center">
       <div className="w-full h-[90%] flex md:flex-row flex-col md:p-10 p-5 gap-10 ">
-        <Blogs />
+        <Blogs blogs={blogs} />
       </div>
       <BlogControl openUpdateModal={handleToggleModal} />
       <Modal
+        refetch={refetch}
         content={UpdateBlog}
         isVisible={modal}
         closeModal={handleToggleModal}
+        userId={user?.id || ""}
       />
     </div>
   );

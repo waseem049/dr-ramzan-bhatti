@@ -1,5 +1,6 @@
 import { IconDefinition, SizeProp } from "@fortawesome/fontawesome-svg-core";
 import {
+  faArrowUp,
   faBars,
   faCircleExclamation,
   faClose,
@@ -24,6 +25,8 @@ const IconMap: Record<string, IconDefinition> = {
   spinner: faSpinner,
   logout: faRightFromBracket,
   plus: faPlus,
+  upload: faArrowUp,
+  error: faCircleExclamation,
 };
 
 export const Icon: React.FC<IconProps> = ({

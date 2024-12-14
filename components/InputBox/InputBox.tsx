@@ -39,7 +39,7 @@ export const InputBox: React.FC<InputBoxProps> = ({
         id={name}
         name={name}
         placeholder={placeholder}
-        className={`${inputClasses} w-full px-3 py-2  placeholder:text-xs border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 ${
+        className={`${inputClasses} w-full h-[40px] px-3 py-2 font-poppinsRegular placeholder:text-xs placeholder:text-gray-400 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 ${
           meta.touched && meta.error ? "border-red-500" : ""
         }`}
       />

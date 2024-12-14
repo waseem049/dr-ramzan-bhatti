@@ -1,12 +1,12 @@
-"use client";
-import { BlogCard, Loading } from "@/components";
-import { useFetchMyBlogs } from "@/hooks/useFetchMyBlogs";
+import { BlogCard } from "@/components";
 
-export const Blogs: React.FC = () => {
-  const { blogs, isLoading } = useFetchMyBlogs();
+import { Blog } from "@prisma/client";
 
-  if (isLoading) return <Loading className="text-white" size="2x" />;
+type BlogsProps = {
+  blogs: Blog[];
+};
 
+export const Blogs: React.FC<BlogsProps> = ({ blogs }) => {
   return (
     <div className="w-full h-full flex flex-row flex-wrap overflow-y-auto">
       {blogs.map((b) => (
