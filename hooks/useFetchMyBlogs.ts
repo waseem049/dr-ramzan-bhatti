@@ -17,7 +17,7 @@ export const useFetchMyBlogs = () => {
         throw new Error("Authentication token not found");
       }
 
-      const response = await fetch("/api/my-blogs", {
+      const response = await fetch("/api/blog/my-blogs", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

@@ -30,7 +30,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
       className={`
       w-full 
       sm:w-[calc(50%-0.625rem)] 
-      md:w-[calc(33.33%-0.835rem)]
+      md:w-[calc(30%-0.835rem)]
     `}
     >
       <article

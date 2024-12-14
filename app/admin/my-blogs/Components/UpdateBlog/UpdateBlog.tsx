@@ -7,6 +7,7 @@ import {
   SelectInput,
   TextArea,
 } from "@/components";
+import { SlugInputBox } from "@/components/SlugInputBox";
 import { useCreateBlog } from "@/hooks/useCreateBlog";
 import { useUpdateBlog } from "@/hooks/useUpdateBlog";
 import { BlogStatusList, Categories, Featured } from "@/utils/constants";
@@ -186,24 +187,23 @@ export const UpdateBlog: React.FC<UpdateBlogProps> = ({
         onSubmit={handleSubmit}
         validationSchema={blogValidationSchema}
       >
-        {({ isValid, dirty }) => (
+        {({ isValid, dirty, values }) => (
           <Form style={{ width: "100%" }}>
             <div className="w-full flex flex-col gap-5 md:pb-5 pb-20">
               <div className="w-full flex flex-col md:flex-row gap-5">
-                <InputBox
-                  label={"Slug"}
+                <SlugInputBox
+                  label={"Auto Generated Slug"}
                   name={"slug"}
                   placeholder={"Slug"}
                   labelColor="text-white"
-                  inputClasses=""
                   className="w-full"
+                  toSlugifyValue={values.title}
                 />
                 <InputBox
                   label={"Title"}
                   name={"title"}
                   placeholder={"Title"}
                   labelColor="text-white"
-                  inputClasses=""
                   className="w-full"
                 />
               </div>

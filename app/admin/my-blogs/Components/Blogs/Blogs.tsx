@@ -14,7 +14,7 @@ export const Blogs: React.FC<BlogsProps> = ({
   setSelectedBlog,
 }) => {
   return (
-    <div className="w-full h-full flex flex-row flex-wrap gap-10 overflow-y-auto">
+    <div className="w-full h-full flex flex-row flex-wrap gap-10 overflow-y-auto justify-center">
       {blogs.map((b) => (
         <BlogCard
           key={b.id}

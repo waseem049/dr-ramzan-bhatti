@@ -13,7 +13,7 @@ export const useUpdateBlog = () => {
     setError(null);
 
     try {
-      const response = await fetch("/api/edit-blog", {
+      const response = await fetch("/api/blog/edit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
