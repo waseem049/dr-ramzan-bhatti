@@ -1,21 +1,26 @@
+import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import prisma from "@/utils/prisma";
-import { NextResponse } from "next/server";
-import { LoginResponses } from "@/utils/types";
+import { LoginResponses, LoginValues } from "@/utils/types";
 
 export async function POST(request: Request) {
-  const { email, password } = await request.json();
-
-  // Validate input data
-  if (!email || !password) {
-    return NextResponse.json(
-      { message: "Email and Password are required" },
-      { status: 400 }
-    );
-  }
-
   try {
+    const body: LoginValues = await request.json();
+    const { email, password } = body;
+
+    // Validate required fields
+    if (!email || !password) {
+      return NextResponse.json(
+        {
+          success: false,
+          response: LoginResponses.ERROR_LOGGING_IN,
+          error: "Email and Password are Required",
+        },
+        { status: 400 }
+      );
+    }
+
     // Find user by email
     const user = await prisma.user.findUnique({
       where: { email },
@@ -23,33 +28,69 @@ export async function POST(request: Request) {
 
     if (!user) {
       return NextResponse.json(
-        { response: LoginResponses.USER_NOT_FOUND },
+        {
+          success: false,
+          response: LoginResponses.USER_NOT_FOUND,
+          error: "User Not Found",
+        },
         { status: 400 }
       );
     }
 
-    // Compare the provided password with the hashed password in the database
+    // Compare passwords
     const passwordMatch = await bcrypt.compare(password, user.password);
 
     if (!passwordMatch) {
       return NextResponse.json(
-        { response: LoginResponses.INVALID_PASSWORD },
+        {
+          success: false,
+          response: LoginResponses.INVALID_PASSWORD,
+          error: "Invalid Password",
+        },
         { status: 400 }
+      );
+    }
+
+    // Check JWT secret configuration
+    if (!process.env.JWT_SECRET) {
+      return NextResponse.json(
+        {
+          success: false,
+          response: LoginResponses.ERROR_LOGGING_IN,
+          error: "Server Configuration Error",
+        },
+        { status: 500 }
       );
     }
 
     // Generate JWT token
     const token = jwt.sign(
-      { userId: user.id, email: user.email, userName: user.userName },
-      process.env.JWT_SECRET!,
+      {
+        userId: user.id,
+        email: user.email,
+        userName: user.userName,
+      },
+      process.env.JWT_SECRET,
       {}
     );
 
-    // Return the token
-    return NextResponse.json({ response: LoginResponses.LOGIN_SUCCESS, token });
-  } catch (error) {
+    // Return success response
     return NextResponse.json(
-      { response: LoginResponses.ERROR_LOGGING_IN, error },
+      {
+        success: true,
+        response: LoginResponses.LOGIN_SUCCESS,
+        data: { token },
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error During Login:", error);
+    return NextResponse.json(
+      {
+        success: false,
+        response: LoginResponses.ERROR_LOGGING_IN,
+        error: "Internal Server Error",
+      },
       { status: 500 }
     );
   }

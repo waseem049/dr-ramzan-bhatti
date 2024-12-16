@@ -1,11 +1,11 @@
-import { Login, LoginResponses } from "@/utils/types";
 import { useState } from "react";
+import { LoginValues, LoginResponse, LoginResponses } from "@/utils/types";
 
 export const useLogin = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<LoginResponses | null>(null);
 
-  const login = async ({ email, password }: Login) => {
+  const login = async ({ email, password }: LoginValues) => {
     setIsLoading(true);
     setError(null);
 
@@ -18,21 +18,31 @@ export const useLogin = () => {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
+      const data: LoginResponse = await response.json();
 
-      if (data.response === LoginResponses.LOGIN_SUCCESS) {
-        localStorage.setItem("jb-admin-token", data.token);
-        return { token: data.token };
+      if (
+        data.success &&
+        data.response === LoginResponses.LOGIN_SUCCESS &&
+        data.data?.token
+      ) {
+        localStorage.setItem("jb-admin-token", data.data.token);
+        return { success: true, status: 200, response: data.response };
       } else {
         setError(data.response);
+        throw new Error(data.error);
       }
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error("Error Logging In:", err);
       setError(LoginResponses.ERROR_LOGGING_IN);
+      throw err;
     } finally {
       setIsLoading(false);
     }
   };
 
-  return { login, isLoading, error };
+  return {
+    login,
+    isLoading,
+    error,
+  };
 };

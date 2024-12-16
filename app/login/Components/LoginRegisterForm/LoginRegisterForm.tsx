@@ -7,7 +7,12 @@ import { useRouter } from "next/navigation";
 import * as Yup from "yup";
 import { Salutations } from "@/utils/constants";
 import { Salutation } from "@prisma/client";
-import { Login, Registration, RegistrationResponses } from "@/utils/types";
+import {
+  LoginValues,
+  LoginResponses,
+  RegistrationValues,
+  RegistrationResponses,
+} from "@/utils/types";
 import { useRegister } from "@/hooks/useRegister";
 import { getMessageFromResponse } from "@/utils/getMessageFromResponse";
 
@@ -43,7 +48,9 @@ const registrationInitialValues = {
 
 export const LoginRegisterForm = () => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [message, setMessage] = useState<RegistrationResponses | null>(null);
+  const [registrationMessage, setRegistrationMessage] =
+    useState<RegistrationResponses | null>(null);
+  const [loginMessage, setLoginMessage] = useState<LoginResponses | null>(null);
   const { login, isLoading: loggingIn, error: loginError } = useLogin();
   const {
     register,
@@ -52,21 +59,30 @@ export const LoginRegisterForm = () => {
   } = useRegister();
   const router = useRouter();
 
-  const handleLoginSubmit = async (values: Login) => {
+  const handleLoginSubmit = async (values: LoginValues) => {
     try {
       const response = await login({
         email: values.email,
         password: values.password,
       });
-      if (response?.token) {
-        router.push("/admin");
+
+      if (
+        response.response === LoginResponses.LOGIN_SUCCESS &&
+        response.status === 200 &&
+        response.success
+      ) {
+        setLoginMessage(response.response);
+        setTimeout(() => {
+          router.push("/admin");
+        }, 500);
       }
     } catch (e) {
       console.error(e);
+      console.log(e);
     }
   };
 
-  const handleRegisterSubmit = async (values: Registration) => {
+  const handleRegisterSubmit = async (values: RegistrationValues) => {
     try {
       const response = await register({
         name: values.name,
@@ -75,8 +91,12 @@ export const LoginRegisterForm = () => {
         password: values.password,
         salutation: values.salutation,
       });
-      if (response?.status === 201) {
-        setMessage(response.response);
+      if (
+        response?.status === 201 &&
+        response.response === RegistrationResponses.REGISTRATION_SUCCESS &&
+        response.success
+      ) {
+        setRegistrationMessage(response.response);
         setTimeout(() => {
           setIsFlipped(false);
         }, 1000);
@@ -95,7 +115,7 @@ export const LoginRegisterForm = () => {
       >
         {/* Login Form - Front */}
         <div className="glassbox absolute w-full p-10 backface-hidden ">
-          <Formik<Login>
+          <Formik<LoginValues>
             initialValues={loginInitialValues}
             onSubmit={handleLoginSubmit}
             validationSchema={loginValidationSchema}
@@ -121,6 +141,11 @@ export const LoginRegisterForm = () => {
                       {getMessageFromResponse(loginError)}
                     </h1>
                   )}
+                  {loginMessage && (
+                    <h1 className="text-green-500 text-center">
+                      {getMessageFromResponse(loginMessage)}
+                    </h1>
+                  )}
                   <FormButton type="submit" label="Login" loading={loggingIn} />
                   <button
                     type="button"
@@ -137,7 +162,7 @@ export const LoginRegisterForm = () => {
 
         {/* Registration Form - Back */}
         <div className="glassbox absolute w-full p-10 backface-hidden rotate-y-180 ">
-          <Formik<Registration>
+          <Formik<RegistrationValues>
             initialValues={registrationInitialValues}
             onSubmit={handleRegisterSubmit}
             validationSchema={registerValidationSchema}
@@ -186,9 +211,9 @@ export const LoginRegisterForm = () => {
                       {getMessageFromResponse(registrationError)}
                     </h1>
                   )}
-                  {message && (
-                    <h1 className="text-red-500 text-center">
-                      {getMessageFromResponse(message)}
+                  {registrationMessage && (
+                    <h1 className="text-green-500 text-center">
+                      {getMessageFromResponse(registrationMessage)}
                     </h1>
                   )}
                   <FormButton

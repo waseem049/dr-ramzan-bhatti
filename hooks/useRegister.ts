@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { Registration, RegistrationResponses } from "@/utils/types";
+import {
+  RegistrationValues,
+  RegistrationResponse,
+  RegistrationResponses,
+} from "@/utils/types";
 
 export const useRegister = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -11,7 +15,7 @@ export const useRegister = () => {
     password,
     salutation,
     userName,
-  }: Registration) => {
+  }: RegistrationValues) => {
     setIsLoading(true);
     setError(null);
     try {
@@ -22,18 +26,24 @@ export const useRegister = () => {
         },
         body: JSON.stringify({ name, email, password, salutation, userName }),
       });
-      const data = await response.json();
-      if (data.response === RegistrationResponses.REGISTRATION_SUCCESS) {
+      const data: RegistrationResponse = await response.json();
+      if (
+        data.response === RegistrationResponses.REGISTRATION_SUCCESS &&
+        data.success
+      ) {
         return {
+          success: true,
           response: RegistrationResponses.REGISTRATION_SUCCESS,
           status: 201,
         };
       } else {
         setError(data.response);
+        throw new Error(data.error);
       }
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error("Error Registering:", err);
       setError(RegistrationResponses.ERROR_REGISTERING);
+      throw err;
     } finally {
       setIsLoading(false);
     }
