@@ -1,5 +1,5 @@
 import prisma from "@/utils/prisma";
-import { RegistrationResponses, RegistrationValues } from "@/utils/types";
+import { ApiResponse, RegistrationValues } from "@/utils/types";
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
 
@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: false,
-        response: RegistrationResponses.ERROR_REGISTERING,
+        response: ApiResponse.REGISTRATION_ERROR,
         error: "Mandatory Fields Are Missing",
       },
       { status: 400 }
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     if (existingUser) {
       return NextResponse.json(
         {
-          response: RegistrationResponses.USER_ALREADY_EXISTS,
+          response: ApiResponse.USER_ALREADY_EXISTS,
           success: false,
           error: "User Already Exists",
         },
@@ -51,14 +51,14 @@ export async function POST(request: Request) {
 
     // Return success response
     return NextResponse.json(
-      { response: RegistrationResponses.REGISTRATION_SUCCESS, success: true },
+      { response: ApiResponse.REGISTRATION_SUCCESS, success: true },
       { status: 201 }
     );
   } catch (error) {
     console.error("Error During Registration:", error);
     return NextResponse.json(
       {
-        response: RegistrationResponses.ERROR_REGISTERING,
+        response: ApiResponse.REGISTRATION_ERROR,
         error: "Internal Server Error",
         success: false,
       },

@@ -1,11 +1,15 @@
 import { BlogDataDto } from "@/utils/dto";
+import { ApiResponse, FetchBlogResponse } from "@/utils/types";
 import { useState } from "react";
 
 export const useUpdateBlog = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const updateBlog = async (blogId: string | undefined, data: BlogDataDto) => {
+  const updateBlog = async (
+    blogId: string | undefined,
+    updationData: BlogDataDto
+  ) => {
     if (!blogId) {
       throw new Error("Blog Id is required");
     }
@@ -20,24 +24,26 @@ export const useUpdateBlog = () => {
         },
         body: JSON.stringify({
           blogId,
-          ...data,
+          ...updationData,
         }),
       });
 
-      const result = await response.json();
+      const data: FetchBlogResponse = await response.json();
 
-      if (!response.ok) {
-        throw new Error(result.error || "Failed to update blog");
+      if (data.success && data.response === ApiResponse.UPDATE_SUCCESS) {
+        return {
+          response: data.response,
+          success: data.success,
+          data: data.data,
+        };
+      } else {
+        setError(data.response);
+        throw new Error(data.error);
       }
-
-      return result;
     } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : "An error occurred while updating the blog"
-      );
-      return null;
+      console.error("Error Updating Blog:", err);
+      setError(ApiResponse.UPDATE_FAILURE);
+      throw err;
     } finally {
       setIsLoading(false);
     }

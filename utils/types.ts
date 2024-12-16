@@ -1,31 +1,69 @@
-import { Blog, BlogStatus, Contact, Salutation } from "@prisma/client";
+import { Blog, BlogStatus, Contact, Salutation, User } from "@prisma/client";
 import { ContactDataDto } from "./dto";
 
-export enum LoginResponses {
-  LOGIN_SUCCESS = "LOGIN_SUCCESS",
-  INVALID_PASSWORD = "INVALID_PASSWORD",
-  USER_NOT_FOUND = "USER_NOT_FOUND",
-  ERROR_LOGGING_IN = "ERROR_LOGGING_IN",
-}
-
-export enum RegistrationResponses {
-  REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS",
-  USER_ALREADY_EXISTS = "USER_ALREADY_EXISTS",
-  ERROR_REGISTERING = "ERROR_REGISTERING",
-}
-
-export enum ContactResponses {
-  SUBMISSION_SUCCESS = "SUBMISSION_SUCCESS",
-  SUBMISSION_FAILURE = "SUBMISSING_FAILURE",
+export enum ApiResponse {
+  // Auth related responses
   AUTH_TOKEN_MISSING = "AUTH_TOKEN_MISSING",
   AUTH_SECRET_MISSING = "AUTH_SECRET_MISSING",
+  AUTH_INVALID_TOKEN = "AUTH_INVALID_TOKEN",
+
+  // User related responses
+  USER_ID_REQUIRED = "USER_ID_REQUIRED",
+  USER_NOT_FOUND = "USER_NOT_FOUND",
+  USER_ALREADY_EXISTS = "USER_ALREADY_EXISTS",
+  USER_FOUND = "USER_FOUND",
+  USER_FETCH_ERROR = "USER_FETCH_ERROR",
+
+  // Login/Registration responses
+  LOGIN_SUCCESS = "LOGIN_SUCCESS",
+  LOGIN_INVALID_PASSWORD = "LOGIN_INVALID_PASSWORD",
+  LOGIN_ERROR = "LOGIN_ERROR",
+  REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS",
+  REGISTRATION_ERROR = "REGISTRATION_ERROR",
+
+  // Slug related responses
+  SLUG_CHECK_ERROR = "SLUG_CHECK_ERROR",
+  BLOG_SLUG_MISSING = "BLOG_SLUG_MISSING",
+  SLUG_NOT_FOUND = "SLUG_NOT_FOUND",
+
+  // Blog related responses
+  BLOG_ID_MISSING = "BLOG_ID_MISSING",
+
+  // Generic CRUD responses
   FETCH_SUCCESS = "FETCH_SUCCESS",
   FETCH_FAILURE = "FETCH_FAILURE",
+  CREATION_SUCCESS = "CREATION_SUCCESS",
+  CREATION_FAILURE = "CREATION_FAILURE",
+  UPDATE_SUCCESS = "UPDATE_SUCCESS",
+  UPDATE_FAILURE = "UPDATE_FAILURE",
+  DELETE_SUCCESS = "DELETE_SUCCESS",
+  DELETE_FAILURE = "DELETE_FAILURE",
 }
+
+export type FetchUserResponse = {
+  success: boolean;
+  response: ApiResponse;
+  data?: Omit<User, "password">;
+  error?: string;
+};
+
+export type SlugCheckResponse = {
+  success: boolean;
+  response?: ApiResponse;
+  error?: string;
+  exists: boolean;
+};
+
+export type FetchBlogResponse = {
+  success: boolean;
+  response: ApiResponse;
+  data?: Blog[] | Blog;
+  error?: string;
+};
 
 export type LoginResponse = {
   success: boolean;
-  response: LoginResponses;
+  response: ApiResponse;
   data?: {
     token: string;
   };
@@ -34,7 +72,7 @@ export type LoginResponse = {
 
 export type RegistrationResponse = {
   success: boolean;
-  response: RegistrationResponses;
+  response: ApiResponse;
   error?: string;
 };
 
@@ -53,7 +91,7 @@ export type RegistrationValues = {
 
 export type FetchContactResponse = {
   success: boolean;
-  response: ContactResponses;
+  response: ApiResponse;
   data?: Contact[];
   error?: string;
 };

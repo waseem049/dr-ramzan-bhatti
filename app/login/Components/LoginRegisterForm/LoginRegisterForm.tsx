@@ -7,12 +7,7 @@ import { useRouter } from "next/navigation";
 import * as Yup from "yup";
 import { Salutations } from "@/utils/constants";
 import { Salutation } from "@prisma/client";
-import {
-  LoginValues,
-  LoginResponses,
-  RegistrationValues,
-  RegistrationResponses,
-} from "@/utils/types";
+import { LoginValues, ApiResponse, RegistrationValues } from "@/utils/types";
 import { useRegister } from "@/hooks/useRegister";
 import { getMessageFromResponse } from "@/utils/getMessageFromResponse";
 
@@ -49,8 +44,8 @@ const registrationInitialValues = {
 export const LoginRegisterForm = () => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [registrationMessage, setRegistrationMessage] =
-    useState<RegistrationResponses | null>(null);
-  const [loginMessage, setLoginMessage] = useState<LoginResponses | null>(null);
+    useState<ApiResponse | null>(null);
+  const [loginMessage, setLoginMessage] = useState<ApiResponse | null>(null);
   const { login, isLoading: loggingIn, error: loginError } = useLogin();
   const {
     register,
@@ -67,7 +62,7 @@ export const LoginRegisterForm = () => {
       });
 
       if (
-        response.response === LoginResponses.LOGIN_SUCCESS &&
+        response.response === ApiResponse.LOGIN_SUCCESS &&
         response.status === 200 &&
         response.success
       ) {
@@ -93,7 +88,7 @@ export const LoginRegisterForm = () => {
       });
       if (
         response?.status === 201 &&
-        response.response === RegistrationResponses.REGISTRATION_SUCCESS &&
+        response.response === ApiResponse.REGISTRATION_SUCCESS &&
         response.success
       ) {
         setRegistrationMessage(response.response);

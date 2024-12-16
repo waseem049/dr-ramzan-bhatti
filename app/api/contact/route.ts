@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { PrismaClient } from "@prisma/client";
-import { ContactResponses } from "@/utils/types";
+import { ApiResponse } from "@/utils/types";
 
 const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -14,7 +14,7 @@ export async function GET(req: Request) {
       return NextResponse.json(
         {
           success: false,
-          response: ContactResponses.AUTH_TOKEN_MISSING,
+          response: ApiResponse.AUTH_TOKEN_MISSING,
           error: "Authorization Token Is Required",
         },
         { status: 400 }
@@ -25,7 +25,7 @@ export async function GET(req: Request) {
       return NextResponse.json(
         {
           success: false,
-          response: ContactResponses.AUTH_SECRET_MISSING,
+          response: ApiResponse.AUTH_SECRET_MISSING,
           error: "Server Configuration Error",
         },
         { status: 401 }
@@ -37,7 +37,7 @@ export async function GET(req: Request) {
       return NextResponse.json(
         {
           success: false,
-          response: ContactResponses.AUTH_TOKEN_MISSING,
+          response: ApiResponse.AUTH_TOKEN_MISSING,
           error: "Invalid Authorization Token",
         },
         { status: 401 }
@@ -54,7 +54,7 @@ export async function GET(req: Request) {
     return NextResponse.json(
       {
         success: true,
-        response: ContactResponses.FETCH_SUCCESS,
+        response: ApiResponse.FETCH_SUCCESS,
         data: contacts,
       },
       { status: 200 }
@@ -64,7 +64,7 @@ export async function GET(req: Request) {
     return NextResponse.json(
       {
         success: false,
-        response: ContactResponses.FETCH_FAILURE,
+        response: ApiResponse.FETCH_FAILURE,
         error: "Internal Server Error",
       },
       { status: 500 }
@@ -82,7 +82,7 @@ export async function POST(req: Request) {
       return NextResponse.json(
         {
           success: false,
-          response: ContactResponses.SUBMISSION_FAILURE,
+          response: ApiResponse.CREATION_FAILURE,
           error: "Required Fields Missing",
         },
         { status: 400 }
@@ -103,7 +103,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({
       success: true,
-      response: ContactResponses.SUBMISSION_SUCCESS,
+      response: ApiResponse.CREATION_SUCCESS,
       data: contact,
     });
   } catch (error) {
@@ -111,7 +111,7 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         success: false,
-        response: ContactResponses.SUBMISSION_FAILURE,
+        response: ApiResponse.CREATION_FAILURE,
         error: "Error Creating Contact Submission.",
       },
       { status: 500 }

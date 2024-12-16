@@ -1,10 +1,12 @@
 import { UserDataDto } from "@/utils/dto";
+import { FetchUserResponse, ApiResponse } from "@/utils/types";
+import { User } from "@prisma/client";
 import { useState, useEffect } from "react";
 
 export const useUser = () => {
   const [user, setUser] = useState<UserDataDto | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<ApiResponse | null>(null);
 
   const fetchUser = async () => {
     setIsLoading(true);
@@ -24,20 +26,18 @@ export const useUser = () => {
           Authorization: `Bearer ${token}`,
         },
       });
+      const data: FetchUserResponse = await response.json();
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to fetch user data");
+      if (data.success && data.response === ApiResponse.USER_FOUND) {
+        setUser(data.data as User);
+      } else {
+        setError(data.response);
+        throw new Error(data.error);
       }
-
-      const userData = await response.json();
-
-      setUser(userData);
-    } catch (error) {
-      setError(
-        error instanceof Error ? error.message : "An unknown error occurred"
-      );
-      setUser(null);
+    } catch (err) {
+      console.error("Error Fetching User", err);
+      setError(ApiResponse.USER_FETCH_ERROR);
+      throw err;
     } finally {
       setIsLoading(false);
     }

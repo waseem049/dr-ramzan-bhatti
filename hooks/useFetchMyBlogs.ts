@@ -1,10 +1,11 @@
+import { ApiResponse, FetchBlogResponse } from "@/utils/types";
 import { Blog } from "@prisma/client";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const useFetchMyBlogs = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<ApiResponse | null>(null);
 
   const fetchBlogs = async () => {
     setIsLoading(true);
@@ -14,7 +15,7 @@ export const useFetchMyBlogs = () => {
       const token = localStorage.getItem("jb-admin-token");
 
       if (!token) {
-        throw new Error("Authentication token not found");
+        throw new Error("Authentication Token Not Found");
       }
 
       const response = await fetch("/api/blog/my-blogs", {
@@ -25,28 +26,27 @@ export const useFetchMyBlogs = () => {
         },
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to fetch blogs");
-      }
+      const data: FetchBlogResponse = await response.json();
 
-      const data = await response.json();
-      setBlogs(data.blogs);
-    } catch (error) {
-      setError(
-        error instanceof Error ? error.message : "An unknown error occurred"
-      );
+      if (data.success && data.response === ApiResponse.FETCH_SUCCESS) {
+        setBlogs(data.data as Blog[]);
+      } else {
+        setError(data.response);
+        throw new Error(data.error);
+      }
+    } catch (err) {
+      console.error("Error Fetching User Blogs:", err);
+      setError(ApiResponse.FETCH_FAILURE);
+      throw err;
     } finally {
       setIsLoading(false);
     }
   };
 
-  // Fetch blogs on mount
   useEffect(() => {
     fetchBlogs();
   }, []);
 
-  // Return function to manually refetch blogs if needed
   const refetch = () => {
     fetchBlogs();
   };

@@ -1,6 +1,7 @@
 import prisma from "@/utils/prisma";
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
+import { ApiResponse } from "@/utils/types";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 export async function GET(req: Request) {
@@ -8,14 +9,22 @@ export async function GET(req: Request) {
     const token = req.headers.get("Authorization")?.replace("Bearer ", "");
     if (!token) {
       return NextResponse.json(
-        { error: "Authorization Token Missing" },
-        { status: 401 }
+        {
+          success: false,
+          response: ApiResponse.AUTH_TOKEN_MISSING,
+          error: "Authorization Token Is Required",
+        },
+        { status: 400 }
       );
     }
 
     if (!JWT_SECRET) {
       return NextResponse.json(
-        { error: "Authorization Secret Missing" },
+        {
+          success: false,
+          response: ApiResponse.AUTH_SECRET_MISSING,
+          error: "Server Configuration Error",
+        },
         { status: 401 }
       );
     }
@@ -34,21 +43,31 @@ export async function GET(req: Request) {
     });
 
     if (!user) {
-      return NextResponse.json({ error: "User not found" }, { status: 404 });
+      return NextResponse.json(
+        {
+          success: false,
+          response: ApiResponse.USER_NOT_FOUND,
+          error: "User Not Found",
+        },
+        { status: 404 }
+      );
     }
 
-    const myBlogs = {
-      id: user.id,
-      blogs: user.blogs,
-    };
-
-    return NextResponse.json(myBlogs, { status: 200 });
-  } catch (error) {
-    console.error(error);
     return NextResponse.json(
       {
-        error:
-          error instanceof Error ? error.message : "An unknown error occurred",
+        success: true,
+        response: ApiResponse.FETCH_SUCCESS,
+        data: user.blogs,
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error Fetching User Blogs", error);
+    return NextResponse.json(
+      {
+        success: false,
+        response: ApiResponse.FETCH_FAILURE,
+        error: "Internal Server Error",
       },
       { status: 500 }
     );

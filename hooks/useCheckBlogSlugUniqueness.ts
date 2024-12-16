@@ -1,11 +1,12 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import debounce from "lodash/debounce";
+import { ApiResponse, SlugCheckResponse } from "@/utils/types";
 
 interface UseCheckBlogSlugUniquenessReturn {
   isChecking: boolean;
   slugExists: boolean;
   checkSlugUniqueness: (slug: string) => Promise<boolean>;
-  error: string | null;
+  error: ApiResponse | null;
 }
 
 export const useCheckBlogSlugUniqueness = (
@@ -13,7 +14,7 @@ export const useCheckBlogSlugUniqueness = (
 ): UseCheckBlogSlugUniquenessReturn => {
   const [isChecking, setIsChecking] = useState(false);
   const [slugExists, setSlugExists] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<ApiResponse | null>(null);
 
   const debouncedCheckRef = useRef(
     debounce(
@@ -41,15 +42,23 @@ export const useCheckBlogSlugUniqueness = (
           const response = await fetch(`/api/blog/check-slug?${params}`, {
             signal,
           });
-          const data = await response.json();
+          const data: SlugCheckResponse = await response.json();
 
-          setSlugExists(data.exists);
-          resolve(data.exists);
-        } catch (error) {
-          if ((error as Error).name !== "AbortError") {
-            console.error("Error checking slug:", error);
-            setError("Failed to check slug uniqueness");
+          if (data.success && data.response === ApiResponse.FETCH_SUCCESS) {
+            setSlugExists(data.exists);
+            resolve(data.exists);
+          } else {
+            setError(data.response as ApiResponse);
+            throw new Error(data.error);
           }
+        } catch (error) {
+          if ((error as Error).name === "AbortError") {
+            resolve(false);
+            return;
+          }
+
+          console.error("Error Checking Slug:", error);
+          setError(ApiResponse.SLUG_CHECK_ERROR);
           resolve(false);
         } finally {
           setIsChecking(false);
@@ -59,17 +68,16 @@ export const useCheckBlogSlugUniqueness = (
     )
   );
 
-  useRef(() => {
+  // Cleanup debounced function on unmount
+  useEffect(() => {
     return () => {
       debouncedCheckRef.current.cancel();
     };
-  });
+  }, []);
 
   const checkSlugUniqueness = useCallback(
     (slug: string): Promise<boolean> => {
-      // Create an AbortController for each request
       const controller = new AbortController();
-
       return new Promise((resolve) => {
         debouncedCheckRef.current(slug, controller.signal, resolve);
       });

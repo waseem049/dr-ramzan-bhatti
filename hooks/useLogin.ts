@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { LoginValues, LoginResponse, LoginResponses } from "@/utils/types";
+import { LoginValues, LoginResponse, ApiResponse } from "@/utils/types";
 
 export const useLogin = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<LoginResponses | null>(null);
+  const [error, setError] = useState<ApiResponse | null>(null);
 
   const login = async ({ email, password }: LoginValues) => {
     setIsLoading(true);
@@ -22,7 +22,7 @@ export const useLogin = () => {
 
       if (
         data.success &&
-        data.response === LoginResponses.LOGIN_SUCCESS &&
+        data.response === ApiResponse.LOGIN_SUCCESS &&
         data.data?.token
       ) {
         localStorage.setItem("jb-admin-token", data.data.token);
@@ -33,7 +33,7 @@ export const useLogin = () => {
       }
     } catch (err) {
       console.error("Error Logging In:", err);
-      setError(LoginResponses.ERROR_LOGGING_IN);
+      setError(ApiResponse.LOGIN_ERROR);
       throw err;
     } finally {
       setIsLoading(false);

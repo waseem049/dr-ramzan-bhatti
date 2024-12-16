@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import prisma from "@/utils/prisma";
+import { ApiResponse } from "@/utils/types";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
@@ -11,14 +12,22 @@ export async function GET(req: Request) {
 
     if (!token) {
       return NextResponse.json(
-        { error: "Authorization Token Missing" },
+        {
+          success: false,
+          response: ApiResponse.AUTH_TOKEN_MISSING,
+          error: "Authorization Token Missing",
+        },
         { status: 401 }
       );
     }
 
     if (!JWT_SECRET) {
       return NextResponse.json(
-        { error: "Authorization Secret Missing" },
+        {
+          success: false,
+          response: ApiResponse.AUTH_SECRET_MISSING,
+          error: "Authorization Secret Missing",
+        },
         { status: 401 }
       );
     }
@@ -32,7 +41,11 @@ export async function GET(req: Request) {
     // If the token is invalid or expired, it will throw an error
     if (!userId) {
       return NextResponse.json(
-        { error: "Invalid or expired token" },
+        {
+          success: false,
+          response: ApiResponse.AUTH_INVALID_TOKEN,
+          error: "Invalid Token",
+        },
         { status: 401 }
       );
     }
@@ -46,7 +59,14 @@ export async function GET(req: Request) {
     });
 
     if (!user) {
-      return NextResponse.json({ error: "User not found" }, { status: 404 });
+      return NextResponse.json(
+        {
+          success: false,
+          response: ApiResponse.USER_NOT_FOUND,
+          error: "User Not Found",
+        },
+        { status: 404 }
+      );
     }
 
     const userData = {
@@ -58,13 +78,21 @@ export async function GET(req: Request) {
       createdAt: user.createdAt,
     };
 
-    return NextResponse.json(userData, { status: 200 });
-  } catch (error) {
-    console.error(error);
     return NextResponse.json(
       {
-        error:
-          error instanceof Error ? error.message : "An unknown error occurred",
+        success: true,
+        response: ApiResponse.USER_FOUND,
+        data: userData,
+      },
+      { status: 200 }
+    );
+  } catch (err) {
+    console.error(err);
+    return NextResponse.json(
+      {
+        success: true,
+        response: ApiResponse.USER_NOT_FOUND,
+        error: "Error Fetching User",
       },
       { status: 500 }
     );

@@ -2,12 +2,12 @@ import { useState } from "react";
 import {
   RegistrationValues,
   RegistrationResponse,
-  RegistrationResponses,
+  ApiResponse,
 } from "@/utils/types";
 
 export const useRegister = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<RegistrationResponses | null>(null);
+  const [error, setError] = useState<ApiResponse | null>(null);
 
   const register = async ({
     name,
@@ -27,13 +27,10 @@ export const useRegister = () => {
         body: JSON.stringify({ name, email, password, salutation, userName }),
       });
       const data: RegistrationResponse = await response.json();
-      if (
-        data.response === RegistrationResponses.REGISTRATION_SUCCESS &&
-        data.success
-      ) {
+      if (data.response === ApiResponse.REGISTRATION_SUCCESS && data.success) {
         return {
           success: true,
-          response: RegistrationResponses.REGISTRATION_SUCCESS,
+          response: ApiResponse.REGISTRATION_SUCCESS,
           status: 201,
         };
       } else {
@@ -42,7 +39,7 @@ export const useRegister = () => {
       }
     } catch (err) {
       console.error("Error Registering:", err);
-      setError(RegistrationResponses.ERROR_REGISTERING);
+      setError(ApiResponse.REGISTRATION_ERROR);
       throw err;
     } finally {
       setIsLoading(false);

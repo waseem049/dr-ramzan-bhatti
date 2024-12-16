@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Contact } from "@prisma/client";
-import { FetchContactResponse, ContactResponses } from "@/utils/types";
+import { FetchContactResponse, ApiResponse } from "@/utils/types";
 
 export const useGetContacts = () => {
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<ContactResponses | null>(null);
+  const [error, setError] = useState<ApiResponse | null>(null);
 
   const fetchContacts = async () => {
     setIsLoading(true);
@@ -15,7 +15,7 @@ export const useGetContacts = () => {
       const token = localStorage.getItem("jb-admin-token");
 
       if (!token) {
-        setError(ContactResponses.AUTH_TOKEN_MISSING);
+        setError(ApiResponse.AUTH_TOKEN_MISSING);
         throw new Error("Authentication Token Not Found");
       }
 
@@ -27,14 +27,14 @@ export const useGetContacts = () => {
 
       const data: FetchContactResponse = await response.json();
 
-      if (data.success && data.response === ContactResponses.FETCH_SUCCESS) {
+      if (data.success && data.response === ApiResponse.FETCH_SUCCESS) {
         setContacts(data.data || []);
       } else {
         setError(data.response);
       }
     } catch (err) {
       console.error("Error Fetching Contacts:", err);
-      setError(ContactResponses.FETCH_FAILURE);
+      setError(ApiResponse.FETCH_FAILURE);
     } finally {
       setIsLoading(false);
     }

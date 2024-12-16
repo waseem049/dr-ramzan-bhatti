@@ -1,4 +1,5 @@
 import prisma from "@/utils/prisma";
+import { ApiResponse } from "@/utils/types";
 import { NextResponse } from "next/server";
 
 export async function GET(
@@ -14,18 +15,26 @@ export async function GET(
 
     if (!blog) {
       return NextResponse.json(
-        { error: "Blog post not found" },
+        {
+          success: false,
+          response: ApiResponse.FETCH_FAILURE,
+          error: "Error Fetching Blog",
+        },
         { status: 404 }
       );
     }
 
-    return NextResponse.json(blog, { status: 200 });
+    return NextResponse.json(
+      { success: true, response: ApiResponse.FETCH_SUCCESS, data: blog },
+      { status: 200 }
+    );
   } catch (error) {
-    console.error(error);
+    console.error("Error Fetching Blog:", error);
     return NextResponse.json(
       {
-        error:
-          error instanceof Error ? error.message : "An unknown error occurred",
+        success: false,
+        response: ApiResponse.FETCH_FAILURE,
+        error: "Error Fetching Blog",
       },
       { status: 500 }
     );

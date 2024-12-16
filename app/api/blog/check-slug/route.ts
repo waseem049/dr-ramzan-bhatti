@@ -1,4 +1,5 @@
 import prisma from "@/utils/prisma";
+import { ApiResponse } from "@/utils/types";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
@@ -8,7 +9,11 @@ export async function GET(request: Request) {
 
   if (!slug) {
     return NextResponse.json(
-      { error: "Slug parameter is required" },
+      {
+        success: false,
+        response: ApiResponse.BLOG_SLUG_MISSING,
+        error: "Blog Slug Missing",
+      },
       { status: 400 }
     );
   }
@@ -24,11 +29,19 @@ export async function GET(request: Request) {
       },
     });
 
-    return NextResponse.json({ exists: !!existingBlog });
+    return NextResponse.json({
+      success: true,
+      response: ApiResponse.FETCH_SUCCESS,
+      exists: !!existingBlog,
+    });
   } catch (error) {
-    console.error("API Error:", error);
+    console.error("Failed To Check Slug:", error);
     return NextResponse.json(
-      { error: "Failed to check slug" },
+      {
+        success: false,
+        response: ApiResponse.SLUG_CHECK_ERROR,
+        error: "Failed to Check Slug",
+      },
       { status: 500 }
     );
   }

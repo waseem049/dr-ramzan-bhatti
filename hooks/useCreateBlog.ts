@@ -1,42 +1,35 @@
-import { BlogDataDto } from "@/utils/dto";
 import { useState } from "react";
+import { BlogDataDto } from "@/utils/dto";
+import { ApiResponse, FetchBlogResponse } from "@/utils/types";
 
-interface UseCreateBlogReturn {
-  createBlog: (data: BlogDataDto) => Promise<void>;
-  isLoading: boolean;
-  error: string | null;
-}
-
-export function useCreateBlog(): UseCreateBlogReturn {
+export const useCreateBlog = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<ApiResponse | null>(null);
 
-  const createBlog = async (data: BlogDataDto) => {
+  const createBlog = async (blogData: BlogDataDto) => {
+    setIsLoading(true);
+    setError(null);
+
     try {
-      setIsLoading(true);
-      setError(null);
-
       const response = await fetch("/api/blog", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(blogData),
       });
 
-      const result = await response.json();
+      const data: FetchBlogResponse = await response.json();
 
-      if (!response.ok) {
-        throw new Error(result.error || "Failed to create blog");
+      if (data.success && data.response === ApiResponse.CREATION_SUCCESS) {
+        return { success: true, response: data.response, data: data.data };
+      } else {
+        setError(data.response);
+        throw new Error(data.error);
       }
-
-      return result;
     } catch (err) {
-      const errorMessage =
-        err instanceof Error
-          ? err.message
-          : "An error occurred while creating the blog";
-      setError(errorMessage);
+      console.error("Error Creating Blog:", err);
+      setError(ApiResponse.CREATION_FAILURE);
       throw err;
     } finally {
       setIsLoading(false);
@@ -48,4 +41,4 @@ export function useCreateBlog(): UseCreateBlogReturn {
     isLoading,
     error,
   };
-}
+};

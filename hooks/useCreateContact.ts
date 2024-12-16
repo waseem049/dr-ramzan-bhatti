@@ -1,16 +1,14 @@
 import { useState } from "react";
-import { Contact } from "@prisma/client";
-import { ContactResponses, CreateContactResponse } from "@/utils/types";
+
+import { ApiResponse, CreateContactResponse } from "@/utils/types";
 
 export const useCreateContact = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<ContactResponses | null>(null);
-  const [contact, setContact] = useState<Contact | null>(null);
+  const [error, setError] = useState<ApiResponse | null>(null);
 
   const createContact = async (contactData: CreateContactResponse) => {
     setIsLoading(true);
     setError(null);
-    setContact(null);
 
     try {
       const response = await fetch("/api/contact", {
@@ -23,19 +21,15 @@ export const useCreateContact = () => {
 
       const data: CreateContactResponse = await response.json();
 
-      if (
-        data.success &&
-        data.response === ContactResponses.SUBMISSION_SUCCESS
-      ) {
-        setContact(data.data as Contact);
-        return data.data;
+      if (data.success && data.response === ApiResponse.CREATION_SUCCESS) {
+        return { success: true, response: data.response, data: data.data };
       } else {
-        setError(ContactResponses.SUBMISSION_FAILURE);
+        setError(ApiResponse.CREATION_FAILURE);
         throw new Error(data.error);
       }
     } catch (err) {
       console.error("Error Creating Contact:", err);
-      setError(ContactResponses.SUBMISSION_FAILURE);
+      setError(ApiResponse.CREATION_FAILURE);
       throw err;
     } finally {
       setIsLoading(false);
@@ -46,6 +40,5 @@ export const useCreateContact = () => {
     createContact,
     isLoading,
     error,
-    contact,
   };
 };

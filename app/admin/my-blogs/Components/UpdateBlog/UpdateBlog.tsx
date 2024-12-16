@@ -132,7 +132,6 @@ export const UpdateBlog: React.FC<UpdateBlogProps> = ({
   };
 
   const handleSubmit = async (values: UpdateBlogValues) => {
-    console.log(values);
     const tagsAsStringArray =
       values.tags && values.tags.map((t: LabelValue) => t.value);
     try {

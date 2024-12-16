@@ -1,4 +1,5 @@
 import prisma from "@/utils/prisma";
+import { ApiResponse } from "@/utils/types";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -7,7 +8,11 @@ export async function POST(req: Request) {
 
     if (!blogId) {
       return NextResponse.json(
-        { error: "Blog Id is required" },
+        {
+          success: false,
+          response: ApiResponse.BLOG_ID_MISSING,
+          error: "Blog Id Is Missing",
+        },
         { status: 400 }
       );
     }
@@ -19,13 +24,22 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json(updatedBlog, { status: 201 });
-  } catch (error) {
-    if (error instanceof Error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
-    }
     return NextResponse.json(
-      { error: "An unknown error occurred." },
+      {
+        success: true,
+        response: ApiResponse.UPDATE_SUCCESS,
+        data: updatedBlog,
+      },
+      { status: 201 }
+    );
+  } catch (err) {
+    console.error(err);
+    return NextResponse.json(
+      {
+        success: false,
+        response: ApiResponse.UPDATE_FAILURE,
+        error: "Blog Updation Failed",
+      },
       { status: 500 }
     );
   }

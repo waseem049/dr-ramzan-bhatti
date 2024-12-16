@@ -1,10 +1,11 @@
+import { ApiResponse, FetchBlogResponse } from "@/utils/types";
 import { Blog } from "@prisma/client";
 import { useState, useEffect } from "react";
 
 export const useFetchBlogBySlug = (slug: string) => {
   const [blog, setBlog] = useState<Blog | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<ApiResponse | null>(null);
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -14,17 +15,17 @@ export const useFetchBlogBySlug = (slug: string) => {
       try {
         const response = await fetch(`/api/blog/${slug}`);
 
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || "Failed to fetch blog");
-        }
+        const data: FetchBlogResponse = await response.json();
 
-        const data: Blog = await response.json();
-        setBlog(data);
-      } catch (error) {
-        setError(
-          error instanceof Error ? error.message : "An unknown error occurred"
-        );
+        if (data.success && data.response === ApiResponse.FETCH_SUCCESS) {
+          setBlog(data.data as Blog);
+        } else {
+          setError(data.response);
+        }
+      } catch (err) {
+        console.error("Error Fetching Blog:", err);
+        setError(ApiResponse.FETCH_FAILURE);
+        throw err;
       } finally {
         setIsLoading(false);
       }

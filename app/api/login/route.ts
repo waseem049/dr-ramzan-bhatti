@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import prisma from "@/utils/prisma";
-import { LoginResponses, LoginValues } from "@/utils/types";
+import { ApiResponse, LoginValues } from "@/utils/types";
 
 export async function POST(request: Request) {
   try {
@@ -14,7 +14,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           success: false,
-          response: LoginResponses.ERROR_LOGGING_IN,
+          response: ApiResponse.LOGIN_ERROR,
           error: "Email and Password are Required",
         },
         { status: 400 }
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           success: false,
-          response: LoginResponses.USER_NOT_FOUND,
+          response: ApiResponse.USER_NOT_FOUND,
           error: "User Not Found",
         },
         { status: 400 }
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           success: false,
-          response: LoginResponses.INVALID_PASSWORD,
+          response: ApiResponse.LOGIN_INVALID_PASSWORD,
           error: "Invalid Password",
         },
         { status: 400 }
@@ -56,7 +56,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           success: false,
-          response: LoginResponses.ERROR_LOGGING_IN,
+          response: ApiResponse.LOGIN_ERROR,
           error: "Server Configuration Error",
         },
         { status: 500 }
@@ -78,7 +78,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: true,
-        response: LoginResponses.LOGIN_SUCCESS,
+        response: ApiResponse.LOGIN_SUCCESS,
         data: { token },
       },
       { status: 200 }
@@ -88,7 +88,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: false,
-        response: LoginResponses.ERROR_LOGGING_IN,
+        response: ApiResponse.LOGIN_ERROR,
         error: "Internal Server Error",
       },
       { status: 500 }
