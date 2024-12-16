@@ -1,5 +1,5 @@
-import { AdminLogin } from "./Components/AdminLogin";
+import { AdminLoginRegister } from "./Components/AdminLoginRegister";
 
 export default function Login() {
-  return <AdminLogin />;
+  return <AdminLoginRegister />;
 }

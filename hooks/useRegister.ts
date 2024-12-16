@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Registration } from "@/utils/types";
+import { Registration, RegistrationResponses } from "@/utils/types";
 
 export const useRegister = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<RegistrationResponses | null>(null);
 
   const register = async ({
     name,
@@ -22,14 +22,18 @@ export const useRegister = () => {
         },
         body: JSON.stringify({ name, email, password, salutation, userName }),
       });
-
-      if (response.ok) {
-        return { message: "Account Created Successfully", status: 201 };
+      const data = await response.json();
+      if (data.response === RegistrationResponses.REGISTRATION_SUCCESS) {
+        return {
+          response: RegistrationResponses.REGISTRATION_SUCCESS,
+          status: 201,
+        };
+      } else {
+        setError(data.response);
       }
     } catch (error) {
       console.error(error);
-      console.log(error);
-      setError("Something Went Wrong");
+      setError(RegistrationResponses.ERROR_REGISTERING);
     } finally {
       setIsLoading(false);
     }

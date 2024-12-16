@@ -7,8 +7,9 @@ import { useRouter } from "next/navigation";
 import * as Yup from "yup";
 import { Salutations } from "@/utils/constants";
 import { Salutation } from "@prisma/client";
-import { Login, Registration } from "@/utils/types";
+import { Login, Registration, RegistrationResponses } from "@/utils/types";
 import { useRegister } from "@/hooks/useRegister";
+import { getMessageFromResponse } from "@/utils/getMessageFromResponse";
 
 const loginValidationSchema = Yup.object({
   email: Yup.string()
@@ -40,10 +41,15 @@ const registrationInitialValues = {
   password: "",
 };
 
-export const LoginForm = () => {
+export const LoginRegisterForm = () => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const { login, isLoading: loggingIn } = useLogin();
-  const { register, isLoading: registering } = useRegister();
+  const [message, setMessage] = useState<RegistrationResponses | null>(null);
+  const { login, isLoading: loggingIn, error: loginError } = useLogin();
+  const {
+    register,
+    isLoading: registering,
+    error: registrationError,
+  } = useRegister();
   const router = useRouter();
 
   const handleLoginSubmit = async (values: Login) => {
@@ -70,7 +76,10 @@ export const LoginForm = () => {
         salutation: values.salutation,
       });
       if (response?.status === 201) {
-        setIsFlipped(false);
+        setMessage(response.response);
+        setTimeout(() => {
+          setIsFlipped(false);
+        }, 1000);
       }
     } catch (e) {
       console.error(e);
@@ -107,6 +116,11 @@ export const LoginForm = () => {
                     type="password"
                     labelColor="text-foreground"
                   />
+                  {loginError && (
+                    <h1 className="text-red-500 text-center">
+                      {getMessageFromResponse(loginError)}
+                    </h1>
+                  )}
                   <FormButton type="submit" label="Login" loading={loggingIn} />
                   <button
                     type="button"
@@ -167,7 +181,16 @@ export const LoginForm = () => {
                     type="password"
                     labelColor="text-foreground"
                   />
-
+                  {registrationError && (
+                    <h1 className="text-red-500 text-center">
+                      {getMessageFromResponse(registrationError)}
+                    </h1>
+                  )}
+                  {message && (
+                    <h1 className="text-red-500 text-center">
+                      {getMessageFromResponse(message)}
+                    </h1>
+                  )}
                   <FormButton
                     type="submit"
                     label="Register"

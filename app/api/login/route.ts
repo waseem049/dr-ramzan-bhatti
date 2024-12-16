@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import prisma from "@/utils/prisma";
 import { NextResponse } from "next/server";
+import { LoginResponses } from "@/utils/types";
 
 export async function POST(request: Request) {
   const { email, password } = await request.json();
@@ -22,7 +23,7 @@ export async function POST(request: Request) {
 
     if (!user) {
       return NextResponse.json(
-        { message: "Invalid Email or Password" },
+        { response: LoginResponses.USER_NOT_FOUND },
         { status: 400 }
       );
     }
@@ -32,7 +33,7 @@ export async function POST(request: Request) {
 
     if (!passwordMatch) {
       return NextResponse.json(
-        { message: "Invalid Email or Password" },
+        { response: LoginResponses.INVALID_PASSWORD },
         { status: 400 }
       );
     }
@@ -45,10 +46,10 @@ export async function POST(request: Request) {
     );
 
     // Return the token
-    return NextResponse.json({ message: "Login Successfull", token });
+    return NextResponse.json({ response: LoginResponses.LOGIN_SUCCESS, token });
   } catch (error) {
     return NextResponse.json(
-      { message: "Error logging in", error },
+      { response: LoginResponses.ERROR_LOGGING_IN, error },
       { status: 500 }
     );
   }

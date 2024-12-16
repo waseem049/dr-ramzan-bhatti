@@ -1,9 +1,9 @@
-import { Login } from "@/utils/types";
+import { Login, LoginResponses } from "@/utils/types";
 import { useState } from "react";
 
 export const useLogin = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<LoginResponses | null>(null);
 
   const login = async ({ email, password }: Login) => {
     setIsLoading(true);
@@ -20,15 +20,15 @@ export const useLogin = () => {
 
       const data = await response.json();
 
-      if (response.ok) {
+      if (data.response === LoginResponses.LOGIN_SUCCESS) {
         localStorage.setItem("jb-admin-token", data.token);
         return { token: data.token };
       } else {
-        setError(data.message || "Login Failed");
+        setError(data.response);
       }
     } catch (error) {
       console.error(error);
-      setError("Something Went Wrong");
+      setError(LoginResponses.ERROR_LOGGING_IN);
     } finally {
       setIsLoading(false);
     }

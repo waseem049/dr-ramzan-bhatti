@@ -1,4 +1,5 @@
 import prisma from "@/utils/prisma";
+import { RegistrationResponses } from "@/utils/types";
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
 
@@ -20,7 +21,7 @@ export async function POST(request: Request) {
     });
     if (existingUser) {
       return NextResponse.json(
-        { message: "User Already Exists" },
+        { response: RegistrationResponses.USER_ALREADY_EXISTS },
         { status: 400 }
       );
     }
@@ -41,12 +42,12 @@ export async function POST(request: Request) {
 
     // Return success response
     return NextResponse.json(
-      { message: "User Created Successfully" },
+      { response: RegistrationResponses.REGISTRATION_SUCCESS },
       { status: 201 }
     );
   } catch (error) {
     return NextResponse.json(
-      { message: "Error creating user", error },
+      { response: RegistrationResponses.ERROR_REGISTERING, error },
       { status: 500 }
     );
   }
