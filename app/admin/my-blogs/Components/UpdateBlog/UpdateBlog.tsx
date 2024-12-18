@@ -5,7 +5,7 @@ import {
   InputBox,
   MultiFileInputBox,
   SelectInput,
-  TextArea,
+  TextEditor,
 } from "@/components";
 import { SlugInputBox } from "@/components/SlugInputBox";
 import { useCreateBlog } from "@/hooks/useCreateBlog";
@@ -35,21 +35,9 @@ const blogValidationSchema = Yup.object().shape({
     .min(3, "Subtitle must be at least 3 characters")
     .max(150, "Subtitle must not exceed 150 characters"),
 
-  description: Yup.string()
+  content: Yup.string()
     .required("Description is required")
     .min(50, "Description must be at least 50 characters"),
-
-  // coverImage: Yup.string()
-  //   .required("Cover image is required")
-  //   .url("Must be a valid URL"),
-
-  // category: Yup.object()
-  //   .shape({
-  //     label: Yup.string().required(),
-  //     value: Yup.string().required(),
-  //   })
-  //   .nullable()
-  //   .required("Category is required"),
 
   media: Yup.array()
     .of(Yup.string())
@@ -113,7 +101,7 @@ export const UpdateBlog: React.FC<UpdateBlogProps> = ({
     slug: blog?.slug || "",
     title: blog?.title || "",
     subTitle: blog?.subTitle || "",
-    description: blog?.description || "",
+    content: blog?.content || "",
     coverImage: blog?.coverImage || "",
     category: Categories.find((c) => c.value === blog?.category) || null,
     media: blog?.media || [],
@@ -140,7 +128,7 @@ export const UpdateBlog: React.FC<UpdateBlogProps> = ({
           slug: values.slug,
           title: values.title,
           subTitle: values.subTitle,
-          description: values.description,
+          content: values.content,
           coverImage: values.coverImage,
           category: values?.category?.value as string,
           media: !values.media.length ? [] : values.media,
@@ -156,7 +144,7 @@ export const UpdateBlog: React.FC<UpdateBlogProps> = ({
           slug: values.slug,
           title: values.title,
           subTitle: values.subTitle,
-          description: values.description,
+          content: values.content,
           coverImage: values.coverImage,
           category: values?.category?.value as string,
           media: !values.media.length ? [] : values.media,
@@ -282,13 +270,14 @@ export const UpdateBlog: React.FC<UpdateBlogProps> = ({
                 />
               </div>
               <div className="w-full">
-                <TextArea
+                {/* <TextArea
                   label={"Description"}
-                  name={"description"}
+                  name={"content"}
                   placeholder={"Description"}
                   className="w-full"
                   labelColor="text-white"
-                />
+                /> */}
+                <TextEditor name={"content"} label="Content" />
               </div>
               <FormButton
                 disabled={!isValid || !dirty}

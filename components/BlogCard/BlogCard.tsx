@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Blog } from "@prisma/client";
 import { formatDate } from "@/utils/formatDate";
 import { Icon } from "../Icon";
+import Link from "next/link";
 
 type BlogCardProps = Blog & {
   onAdminPanel: boolean;
@@ -28,8 +29,8 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   return (
     <div
       className={`
-      w-full 
-      sm:w-[calc(50%-0.625rem)] 
+      w-full
+      sm:w-[calc(50%-0.625rem)]
       md:w-[calc(30%-0.835rem)]
     `}
     >
@@ -41,34 +42,36 @@ export const BlogCard: React.FC<BlogCardProps> = ({
         }`}
       >
         {/* Image Container */}
-        <div className="relative w-full pt-[60%]">
-          {blog.coverImage ? (
-            <Image
-              src={blog.coverImage}
-              alt={blog.title}
-              fill
-              className="absolute inset-0 object-cover hover:scale-105 transition-transform duration-500"
-            />
-          ) : (
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-950" />
-          )}
+        <Link href={`/blogs/${blog.slug}`}>
+          <div className="relative w-full pt-[60%]">
+            {blog.coverImage ? (
+              <Image
+                src={blog.coverImage}
+                alt={blog.title}
+                fill
+                className="absolute inset-0 object-cover hover:scale-105 transition-transform duration-500"
+              />
+            ) : (
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-950" />
+            )}
 
-          {/* Category Badge */}
-          {blog.category && (
-            <span className="absolute top-4 left-4 bg-blue-100 px-3 py-1 rounded-full text-sm font-medium text-blue-900">
-              {blog.category}
-            </span>
-          )}
-          {onAdminPanel && (
-            <div
-              className="absolute top-4 right-4 bg-blue-100 px-3 py-1 rounded-full flex flex-row gap-3 items-center cursor-pointer"
-              onClick={handleClick}
-            >
-              <Icon iconName="editDoc" />
-              <h1 className="font-poppinsRegular text-xs">Select To Edit</h1>
-            </div>
-          )}
-        </div>
+            {/* Category Badge */}
+            {blog.category && (
+              <span className="absolute top-4 left-4 bg-blue-100 px-3 py-1 rounded-full text-sm font-medium text-blue-900">
+                {blog.category}
+              </span>
+            )}
+            {onAdminPanel && (
+              <div
+                className="absolute top-4 right-4 bg-blue-100 px-3 py-1 rounded-full flex flex-row gap-3 items-center cursor-pointer"
+                onClick={handleClick}
+              >
+                <Icon iconName="editDoc" />
+                <h1 className="font-poppinsRegular text-xs">Select To Edit</h1>
+              </div>
+            )}
+          </div>
+        </Link>
 
         {/* Content */}
         <div className="p-4 flex flex-col">

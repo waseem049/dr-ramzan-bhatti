@@ -1,13 +1,14 @@
+import { BlogContent } from "@/components";
+import { Blog } from "@prisma/client";
+
 type BlogPageProps = {
-  slug: string;
+  blog: Blog;
 };
 
-export const BlogPage: React.FC<BlogPageProps> = ({ slug }) => {
+export const BlogPage: React.FC<BlogPageProps> = ({ blog }) => {
   return (
-    <div className="w-[100vw] h-[100vh] bg-background  flex justify-center items-center">
-      <h1 className="font-poppinsRegular text-foreground text-[40px]">
-        {slug}
-      </h1>
+    <div className="flex justify-center items-center overflow-y-auto">
+      <BlogContent blog={blog} />
     </div>
   );
 };

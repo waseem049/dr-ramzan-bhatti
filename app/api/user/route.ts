@@ -74,6 +74,7 @@ export async function GET(req: Request) {
       userName: user.userName,
       email: user.email,
       name: user.name,
+      blogs: user.blogs,
       salutation: user.salutation,
       createdAt: user.createdAt,
     };
