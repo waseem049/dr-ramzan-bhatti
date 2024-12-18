@@ -20,7 +20,9 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   const authorInitial = blog.author?.charAt(0)?.toUpperCase() || "A";
   const isSelected = blog.id === selectedBlog?.id;
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (onAdminPanel && setSelectedBlog) {
       setSelectedBlog(isSelected ? null : blog);
     }
@@ -64,7 +66,8 @@ export const BlogCard: React.FC<BlogCardProps> = ({
             {onAdminPanel && (
               <div
                 className="absolute top-4 right-4 bg-blue-100 px-3 py-1 rounded-full flex flex-row gap-3 items-center cursor-pointer"
-                onClick={handleClick}
+                onClick={(e) => handleClick(e)}
+                onMouseDown={(e) => e.preventDefault()}
               >
                 <Icon iconName="editDoc" />
                 <h1 className="font-poppinsRegular text-xs">Select To Edit</h1>
