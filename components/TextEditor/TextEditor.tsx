@@ -2,6 +2,7 @@
 import { useField } from "formik";
 import { Editor, IAllProps } from "@tinymce/tinymce-react";
 import { Editor as TinyMCEEditor } from "tinymce";
+import { uploadFile } from "@/utils/fileUpload";
 
 type TextEditorProps = {
   name: string;
@@ -10,6 +11,28 @@ type TextEditorProps = {
   labelColor?: string;
   inputClasses?: string;
 } & IAllProps;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const handleImageUpload = (blobInfo: any) => {
+  return new Promise<string>((resolve, reject) => {
+    const file = blobInfo.blob();
+
+    uploadFile(file)
+      .then((uploadedUrl) => {
+        if (uploadedUrl) {
+          resolve(uploadedUrl);
+          console.log(uploadedUrl);
+        } else {
+          console.log("Failed To Upload File");
+          reject("Image upload failed. Please try again.");
+        }
+      })
+      .catch((err) => {
+        console.error("Image upload error:", err);
+        reject("Image upload error. Please try again.");
+      });
+  });
+};
 
 export const TextEditor: React.FC<TextEditorProps> = ({
   name,
@@ -65,6 +88,7 @@ export const TextEditor: React.FC<TextEditorProps> = ({
         init.setup(editor);
       }
     },
+    images_upload_handler: handleImageUpload,
   };
 
   return (

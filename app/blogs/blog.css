@@ -179,10 +179,42 @@
 
 /* Images */
 .blog-content img {
-  max-width: 100%;
-  height: auto;
+  max-width: 100%; /* Ensures images scale down on smaller screens */
+  height: auto; /* Maintains aspect ratio */
   margin: 1.5rem 0;
   border-radius: 0.5rem;
+  display: block; /* Removes inline-block behavior */
+  object-fit: cover; /* Ensures images fill their containers properly */
+}
+
+/* For large images */
+.blog-content img.large {
+  width: 100%;
+  height: auto;
+  max-height: 500px; /* Prevents extremely large images from becoming unmanageable */
+  object-fit: contain; /* Keeps image within the bounds, maintaining aspect ratio */
+}
+
+/* Image with captions */
+.blog-content figure {
+  margin: 1.5rem 0;
+  display: block;
+  text-align: center;
+}
+
+.blog-content figure img {
+  width: 100%;
+  height: auto;
+  max-width: 800px; /* Set a max width for large images */
+  object-fit: contain;
+}
+
+.blog-content figcaption {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+  font-style: italic;
+  text-align: center;
 }
 
 /* Tablet breakpoint */
@@ -213,50 +245,38 @@
   .blog-content p {
     font-size: 1.0625rem;
   }
+
+  .blog-content img {
+    margin: 1rem 0;
+  }
+
+  .blog-content figure {
+    text-align: left;
+  }
+
+  .blog-content figure img {
+    max-width: 100%; /* Ensures images fill the container on smaller screens */
+  }
 }
 
-/* Laptop breakpoint */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .blog-content img {
+    margin: 1.25rem 0;
+  }
+
+  .blog-content figure img {
+    max-width: 90%; /* Restrict image width for medium devices */
+    margin: 0 auto;
+  }
+}
+
 @media (min-width: 1024px) {
-  .blog-content {
-    padding: 2rem;
-    max-width: 48rem;
+  .blog-content img {
+    margin: 1.5rem 0;
   }
 
-  .blog-content h1 {
-    font-size: 2.5rem;
-    margin: 2rem 0;
-  }
-
-  .blog-content h2 {
-    font-size: 2rem;
-    margin: 1.75rem 0;
-  }
-
-  .blog-content h3 {
-    font-size: 1.75rem;
-  }
-
-  .blog-content h4 {
-    font-size: 1.5rem;
-  }
-
-  .blog-content p {
-    font-size: 1.125rem;
-    line-height: 1.8;
-  }
-
-  .blog-content ul,
-  .blog-content ol {
-    padding-left: 1.5rem;
-  }
-
-  .blog-content li {
-    font-size: 1.125rem;
-  }
-
-  .blog-content blockquote {
-    margin: 2rem 0;
-    padding: 1.5rem 2rem;
+  .blog-content figure img {
+    max-width: 100%; /* Allows large images to expand but constrained */
   }
 }
 
@@ -364,11 +384,16 @@
 
   .blog-content a {
     text-decoration: underline;
-    color: #000;
   }
 
-  .blog-content blockquote {
-    border-left: 2px solid #000;
-    background: none;
+  .blog-content h1,
+  .blog-content h2,
+  .blog-content h3 {
+    color: black;
+  }
+
+  .blog-content img {
+    max-width: 100%;
+    height: auto;
   }
 }

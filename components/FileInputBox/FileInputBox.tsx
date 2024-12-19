@@ -1,10 +1,9 @@
 "use client";
 import React, { ChangeEvent, useRef, useState } from "react";
-import axios, { AxiosResponse } from "axios";
 import { useField } from "formik";
 import Image from "next/image";
-import { uploadApiEndpoint } from "@/utils/constants";
 import { Icon } from "../Icon";
+import { uploadFile } from "@/utils/fileUpload";
 
 export type FileInputBoxProps = {
   label: string;
@@ -12,34 +11,6 @@ export type FileInputBoxProps = {
   name: string;
   className?: string;
 };
-
-interface UploadResponse {
-  url: string;
-}
-
-async function uploadFile(f: File): Promise<string | null> {
-  const formData = new FormData();
-  formData.append("file", f);
-  formData.append("uploadType", "config");
-
-  const uploadConfig = {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  };
-  const uploadImageAPI = `${uploadApiEndpoint}/upload`;
-  try {
-    const response: AxiosResponse<UploadResponse> = await axios.post(
-      uploadImageAPI,
-      formData,
-      uploadConfig
-    );
-    return response.data.url;
-  } catch (e) {
-    console.error(e);
-    return null;
-  }
-}
 
 export const FileInputBox: React.FC<FileInputBoxProps> = ({
   name,
