@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Contact } from "@prisma/client";
 import { FetchContactResponse, ApiResponse } from "@/utils/types";
 
@@ -10,7 +10,6 @@ export const useGetContacts = () => {
   const fetchContacts = async () => {
     setIsLoading(true);
     setError(null);
-
     try {
       const token = localStorage.getItem("jb-admin-token");
 
@@ -39,6 +38,10 @@ export const useGetContacts = () => {
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchContacts();
+  }, []);
 
   const refetch = () => fetchContacts();
 

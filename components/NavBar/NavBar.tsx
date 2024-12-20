@@ -34,7 +34,7 @@ export const NavBar = () => {
     <div className="relative">
       {/* Full Navbar (for larger screens) */}
       <div className="w-full py-5 px-5 justify-center items-center bg-transparent fixed lg:flex hidden ">
-        <div className="glassbox w-[50%] h-14 p-8 rounded-lg shadow-lg flex justify-center items-center gap-10 relative">
+        <div className="glassbox w-[70%] h-14 p-8 rounded-lg shadow-lg flex justify-center items-center gap-10 relative">
           <div className="absolute right-10">
             <Icon iconName="logout" onClick={logout} size="lg" color="white" />
           </div>

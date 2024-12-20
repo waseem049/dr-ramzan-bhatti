@@ -52,7 +52,7 @@ export const MyBlogsPage = () => {
 
   return (
     <div className="w-[100vw] h-[100vh] flex flex-col justify-end items-center">
-      <div className="w-full h-[90%] flex md:flex-row flex-col md:p-10 p-5 gap-10 ">
+      <div className="w-full h-[90%] md:p-10 p-5">
         <Blogs
           blogs={blogs}
           selectedBlog={selectedBlog}

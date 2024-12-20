@@ -38,6 +38,10 @@ export const getMessageFromResponse = (r: ApiResponse) => {
     [ApiResponse.UPDATE_FAILURE]: "Error Updating Data",
     [ApiResponse.DELETE_SUCCESS]: "Deleted Successfully",
     [ApiResponse.DELETE_FAILURE]: "Error Deleting Data",
+
+    [ApiResponse.SUBSCRIPTION_SUCCESS]: "Subscribed Successfully",
+    [ApiResponse.SUBSCRIPTION_FAILURE]: "Error Subscribing",
+    [ApiResponse.SUBSCRIPTION_ALREADY_ACTIVE]: "Email Is Already Subscribed",
   };
 
   return ResponseMessages[r] || "Unknown Response";

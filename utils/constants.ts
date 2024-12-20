@@ -6,6 +6,7 @@ export const AdminNavBarData = [
   { label: "Home", href: "/" },
   { label: "Admin", href: "/admin" },
   { label: "Blog", href: "/admin/my-blogs" },
+  { label: "Contact Requests", href: "/admin/contact-requests" },
 ];
 
 export const Salutations = [

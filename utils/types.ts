@@ -38,6 +38,11 @@ export enum ApiResponse {
   UPDATE_FAILURE = "UPDATE_FAILURE",
   DELETE_SUCCESS = "DELETE_SUCCESS",
   DELETE_FAILURE = "DELETE_FAILURE",
+
+  //Subscribe responses
+  SUBSCRIPTION_SUCCESS = "SUBSCRIPTION_SUCCESS",
+  SUBSCRIPTION_FAILURE = "SUBSCRIPTION_FAILURE",
+  SUBSCRIPTION_ALREADY_ACTIVE = "SUBSCRIPTION_ALREADY_ACTIVE",
 }
 
 export type FetchUserResponse = {
@@ -121,4 +126,14 @@ export type UpdateBlogValues = Omit<
 export type LabelValue = {
   label: string;
   value: string | boolean | BlogStatus;
+};
+
+export type SubscribeValues = {
+  email: string;
+};
+
+export type SubscriptionResponse = {
+  success: boolean;
+  response: ApiResponse;
+  error?: string;
 };
