@@ -39,9 +39,13 @@ export const getMessageFromResponse = (r: ApiResponse) => {
     [ApiResponse.DELETE_SUCCESS]: "Deleted Successfully",
     [ApiResponse.DELETE_FAILURE]: "Error Deleting Data",
 
+    // Subscription related messages
     [ApiResponse.SUBSCRIPTION_SUCCESS]: "Subscribed Successfully",
     [ApiResponse.SUBSCRIPTION_FAILURE]: "Error Subscribing",
     [ApiResponse.SUBSCRIPTION_ALREADY_ACTIVE]: "Email Is Already Subscribed",
+
+    //Validation related messages
+    [ApiResponse.VALIDATION_ERROR]: "Validation Error",
   };
 
   return ResponseMessages[r] || "Unknown Response";
