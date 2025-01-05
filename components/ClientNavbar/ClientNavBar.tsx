@@ -5,7 +5,7 @@ import { useState } from "react";
 import { MobileNavlinks } from "./components/MobileNavlinks";
 import { Icon } from "../Icon";
 
-export const Navbar: React.FC = () => {
+export const ClientNavBar: React.FC = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 

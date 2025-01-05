@@ -1,4 +1,4 @@
-import { Navbar } from "@/components";
+import { ClientNavBar } from "@/components";
 import "./globals.css";
 
 export default function AppLayout({
@@ -6,7 +6,7 @@ export default function AppLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div>
-      <Navbar />
+      <ClientNavBar />
       {children}
     </div>
   );
