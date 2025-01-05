@@ -73,6 +73,10 @@ body {
   padding: 0;
 }
 
+.borderRed {
+  border: 1px solid red;
+}
+
 .glassbox {
   background: rgba(114, 105, 105, 0.1);
   border-radius: 10px;
@@ -87,7 +91,7 @@ body {
 }
 
 .bg-svg {
-  background-image: url("/login-bg.svg");
+  background-image: url("/svgs/login-bg.svg");
   background-size: cover;
   background-position: center;
 }
@@ -115,4 +119,20 @@ body {
 
 .rotate-y-180 {
   transform: rotateY(180deg);
+}
+
+.logo-container {
+  width: 200px;
+  height: 120px;
+  background-image: url("/svgs/primary_logo.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 1024px) {
+  .logo-container {
+    width: 120px;
+    height: 70px;
+  }
 }

@@ -9,6 +9,26 @@ export const AdminNavBarData = [
   { label: "Contact Requests", href: "/admin/contact-requests" },
 ];
 
+export const NavBarData = [
+  {
+    label: "HOME",
+    href: "/",
+  },
+  {
+    label: "BLOGS",
+    href: "/blogs",
+  },
+  {
+    label: "ABOUT",
+    href: "/about",
+  },
+
+  {
+    label: "CONTACT US",
+    href: "/contact",
+  },
+];
+
 export const Salutations = [
   { label: "Dr", value: Salutation.DR },
   { label: "Mr", value: Salutation.MR },

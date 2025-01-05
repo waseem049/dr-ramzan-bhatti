@@ -1,4 +1,4 @@
-import { NavBar } from "@/components";
+import { AdminNavbar } from "@/components";
 
 export default function AdminBaseLayout({
   children,
@@ -7,7 +7,7 @@ export default function AdminBaseLayout({
 }>) {
   return (
     <div className="w-[100vw] h-[100vh] bg-svg">
-      <NavBar />
+      <AdminNavbar />
       {children}
     </div>
   );

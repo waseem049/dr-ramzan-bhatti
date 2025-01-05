@@ -11,7 +11,9 @@ export default {
       colors: {
         background: "#000",
         foreground: "#fff",
+        primary: "#1AB4BA",
       },
+
       fontFamily: {
         poppinsThin: ["PoppinsThin", "sans-serif"],
         poppinsRegular: ["PoppinsRegular", "sans-serif"],

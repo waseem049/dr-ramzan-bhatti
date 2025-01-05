@@ -1,4 +1,4 @@
-export * from "./NavBar";
+export * from "./AdminNavbar";
 export * from "./InputBox";
 export * from "./TextArea";
 export * from "./Icon";
@@ -12,3 +12,4 @@ export * from "./FileInputBox";
 export * from "./MultiFileUploadInputBox";
 export * from "./TextEditor";
 export * from "./BlogContent";
+export * from "./Navbar";
