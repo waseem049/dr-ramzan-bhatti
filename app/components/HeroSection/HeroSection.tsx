@@ -2,12 +2,10 @@ import { Icon } from "@/components";
 import Link from "next/link";
 
 export const HeroSection = () => {
-  const backgroundImage = "/images/hero_section_image.png";
-
   return (
     <div
       className="w-[100vw] h-[100vh] bg-cover bg-top bg-no-repeat flex flex-col justify-center lg:items-start items-center px-16"
-      style={{ backgroundImage: `url("${backgroundImage}")` }}
+      style={{ backgroundImage: `url("/images/hero_section_image.png")` }}
     >
       <div className="lg:w-[55%] w-full flex flex-col gap-4">
         <div className="w-full">
