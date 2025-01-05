@@ -25,7 +25,7 @@ export const NavBarData = [
 
   {
     label: "CONTACT US",
-    href: "/contact",
+    href: "/contact-us",
   },
 ];
 
