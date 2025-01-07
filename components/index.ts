@@ -13,3 +13,4 @@ export * from "./MultiFileUploadInputBox";
 export * from "./TextEditor";
 export * from "./BlogContent";
 export * from "./ClientNavbar";
+export * from "./TreatmentCard";

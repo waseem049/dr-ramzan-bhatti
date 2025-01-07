@@ -12,6 +12,8 @@ export default {
         background: "#000",
         foreground: "#fff",
         primary: "#1AB4BA",
+        lightGrey: "#808080",
+        backgroundBlue: "#F7F9FC",
       },
 
       fontFamily: {
