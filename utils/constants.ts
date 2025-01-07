@@ -126,3 +126,34 @@ export const FAQs = [
       "Yes, hip replacement is safe and effective at age 72. Age alone isn't a barrier - overall health and bone quality are more important factors. Many patients in their 70s and 80s successfully undergo hip replacement with excellent outcomes.",
   },
 ];
+
+export const Testimonials = [
+  {
+    name: "Mohd Ibrahim",
+    treatmentReceived: "Total Knee Replacement",
+    feedback:
+      "After years of knee pain, I can finally walk without discomfort. The surgery and recovery process was well-explained and managed. Thank you for giving me my mobility back.",
+    displayPicture: "/images/male_placeholder.png",
+  },
+  {
+    name: "Varun Patel",
+    treatmentReceived: "Arthroscopic ACL Reconstruction",
+    feedback:
+      "I was able to return to my regular activities within 6 months. The minimally invasive approach really helped with recovery time.",
+    displayPicture: "/images/male_placeholder.png",
+  },
+  {
+    name: "Fatima Begum",
+    treatmentReceived: "Hip Replacement Surgery",
+    feedback:
+      "The chronic hip pain was affecting my daily life. Post-surgery, I've regained my independence. The staff was supportive throughout my treatment journey.",
+    displayPicture: "/images/female_placeholder.png",
+  },
+  {
+    name: "Mohd Ismail",
+    treatmentReceived: "Knee Arthroscopy",
+    feedback:
+      "Professional treatment with great attention to detail. The keyhole surgery left minimal scarring, and the physiotherapy guidance helped me recover faster than expected.",
+    displayPicture: "/images/male_placeholder.png",
+  },
+];

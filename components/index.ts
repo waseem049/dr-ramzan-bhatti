@@ -14,3 +14,6 @@ export * from "./TextEditor";
 export * from "./BlogContent";
 export * from "./ClientNavbar";
 export * from "./TreatmentCard";
+export * from "./Accordian";
+export * from "./AccordianList";
+export * from "./FeedbackCard";
