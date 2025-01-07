@@ -4,7 +4,7 @@ export const AboutSection = () => {
       <div
         className="w-full lg:w-[50%] h-[40vh] lg:h-[70vh] bg-cover bg-top rounded-md overflow-hidden"
         style={{ backgroundImage: `url("/images/about_image.png")` }}
-      ></div>
+      />
       <div className="w-full lg:w-[50%] rounded-md pt-5">
         <h1 className="text-primary text-[28px] font-poppinsRegular text-center lg:text-left">
           ABOUT

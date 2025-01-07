@@ -2,6 +2,7 @@ import { IconDefinition, SizeProp } from "@fortawesome/fontawesome-svg-core";
 import {
   faArrowUp,
   faBars,
+  faCaretRight,
   faCircleExclamation,
   faClose,
   faFilePen,
@@ -31,6 +32,7 @@ const IconMap: Record<string, IconDefinition> = {
   error: faCircleExclamation,
   editDoc: faFilePen,
   phone: faPhone,
+  caretRight: faCaretRight,
 };
 
 export const Icon: React.FC<IconProps> = ({

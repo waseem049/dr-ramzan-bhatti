@@ -103,3 +103,26 @@ export const TreatmentsList = [
     icon: "/svgs/stethoscope.svg",
   },
 ];
+
+export const FAQs = [
+  {
+    question: "Whats the cost involved in knee surgery?",
+    answer:
+      "The cost of knee surgery varies between 2.5-3.5 lakhs for a basic implant, and 4.5-5.5 lakhs for premium implants. Additional costs include hospital stay, medications, and rehabilitation. Insurance coverage may significantly reduce out-of-pocket expenses.",
+  },
+  {
+    question: "How long rest is required after unicondilar Knee replacement?",
+    answer:
+      "After unicondylar knee replacement, initial rest of 2-3 weeks is needed. Most patients can resume light activities within 4-6 weeks. Full recovery with physiotherapy typically takes 8-12 weeks, though individual healing times may vary.",
+  },
+  {
+    question: "What is the success rate of a Total Hip Replacement Surgery?",
+    answer:
+      "Total Hip Replacement Surgery has a success rate of 90-95% over a 10-year period. More than 80% of hip replacements last 20+ years. Successful outcomes depend on proper rehabilitation and following post-surgery care instructions.",
+  },
+  {
+    question: "Is it possible to go for Hip Replacement at the age of 72 yrs?",
+    answer:
+      "Yes, hip replacement is safe and effective at age 72. Age alone isn't a barrier - overall health and bone quality are more important factors. Many patients in their 70s and 80s successfully undergo hip replacement with excellent outcomes.",
+  },
+];
