@@ -115,7 +115,7 @@ export const LoginRegisterForm = () => {
             onSubmit={handleLoginSubmit}
             validationSchema={loginValidationSchema}
           >
-            {({}) => (
+            {({ dirty, isValid }) => (
               <Form className="h-full flex flex-col">
                 <div className="flex-1 flex flex-col gap-5">
                   <InputBox
@@ -141,7 +141,12 @@ export const LoginRegisterForm = () => {
                       {getMessageFromResponse(loginMessage)}
                     </h1>
                   )}
-                  <FormButton type="submit" label="Login" loading={loggingIn} />
+                  <FormButton
+                    disabled={!dirty || !isValid}
+                    type="submit"
+                    label="Login"
+                    loading={loggingIn}
+                  />
                   <button
                     type="button"
                     onClick={() => setIsFlipped(true)}
@@ -162,7 +167,7 @@ export const LoginRegisterForm = () => {
             onSubmit={handleRegisterSubmit}
             validationSchema={registerValidationSchema}
           >
-            {({}) => (
+            {({ dirty, isValid }) => (
               <Form className="h-full flex flex-col">
                 <div className="flex-1 flex flex-col gap-5">
                   <div className="flex flex-row items-center gap-5">
@@ -212,6 +217,7 @@ export const LoginRegisterForm = () => {
                     </h1>
                   )}
                   <FormButton
+                    disabled={!dirty || !isValid}
                     type="submit"
                     label="Register"
                     loading={registering}

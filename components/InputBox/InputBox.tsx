@@ -18,7 +18,7 @@ export const InputBox: React.FC<InputBoxProps> = ({
   placeholder,
   className = "",
   type = "text",
-  labelColor = "text-white-700",
+  labelColor = "text-white",
   inputClasses = "",
 }) => {
   const [field, meta] = useField(name);

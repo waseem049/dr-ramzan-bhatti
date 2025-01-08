@@ -1,12 +1,16 @@
 import { useState } from "react";
 
-import { ApiResponse, CreateContactResponse } from "@/utils/types";
+import {
+  ApiResponse,
+  CreateContactResponse,
+  CreateContactInput,
+} from "@/utils/types";
 
 export const useCreateContact = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<ApiResponse | null>(null);
 
-  const createContact = async (contactData: CreateContactResponse) => {
+  const createContact = async (contactData: CreateContactInput) => {
     setIsLoading(true);
     setError(null);
 

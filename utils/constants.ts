@@ -20,7 +20,7 @@ export const NavBarData = [
   },
   {
     label: "ABOUT",
-    href: "/about",
+    href: "#about",
   },
 
   {

@@ -1,6 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import AppLayout from "./AppLayout";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: {
@@ -43,10 +48,6 @@ export const metadata: Metadata = {
     title: "Dr. Jibran Bashir - Orthopedic Surgeon",
     description:
       "Specialized orthopedic surgery and sports injury treatment by Dr. Jibran Bashir. Expert in joint replacements and minimally invasive procedures.",
-  },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
   },
   robots: {
     index: true,

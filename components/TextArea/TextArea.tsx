@@ -13,7 +13,7 @@ interface TextAreaProps {
 
 export const TextArea: React.FC<TextAreaProps> = ({
   label,
-  labelColor = "text-white-700",
+  labelColor = "text-white",
   name,
   placeholder,
   className = "",

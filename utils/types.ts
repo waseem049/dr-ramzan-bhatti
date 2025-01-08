@@ -120,6 +120,11 @@ export type CreateContactResponse = Omit<FetchContactResponse, "data"> & {
   data?: ContactDataDto;
 };
 
+export type CreateContactInput = Omit<
+  Contact,
+  "id" | "createdAt" | "updatedAt"
+>;
+
 export type UpdateBlogValues = Omit<
   Blog,
   | "createdAt"
