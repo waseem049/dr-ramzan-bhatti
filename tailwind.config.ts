@@ -17,6 +17,7 @@ export default {
         darkGrey: "#2F2F2F",
         greyishBg: "#EDEDED",
         backgroundBlue: "#F7F9FC",
+        blogCardBg: "#FBFBFB",
       },
 
       fontFamily: {

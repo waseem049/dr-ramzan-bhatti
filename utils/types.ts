@@ -69,6 +69,18 @@ export type FetchBlogResponse = {
   error?: string;
 };
 
+export type FetchBlogsWithPaginationResponse = {
+  success: boolean;
+  response: ApiResponse;
+  data?: {
+    blogs: Blog[];
+    count: number;
+    skip: number;
+    take: number;
+  };
+  error?: string;
+};
+
 export type LoginResponse = {
   success: boolean;
   response: ApiResponse;

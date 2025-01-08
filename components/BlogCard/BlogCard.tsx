@@ -1,117 +1,72 @@
-import React, { Dispatch, SetStateAction } from "react";
-import Image from "next/image";
 import { Blog } from "@prisma/client";
-import { formatDate } from "@/utils/formatDate";
 import { Icon } from "../Icon";
+import { formatIso } from "@/utils/dateFormatters";
 import Link from "next/link";
 
-type BlogCardProps = Blog & {
-  onAdminPanel: boolean;
-  selectedBlog?: Blog | null;
-  setSelectedBlog?: Dispatch<SetStateAction<Blog | null>>;
-};
+type BlogCardProps = Blog;
 
 export const BlogCard: React.FC<BlogCardProps> = ({
-  onAdminPanel = false,
-  selectedBlog,
-  setSelectedBlog,
-  ...blog
+  coverImage,
+  category,
+  tags,
+  title,
+  createdAt,
+  updatedAt,
+  excerpt,
+  slug,
 }) => {
-  const authorInitial = blog.author?.charAt(0)?.toUpperCase() || "A";
-  const isSelected = blog.id === selectedBlog?.id;
-
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (onAdminPanel && setSelectedBlog) {
-      setSelectedBlog(isSelected ? null : blog);
-    }
-  };
-
+  const url = `/blogs/${slug}`;
   return (
-    <div
-      className={`
-      w-full
-      sm:w-[calc(50%-0.625rem)]
-      md:w-[calc(30%-0.835rem)]
-    `}
-    >
-      <article
-        className={`bg-blue-950 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-blue-900 ${
-          isSelected
-            ? "border-2 border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.3)]"
-            : ""
-        }`}
-      >
-        {/* Image Container */}
-        <Link href={`/blogs/${blog.slug}`}>
-          <div className="relative w-full pt-[60%]">
-            {blog.coverImage ? (
-              <Image
-                src={blog.coverImage}
-                alt={blog.title}
-                fill
-                className="absolute inset-0 object-cover hover:scale-105 transition-transform duration-500"
-              />
-            ) : (
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-800 to-blue-950" />
-            )}
-
-            {/* Category Badge */}
-            {blog.category && (
-              <span className="absolute top-4 left-4 bg-blue-100 px-3 py-1 rounded-full text-sm font-medium text-blue-900">
-                {blog.category}
-              </span>
-            )}
-            {onAdminPanel && (
-              <div
-                className="absolute top-4 right-4 bg-blue-100 px-3 py-1 rounded-full flex flex-row gap-3 items-center cursor-pointer"
-                onClick={(e) => handleClick(e)}
-                onMouseDown={(e) => e.preventDefault()}
-              >
-                <Icon iconName="editDoc" />
-                <h1 className="font-poppinsRegular text-xs">Select To Edit</h1>
-              </div>
-            )}
+    <Link href={url}>
+      <div className="w-full lg:w-[30vw] h-[80vh] lg:h-[80vh] shadow-lg rounded-md overflow-hidden hover:scale-[105%] transition-all duration-300 ease-in-out cursor-pointer border border-primary">
+        <div
+          className="w-full h-[50%] bg-center bg-cover relative"
+          style={{
+            backgroundImage: `url(${coverImage})`,
+          }}
+        >
+          <div className="absolute top-3 left-3 px-3 py-1 bg-primary rounded-md">
+            <h1 className="font-poppinsRegular text-lg text-white">
+              {category}
+            </h1>
           </div>
-        </Link>
-
-        {/* Content */}
-        <div className="p-4 flex flex-col">
-          <h3 className="text-lg font-semibold text-blue-50 hover:text-blue-200 transition-colors duration-200 mb-2 line-clamp-2">
-            {blog.title}
-          </h3>
-
-          <p className="text-blue-200/80 text-sm mb-4 line-clamp-2">
-            {blog.excerpt}
-          </p>
-
-          {/* Tags */}
-          {blog.tags.length > 0 && (
-            <div className="flex flex-wrap gap-1.5 mb-4">
-              {blog.tags.slice(0, 3).map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2 py-1 bg-blue-900/50 text-blue-200 rounded-full text-xs font-medium"
+        </div>
+        <div className="flex flex-col w-full h-[50%] px-4 justify-center gap-3 bg-blogCardBg">
+          {tags && tags.length > 0 && (
+            <div className="flex flex-row flex-wrap gap-2">
+              {tags.map((t, i) => (
+                <h1
+                  key={i}
+                  className="bg-primary px-2 py-1 rounded-md text-[14px] text-white font-montserratRegular"
                 >
-                  {tag}
-                </span>
+                  {t}
+                </h1>
               ))}
             </div>
           )}
 
-          {/* Footer */}
-          <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-800 to-blue-700 flex items-center justify-center text-blue-100 font-medium">
-                {authorInitial}
-              </div>
-              <span className="ml-2 text-blue-200">{blog.author}</span>
+          <h1 className="text-black text-[20px] lg:text-[28px] font-poppinsRegular text-wrap leading-tight line-clamp-2">
+            {title}
+          </h1>
+          <div className="flex flex-row items-center gap-3">
+            <Icon iconName={"calendar"} className="text-primary" />
+            <h1 className="text-[14px] lg:text-[16px] font-poppinsRegular text-lightGrey">
+              {formatIso(createdAt)}
+            </h1>
+            <Icon iconName={"update"} className="text-primary" />
+            <h1 className="text-[14px] lg:text-[16px] font-poppinsRegular text-lightGrey">
+              {formatIso(updatedAt)}
+            </h1>
+          </div>
+          <p className="text-[16px] text-lightGrey line-clamp-3">{excerpt}</p>
+          <div className="flex flex-row justify-end items-center">
+            <div className="flex flex-row gap-2 bg-primary rounded-md px-2 py-1 items-center">
+              <button className="border-none  text-white ">Read More</button>
+              <Icon iconName={"circleRight"} className="text-white" />
             </div>
-            <span className="text-blue-300">{formatDate(blog.createdAt)}</span>
           </div>
         </div>
-      </article>
-    </div>
+      </div>
+    </Link>
   );
 };

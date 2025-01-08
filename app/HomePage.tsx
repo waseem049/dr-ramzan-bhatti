@@ -1,4 +1,6 @@
+import { Footer } from "@/components";
 import { AboutSection } from "./components/AboutSection";
+import { BlogsSection } from "./components/BlogsSection";
 import { FaqSection } from "./components/FaqSection";
 import { FeedbackSection } from "./components/FeedbackSection";
 import { HeroSection } from "./components/HeroSection";
@@ -12,6 +14,8 @@ export const HomePage = () => {
       <TreatmentsSection />
       <FaqSection />
       <FeedbackSection />
+      <BlogsSection />
+      <Footer />
     </div>
   );
 };

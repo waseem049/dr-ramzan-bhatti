@@ -1,4 +1,4 @@
-import { BlogCard } from "@/components";
+import { AdminBlogCard } from "@/components";
 import { Blog } from "@prisma/client";
 import { Dispatch, SetStateAction } from "react";
 
@@ -16,7 +16,7 @@ export const Blogs: React.FC<BlogsProps> = ({
   return (
     <div className="w-full h-full flex flex-row flex-wrap gap-10 overflow-y-auto justify-center">
       {blogs.map((b) => (
-        <BlogCard
+        <AdminBlogCard
           key={b.id}
           onAdminPanel={true}
           selectedBlog={selectedBlog}

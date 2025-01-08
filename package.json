@@ -20,6 +20,7 @@
     "@types/lodash": "^4.17.13",
     "axios": "^1.7.9",
     "bcryptjs": "^2.4.3",
+    "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
     "formik": "^2.4.6",
     "jsonwebtoken": "^9.0.2",

@@ -1,14 +1,21 @@
 import { IconDefinition, SizeProp } from "@fortawesome/fontawesome-svg-core";
 import {
+  faAddressCard,
   faArrowUp,
   faBars,
+  faBlog,
+  faCalendar,
   faCaretRight,
   faCircleExclamation,
+  faCircleRight,
   faClose,
+  faEnvelope,
   faFilePen,
+  faHouse,
   faPhone,
   faPlus,
   faRightFromBracket,
+  faRotateRight,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -33,6 +40,13 @@ const IconMap: Record<string, IconDefinition> = {
   editDoc: faFilePen,
   phone: faPhone,
   caretRight: faCaretRight,
+  calendar: faCalendar,
+  update: faRotateRight,
+  circleRight: faCircleRight,
+  email: faEnvelope,
+  home: faHouse,
+  blog: faBlog,
+  about: faAddressCard,
 };
 
 export const Icon: React.FC<IconProps> = ({

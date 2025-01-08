@@ -1,6 +1,9 @@
 export const AboutSection = () => {
   return (
-    <div className="w-full px-5 lg:px-16 py-5 lg:py-16 flex flex-col lg:flex-row lg:gap-10 gap-5">
+    <div
+      className="w-full px-5 lg:px-16 py-5 lg:py-16 flex flex-col lg:flex-row lg:gap-10 gap-5"
+      id="about"
+    >
       <div
         className="w-full lg:w-[50%] h-[40vh] lg:h-[70vh] bg-cover bg-top rounded-md overflow-hidden"
         style={{ backgroundImage: `url("/images/about_image.png")` }}
