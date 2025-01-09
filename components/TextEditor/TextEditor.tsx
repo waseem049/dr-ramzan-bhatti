@@ -21,9 +21,8 @@ const handleImageUpload = (blobInfo: any) => {
       .then((uploadedUrl) => {
         if (uploadedUrl) {
           resolve(uploadedUrl);
-          console.log(uploadedUrl);
         } else {
-          console.log("Failed To Upload File");
+          console.error("Failed To Upload File");
           reject("Image upload failed. Please try again.");
         }
       })

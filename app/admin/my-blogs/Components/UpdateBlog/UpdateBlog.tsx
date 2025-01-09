@@ -136,7 +136,7 @@ export const UpdateBlog: React.FC<UpdateBlogProps> = ({
           excerpt: values.excerpt,
           isFeatured: values.isFeatured.value as boolean,
           tags: tagsAsStringArray as string[],
-          status: BlogStatus.DRAFT,
+          status: values.status.value as BlogStatus,
           userId,
         });
       } else {
@@ -152,7 +152,7 @@ export const UpdateBlog: React.FC<UpdateBlogProps> = ({
           excerpt: values.excerpt,
           isFeatured: values.isFeatured.value as boolean,
           tags: tagsAsStringArray as string[],
-          status: BlogStatus.DRAFT,
+          status: values.status.value as BlogStatus,
           userId,
         });
       }

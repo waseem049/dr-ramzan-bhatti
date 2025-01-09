@@ -28,6 +28,7 @@ export enum ApiResponse {
 
   // Blog related responses
   BLOG_ID_MISSING = "BLOG_ID_MISSING",
+  BLOG_NOT_FOUND = "BLOG_NOT_FOUND",
 
   // Generic CRUD responses
   FETCH_SUCCESS = "FETCH_SUCCESS",
@@ -78,6 +79,13 @@ export type FetchBlogsWithPaginationResponse = {
     skip: number;
     take: number;
   };
+  error?: string;
+};
+
+export type FetchSimiliarBlogsResponse = {
+  success: boolean;
+  response: ApiResponse;
+  data?: Blog[];
   error?: string;
 };
 

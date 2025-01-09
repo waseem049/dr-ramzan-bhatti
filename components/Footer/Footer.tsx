@@ -1,7 +1,14 @@
+"use client";
 import Link from "next/link";
 import { Icon } from "../Icon";
+import { usePathname } from "next/navigation";
 
 export const Footer = () => {
+  const pathname = usePathname();
+
+  if (pathname === "/admin" || pathname === "/login") {
+    return null;
+  }
   return (
     <div className="w-full bg-primary px-3 lg:px-12 py-8 lg:py-16 flex flex-col gap-10 lg:gap-14">
       <div className="w-full flex flex-col gap-10 lg:gap-0 items-center lg:flex-row lg:justify-evenly lg:items-start">

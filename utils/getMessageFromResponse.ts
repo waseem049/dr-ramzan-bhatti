@@ -28,6 +28,7 @@ export const getMessageFromResponse = (r: ApiResponse) => {
 
     // Blog related messages
     [ApiResponse.BLOG_ID_MISSING]: "Blog ID Is Required",
+    [ApiResponse.BLOG_NOT_FOUND]: "Blog Not Found",
 
     // Generic CRUD messages
     [ApiResponse.FETCH_SUCCESS]: "Data Retrieved Successfully",

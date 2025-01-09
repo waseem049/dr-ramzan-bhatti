@@ -57,16 +57,6 @@ export const ContactUsForm = () => {
     values: ContactUsFormValues,
     { resetForm }: { resetForm: () => void }
   ) => {
-    console.log(values);
-    console.log({
-      name: values.name,
-      email: values.email,
-      countryCode: values.countryCode?.value || null,
-      phone: values.phone,
-      subject: values.subject,
-      message: values.message,
-    });
-
     try {
       const response = await createContact({
         name: values.name,
@@ -78,7 +68,6 @@ export const ContactUsForm = () => {
       });
 
       if (response.success) {
-        console.log("Contact Created Successfully");
         setMessage(ApiResponse.CREATION_SUCCESS);
         resetForm();
       }

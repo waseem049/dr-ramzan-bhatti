@@ -73,7 +73,6 @@ export const LoginRegisterForm = () => {
       }
     } catch (e) {
       console.error(e);
-      console.log(e);
     }
   };
 

@@ -19,3 +19,5 @@ export * from "./AccordianList";
 export * from "./FeedbackCard";
 export * from "./BlogCard";
 export * from "./Footer";
+export * from "./SimiliarBlogCard";
+export * from "./SimiliarBlogList";
