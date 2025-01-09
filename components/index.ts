@@ -21,3 +21,5 @@ export * from "./BlogCard";
 export * from "./Footer";
 export * from "./SimiliarBlogCard";
 export * from "./SimiliarBlogList";
+export * from "./BlogList";
+export * from "./PaginationBar";

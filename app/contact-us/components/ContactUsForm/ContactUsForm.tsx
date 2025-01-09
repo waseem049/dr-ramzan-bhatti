@@ -103,12 +103,14 @@ export const ContactUsForm = () => {
                 name={"name"}
                 placeholder={"Your Name"}
                 className="w-full"
+                labelColor="text-black"
               />
               <InputBox
                 name={"email"}
                 placeholder={"Your Email"}
                 label={"Email"}
                 className="w-full"
+                labelColor="text-black"
               />
             </div>
             <div className="w-full flex flex-col lg:flex-row gap-3">
@@ -119,12 +121,14 @@ export const ContactUsForm = () => {
                 loadOptions={countryOptions}
                 defaultOptions={transformedCountryList}
                 className="w-full"
+                labelColor="text-black"
               />
               <InputBox
                 label={"Phone"}
                 name={"phone"}
                 placeholder={"Your Phone"}
                 className="w-full"
+                labelColor="text-black"
               />
             </div>
             <InputBox
@@ -132,12 +136,14 @@ export const ContactUsForm = () => {
               name={"subject"}
               placeholder={"Subject"}
               className="w-full"
+              labelColor="text-black"
             />
             <TextArea
               label={"Message"}
               name={"message"}
               placeholder={"Your Message"}
               className="w-full max-h-[400px]"
+              labelColor="text-black"
             />
             {message && (
               <div

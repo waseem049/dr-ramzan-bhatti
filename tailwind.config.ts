@@ -19,7 +19,6 @@ export default {
         backgroundBlue: "#F7F9FC",
         blogCardBg: "#FBFBFB",
       },
-
       fontFamily: {
         poppinsThin: ["PoppinsThin", "sans-serif"],
         poppinsRegular: ["PoppinsRegular", "sans-serif"],

@@ -18,7 +18,6 @@ export const Blogs: React.FC<BlogsProps> = ({
       {blogs.map((b) => (
         <AdminBlogCard
           key={b.id}
-          onAdminPanel={true}
           selectedBlog={selectedBlog}
           setSelectedBlog={setSelectedBlog}
           {...b}

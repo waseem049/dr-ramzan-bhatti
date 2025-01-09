@@ -6,13 +6,11 @@ import { Icon } from "../Icon";
 import Link from "next/link";
 
 type AdminBlogCardProps = Blog & {
-  onAdminPanel: boolean;
   selectedBlog?: Blog | null;
   setSelectedBlog?: Dispatch<SetStateAction<Blog | null>>;
 };
 
 export const AdminBlogCard: React.FC<AdminBlogCardProps> = ({
-  onAdminPanel = false,
   selectedBlog,
   setSelectedBlog,
   ...blog
@@ -23,7 +21,7 @@ export const AdminBlogCard: React.FC<AdminBlogCardProps> = ({
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    if (onAdminPanel && setSelectedBlog) {
+    if (setSelectedBlog) {
       setSelectedBlog(isSelected ? null : blog);
     }
   };
@@ -63,16 +61,21 @@ export const AdminBlogCard: React.FC<AdminBlogCardProps> = ({
                 {blog.category}
               </span>
             )}
-            {onAdminPanel && (
-              <div
-                className="absolute top-4 right-4 bg-blue-100 px-3 py-1 rounded-full flex flex-row gap-3 items-center cursor-pointer"
-                onClick={(e) => handleClick(e)}
-                onMouseDown={(e) => e.preventDefault()}
-              >
-                <Icon iconName="editDoc" />
-                <h1 className="font-poppinsRegular text-xs">Select To Edit</h1>
-              </div>
-            )}
+
+            <div
+              className="absolute top-4 right-4 bg-blue-100 px-3 py-1 rounded-full flex flex-row gap-3 items-center cursor-pointer"
+              onClick={(e) => handleClick(e)}
+              onMouseDown={(e) => e.preventDefault()}
+            >
+              <Icon iconName="editDoc" />
+              <h1 className="font-poppinsRegular text-xs">Select To Edit</h1>
+            </div>
+
+            <div className="absolute top-12 right-4 bg-blue-100 px-3 py-1 rounded-full">
+              <h1 className="font-poppinsRegular text-black text-xs">
+                {blog.status}
+              </h1>
+            </div>
           </div>
         </Link>
 

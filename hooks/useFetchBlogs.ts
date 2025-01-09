@@ -6,6 +6,7 @@ export const useFetchBlogs = (skip: number, take: number) => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<ApiResponse | null>(null);
+  const [count, setCount] = useState<number>(0);
 
   const fetchBlogs = async () => {
     setIsLoading(true);
@@ -23,6 +24,7 @@ export const useFetchBlogs = (skip: number, take: number) => {
 
       if (data.success && data.response === ApiResponse.FETCH_SUCCESS) {
         setBlogs(data.data?.blogs as Blog[]);
+        setCount(data.data?.count as number);
       } else {
         setError(data.response);
         throw new Error(data.error);
@@ -42,6 +44,7 @@ export const useFetchBlogs = (skip: number, take: number) => {
 
   return {
     blogs,
+    count,
     isLoading,
     error,
   };

@@ -1,4 +1,3 @@
-import { Footer } from "@/components";
 import { AboutSection } from "./components/AboutSection";
 import { BlogsSection } from "./components/BlogsSection";
 import { FaqSection } from "./components/FaqSection";
@@ -15,7 +14,6 @@ export const HomePage = () => {
       <FaqSection />
       <FeedbackSection />
       <BlogsSection />
-      <Footer />
     </div>
   );
 };

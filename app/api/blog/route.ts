@@ -1,32 +1,14 @@
 import prisma from "@/utils/prisma";
 import { ApiResponse } from "@/utils/types";
+import { BlogStatus } from "@prisma/client";
 import { NextResponse } from "next/server";
-
-// export async function GET() {
-//   try {
-//     const blogs = await prisma.blog.findMany();
-//     return NextResponse.json(blogs);
-//   } catch (error) {
-//     console.error(error);
-//     return NextResponse.json(
-//       {
-//         success: false,
-//         response: ApiResponse.FETCH_FAILURE,
-//         error: "Error Fetching Blogs",
-//       },
-//       { status: 500 }
-//     );
-//   }
-// }
 
 export async function GET(req: Request) {
   try {
-    // Get the URL object from the request
     const { searchParams } = new URL(req.url);
 
-    // Get skip and take from query parameters, with defaults
     const skip = parseInt(searchParams.get("skip") ?? "0");
-    const take = parseInt(searchParams.get("take") ?? "10"); // Default to 10 items per page
+    const take = parseInt(searchParams.get("take") ?? "10");
 
     // Get blogs with pagination
     const blogs = await prisma.blog.findMany({
@@ -34,6 +16,9 @@ export async function GET(req: Request) {
       take,
       orderBy: {
         createdAt: "desc",
+      },
+      where: {
+        status: BlogStatus.PUBLISHED,
       },
     });
 

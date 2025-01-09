@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 export const Footer = () => {
   const pathname = usePathname();
 
-  if (pathname === "/admin" || pathname === "/login") {
+  if (pathname.startsWith("/admin") || pathname.startsWith("/login")) {
     return null;
   }
   return (
@@ -83,7 +83,7 @@ export const Footer = () => {
           <div className="flex flex-row items-center gap-4">
             <Icon iconName={"email"} className="text-white" />
             <Link
-              href="/"
+              href="/contact-us"
               className="text-white font-poppinsRegular text-[16px] hover:underline"
             >
               Contact Us
