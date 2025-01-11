@@ -58,49 +58,49 @@ export const TreatmentsList = [
     treatment: "Joint Replacement",
     description:
       "Advanced surgical procedure to replace damaged joints with artificial implants, restoring mobility and reducing chronic pain.",
-    icon: "/svgs/stethoscope.svg",
+    icon: "/svgs/joint_replacement.svg",
   },
   {
     treatment: "Total Knee Replacement",
     description:
       "Complete replacement of damaged knee joint surfaces with prosthetic components to restore function and eliminate arthritis pain.",
-    icon: "/svgs/stethoscope.svg",
+    icon: "/svgs/total_knee_replacement.svg",
   },
   {
     treatment: "Arthroscopic Surgery",
     description:
       "Minimally invasive procedure using tiny cameras and instruments to diagnose and treat joint problems through small incisions.",
-    icon: "/svgs/stethoscope.svg",
+    icon: "/svgs/arthroscopic_surgery.svg",
   },
   {
     treatment: "Hip Replacement",
     description:
       "Surgical replacement of damaged hip joint with prosthetic ball and socket to improve mobility and reduce pain.",
-    icon: "/svgs/stethoscope.svg",
+    icon: "/svgs/hip_replacement.svg",
   },
   {
     treatment: "Orthopedic Trauma",
     description:
       "Specialized care for severe injuries to bones, joints, and soft tissues, including fractures and complex wound management.",
-    icon: "/svgs/stethoscope.svg",
+    icon: "/svgs/orthopedic_trauma.svg",
   },
   {
     treatment: "Ilizarov Fixation",
     description:
       "External frame system using rings and wires to gradually correct complex bone deformities and heal difficult fractures.",
-    icon: "/svgs/stethoscope.svg",
+    icon: "/svgs/ilizarov_fixation.svg",
   },
   {
     treatment: "Deformity Correction",
     description:
       "Surgical and non-surgical techniques to correct bone and joint misalignments, improving function and appearance of affected limbs.",
-    icon: "/svgs/stethoscope.svg",
+    icon: "/svgs/deformity_correction.svg",
   },
   {
     treatment: "3D Navigated Total Knee Replacement",
     description:
       "Advanced knee replacement using 3D computer guidance for precise implant positioning and improved surgical outcomes.",
-    icon: "/svgs/stethoscope.svg",
+    icon: "/svgs/3d_total_knee_replacement.svg",
   },
 ];
 

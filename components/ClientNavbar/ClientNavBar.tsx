@@ -43,7 +43,7 @@ export const ClientNavBar: React.FC = () => {
           className="logo-container"
           style={{
             backgroundImage: `url(${
-              hasScrolled ? "/svgs/white_logo.svg" : "/svgs/primary_logo.svg"
+              hasScrolled ? "/svgs/logo_white.svg" : "/svgs/logo_black.svg"
             })`,
           }}
         />

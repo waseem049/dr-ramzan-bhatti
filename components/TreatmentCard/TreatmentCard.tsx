@@ -19,7 +19,7 @@ export const TreatmentCard: React.FC<TreatmentCardProps> = ({
           {description}
         </p>
       </div>
-      <div className="bg-lightPrimary rounded-md flex justify-center items-center min-w-[25vw] min-h-[25vw] max-w-[25vw] max-h-[25vw] lg:min-w-[7vw]  lg:min-h-[7vw] lg:max-w-[7vw] lg:max-h-[7vw] ">
+      <div className="bg-primary rounded-md flex justify-center items-center min-w-[25vw] min-h-[25vw] max-w-[25vw] max-h-[25vw] lg:min-w-[7vw]  lg:min-h-[7vw] lg:max-w-[7vw] lg:max-h-[7vw] ">
         <div
           style={{ backgroundImage: `url(${icon})` }}
           className="w-[20vw] h-[20vw] lg:w-[5vw] lg:h-[5vw] bg-center bg-cover"

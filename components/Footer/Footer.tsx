@@ -14,7 +14,7 @@ export const Footer = () => {
       <div className="w-full flex flex-col gap-10 lg:gap-0 items-center lg:flex-row lg:justify-evenly lg:items-start">
         <div
           className="logo-container flex lg:hidden"
-          style={{ backgroundImage: "url(/svgs/white_logo.svg)" }}
+          style={{ backgroundImage: "url(/svgs/logo_white.svg)" }}
         />
         <div className="flex flex-col items-center lg:items-start gap-4 ">
           <div className="flex flex-col">
@@ -44,7 +44,7 @@ export const Footer = () => {
         </div>
         <div
           className="logo-container hidden lg:flex"
-          style={{ backgroundImage: "url(/svgs/white_logo.svg)" }}
+          style={{ backgroundImage: "url(/svgs/logo_white.svg)" }}
         />
         <div className="flex flex-col items-center lg:items-start gap-4 ">
           <div className="flex flex-col">
