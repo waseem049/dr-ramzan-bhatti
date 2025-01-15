@@ -10,7 +10,7 @@ export const FaqSection = () => {
       />
       <div className="w-full lg:w-[50%] rounded-md pt-5 flex flex-col gap-5">
         <h1 className="text-primary text-[28px] font-poppinsRegular text-center lg:text-left">
-          ABOUT
+          FAQs
         </h1>
         <AccordionList accordianItems={FAQs} />
       </div>

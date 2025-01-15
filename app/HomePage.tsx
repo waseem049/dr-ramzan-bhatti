@@ -1,5 +1,6 @@
 import { AboutSection } from "./components/AboutSection";
 import { BlogsSection } from "./components/BlogsSection";
+import { Counter } from "./components/Counter";
 import { FaqSection } from "./components/FaqSection";
 import { FeedbackSection } from "./components/FeedbackSection";
 import { HeroSection } from "./components/HeroSection";
@@ -12,6 +13,7 @@ export const HomePage = () => {
       <AboutSection />
       <TreatmentsSection />
       <FaqSection />
+      <Counter />
       <FeedbackSection />
       <BlogsSection />
     </div>

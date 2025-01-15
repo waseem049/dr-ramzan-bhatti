@@ -10,7 +10,7 @@ export const TreatmentCard: React.FC<TreatmentCardProps> = ({
   icon,
 }) => {
   return (
-    <div className="p-4 rounded-md shadow-md flex flex-row items-center gap-3 w-full lg:w-[29vw] hover:scale-[105%] cursor-pointer transition-all duration-300 ease-in-out">
+    <div className="p-4 rounded-md shadow-md flex flex-row items-center gap-3 w-full lg:w-[29vw] lg:hover:-translate-y-2 cursor-pointer transition-all duration-300 ease-in-out">
       <div className="flex flex-col gap-3">
         <h1 className="font-poppinsRegular text-black text-[28px]">
           {treatment}

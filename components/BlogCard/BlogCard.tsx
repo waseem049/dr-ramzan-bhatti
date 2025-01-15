@@ -18,7 +18,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   const url = `/blogs/${slug}`;
   return (
     <Link href={url}>
-      <div className="w-full lg:w-[30vw] h-[80vh] lg:h-[80vh] shadow-lg rounded-md overflow-hidden lg:hover:scale-[105%] transition-all duration-300 ease-in-out cursor-pointer border border-primary">
+      <div className="w-full lg:w-[30vw] h-[80vh] lg:h-[80vh] shadow-lg rounded-md overflow-hidden lg:hover:-translate-y-1 lg:transition-all lg:duration-300 lg:ease-in-out cursor-pointer border border-primary">
         <div
           className="w-full h-[50%] bg-center bg-cover relative"
           style={{

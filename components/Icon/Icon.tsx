@@ -12,6 +12,7 @@ import {
   faEnvelope,
   faFilePen,
   faHouse,
+  faMapLocation,
   faPhone,
   faPlus,
   faRightFromBracket,
@@ -47,6 +48,7 @@ const IconMap: Record<string, IconDefinition> = {
   home: faHouse,
   blog: faBlog,
   about: faAddressCard,
+  location: faMapLocation,
 };
 
 export const Icon: React.FC<IconProps> = ({
