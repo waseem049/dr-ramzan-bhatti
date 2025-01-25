@@ -1,5 +1,4 @@
 import axios, { AxiosResponse } from "axios";
-import { uploadApiEndpoint } from "@/utils/constants";
 type UploadResponse = {
   url: string;
 };
@@ -14,7 +13,7 @@ export async function uploadFile(f: File): Promise<string | null> {
       "Content-Type": "multipart/form-data",
     },
   };
-  const uploadImageAPI = `${uploadApiEndpoint}/upload`;
+  const uploadImageAPI = `/api/upload`;
   try {
     const response: AxiosResponse<UploadResponse> = await axios.post(
       uploadImageAPI,

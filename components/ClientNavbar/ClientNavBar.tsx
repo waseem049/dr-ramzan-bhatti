@@ -32,6 +32,8 @@ export const ClientNavBar: React.FC = () => {
     return null;
   }
 
+  const showLogo = false;
+
   return (
     <nav
       className={`w-full py-2 px-4 lg:px-10 fixed z-10 transition-colors duration-300 ${
@@ -39,14 +41,54 @@ export const ClientNavBar: React.FC = () => {
       }`}
     >
       <div className="flex justify-between items-center">
-        <div
-          className="logo-container"
-          style={{
-            backgroundImage: `url(${
-              hasScrolled ? "/svgs/logo_white.svg" : "/svgs/logo_black.svg"
-            })`,
-          }}
-        />
+        {showLogo ? (
+          <div
+            className="logo-container"
+            style={{
+              backgroundImage: `url(${
+                hasScrolled ? "/svgs/logo_white.svg" : "/svgs/logo_black.svg"
+              })`,
+            }}
+          />
+        ) : (
+          <div className="flex flex-col">
+            <h1
+              className={`font-poppinsRegular text-[16px] lg:text-[22px] ${
+                hasScrolled ? "text-primary" : "text-primary"
+              }`}
+            >
+              Dr Jibran Bashir
+            </h1>
+            <p
+              className={`font-poppinsRegular text-[10px] lg:text-[12px] ${
+                hasScrolled ? "text-white" : "text-black"
+              }`}
+            >
+              Consultant Orthopedic Surgeon
+            </p>
+            <p
+              className={`font-poppinsRegular text-[10px] lg:text-[12px] ${
+                hasScrolled ? "text-white" : "text-black"
+              }`}
+            >
+              MBBS, D-Ortho, DNB Orthopedics
+            </p>
+            <p
+              className={`font-poppinsRegular text-[10px] lg:text-[12px] ${
+                hasScrolled ? "text-white" : "text-black"
+              }`}
+            >
+              MNAMS, Fellowship Hip Arthroplasty and
+            </p>
+            <p
+              className={`font-poppinsRegular text-[10px] lg:text-[12px] ${
+                hasScrolled ? "text-white" : "text-black"
+              }`}
+            >
+              Advanced Knee Arthroscopy, Germany
+            </p>
+          </div>
+        )}
 
         {/* Desktop Navigation */}
         <div className="hidden lg:block">

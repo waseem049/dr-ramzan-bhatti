@@ -3,7 +3,7 @@ import {
   FileInputBox,
   FormButton,
   InputBox,
-  MultiFileInputBox,
+  // MultiFileInputBox,
   SelectInput,
   TextEditor,
 } from "@/components";
@@ -39,10 +39,10 @@ const blogValidationSchema = Yup.object().shape({
     .required("Description is required")
     .min(50, "Description must be at least 50 characters"),
 
-  media: Yup.array()
-    .of(Yup.string())
-    .min(1, "Minimum One Image")
-    .required("Media is required"),
+  // media: Yup.array()
+  //   .of(Yup.string())
+  //   .min(1, "Minimum One Image")
+  //   .required("Media is required"),
 
   author: Yup.string()
     .required("Author is required")
@@ -104,7 +104,8 @@ export const UpdateBlog: React.FC<UpdateBlogProps> = ({
     content: blog?.content || "",
     coverImage: blog?.coverImage || "",
     category: Categories.find((c) => c.value === blog?.category) || null,
-    media: blog?.media || [],
+    // media: blog?.media || [],
+    media: [],
     author: blog?.author || "",
     excerpt: blog?.excerpt || "",
     isFeatured:
@@ -131,7 +132,8 @@ export const UpdateBlog: React.FC<UpdateBlogProps> = ({
           content: values.content,
           coverImage: values.coverImage,
           category: values?.category?.value as string,
-          media: !values.media.length ? [] : values.media,
+          media: [],
+          // media: !values.media.length ? [] : values.media,
           author: values.author,
           excerpt: values.excerpt,
           isFeatured: values.isFeatured.value as boolean,
@@ -147,7 +149,8 @@ export const UpdateBlog: React.FC<UpdateBlogProps> = ({
           content: values.content,
           coverImage: values.coverImage,
           category: values?.category?.value as string,
-          media: !values.media.length ? [] : values.media,
+          // media: !values.media.length ? [] : values.media,
+          media: [],
           author: values.author,
           excerpt: values.excerpt,
           isFeatured: values.isFeatured.value as boolean,
@@ -254,11 +257,13 @@ export const UpdateBlog: React.FC<UpdateBlogProps> = ({
                   name={"coverImage"}
                   className="w-full md:w-[22%] "
                 />
+                {/*
                 <MultiFileInputBox
                   label={"Media"}
                   name={"media"}
                   className="w-full md:w-[75%] "
                 />
+               */}
               </div>
               <div className="w-full">
                 <InputBox

@@ -24,3 +24,4 @@ export * from "./SimiliarBlogList";
 export * from "./BlogList";
 export * from "./PaginationBar";
 export * from "./AnimatedNumber";
+export * from "./CareerHighlightsCard";

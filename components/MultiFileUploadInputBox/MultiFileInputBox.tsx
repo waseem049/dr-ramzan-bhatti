@@ -3,7 +3,7 @@ import React, { ChangeEvent, useRef, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import { useField } from "formik";
 import Image from "next/image";
-import { uploadApiEndpoint } from "@/utils/constants";
+// import { uploadApiEndpoint } from "@/utils/constants";
 import { Icon } from "../Icon";
 
 export type MultiFileInputBoxProps = {
@@ -30,7 +30,7 @@ async function uploadMultipleFiles(files: File[]): Promise<string[] | null> {
       "Content-Type": "multipart/form-data",
     },
   };
-  const uploadImageAPI = `${uploadApiEndpoint}/multiUpload`;
+  const uploadImageAPI = `/api/upload`;
 
   try {
     const response: AxiosResponse<UploadResponse> = await axios.post(

@@ -92,7 +92,7 @@ export const Footer = () => {
           <div className="flex flex-row items-center gap-4">
             <Icon iconName={"about"} className="text-white" />
             <Link
-              href="#about"
+              href="/about"
               className="text-white font-poppinsRegular text-[16px] hover:underline"
             >
               About

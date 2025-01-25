@@ -1,7 +1,5 @@
 import { BlogStatus, Salutation } from "@prisma/client";
 
-export const uploadApiEndpoint = process.env.NEXT_PUBLIC_UPLOAD_ENDPOINT;
-
 export const AdminNavBarData = [
   { label: "Home", href: "/" },
   { label: "Admin", href: "/admin" },
@@ -20,7 +18,7 @@ export const NavBarData = [
   },
   {
     label: "ABOUT",
-    href: "/#about",
+    href: "/about",
   },
 
   {
@@ -157,3 +155,47 @@ export const Testimonials = [
     displayPicture: "/images/male_placeholder.png",
   },
 ];
+
+export const CareerHighlights = {
+  qualification: {
+    heading: "QUALIFICATION",
+    highlights: [
+      "Fellowship in Adult Hip Reconstruction and Knee Arthroscopy, RWTH University, Germany",
+      "DNB in Orthopaedic Surgery, National Board of Examinations, New Delhi",
+      "Diploma in Orthopaedic Surgery, Government Medical College, Jammu",
+      "MBBS, BVP Medical College, Pune",
+    ],
+  },
+  careerHighlights: {
+    heading: "CAREER HIGHLIGHTS",
+    highlights: [
+      "Extensive experience in performing complex orthopaedic trauma, primary & revision knee & hip replacement surgeries, and knee arthroscopy",
+      "Delivered multiple guest lectures at prestigious institutions",
+      "Published research papers in reputed Orthopaedic Journals",
+      "Authored several chapters in Orthopaedic textbooks",
+      "Multiple national podium and poster presentations",
+      "Trained in Robotic-Assisted Hip and Knee Arthroplasty",
+    ],
+  },
+  workExperience: {
+    heading: "WORK EXPERIENCE",
+    highlights: [
+      "Post-Graduate Resident in Orthopaedics (2015-2018), Government Medical College, Jammu, India",
+      "DNB Resident in Orthopaedics (2019-2021), AIMS, Faridabad (Under NBE New Delhi)",
+      "Registrar Orthopaedics (2021-2024), SKIMS Medical College Hospital, Srinagar",
+      "Fellow in Adult Hip Reconstruction, Joint Replacement, and Advanced Knee Arthroscopy (2024), RWTH University, Germany",
+      "Consultant Orthopaedics (2024-2025), Amrita Hospital, Faridabad",
+    ],
+  },
+  affiliations: {
+    heading: "AFFILIATIONS",
+    highlights: [
+      "Member, AO Switzerland",
+      "Member, British Orthopaedic Society",
+      "Member, The International Society of Arthroscopy, Knee Surgery and Orthopaedic Sports Medicine (ISAKOS)",
+      "Member, Société Internationale de Chirurgie Orthopédique et de Traumatologie (SICOT), Belgium",
+      "Member, Indian Orthopaedic Association",
+      "Member, National Academy of Medical Sciences (MNAMS)",
+    ],
+  },
+};
