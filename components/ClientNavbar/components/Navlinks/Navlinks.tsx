@@ -9,7 +9,11 @@ export const Navlinks: React.FC<NavlinksProps> = ({ pathname }) => {
   return (
     <div className="bg-primary p-[4px] flex flex-row rounded-[3px]">
       {NavBarData.map((l, i) => {
-        const isActivePath = pathname === l.href;
+        const isActivePath =
+          l.href === "/"
+            ? pathname === "/"
+            : pathname === l.href || pathname.startsWith(l.href + "/");
+
         return (
           <div
             key={i}
