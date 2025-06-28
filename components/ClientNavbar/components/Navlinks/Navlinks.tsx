@@ -3,11 +3,25 @@ import Link from "next/link";
 
 type NavlinksProps = {
   pathname: string;
+  hasScrolled: boolean;
+  isHomePage: boolean;
 };
 
-export const Navlinks: React.FC<NavlinksProps> = ({ pathname }) => {
+export const Navlinks: React.FC<NavlinksProps> = ({
+  pathname,
+  hasScrolled,
+  isHomePage,
+}) => {
+  const isDarkMode = hasScrolled || !isHomePage;
+
   return (
-    <div className="bg-primary p-[4px] flex flex-row rounded-[3px]">
+    <div
+      className={`flex items-center rounded-lg p-1 transition-all duration-300 ${
+        isDarkMode
+          ? "bg-gray-100 shadow-sm"
+          : "bg-white/10 backdrop-blur-sm border border-white/20"
+      }`}
+    >
       {NavBarData.map((l, i) => {
         const isActivePath =
           l.href === "/"
@@ -15,21 +29,28 @@ export const Navlinks: React.FC<NavlinksProps> = ({ pathname }) => {
             : pathname === l.href || pathname.startsWith(l.href + "/");
 
         return (
-          <div
+          <Link
             key={i}
-            className={`${
-              isActivePath ? "bg-white" : "transparent"
-            } rounded-[3px]`}
+            href={l.href}
+            className={`relative px-4 lg:px-6 py-2 text-sm lg:text-base font-montserratSemibold rounded-md transition-all duration-300 ${
+              isActivePath
+                ? isDarkMode
+                  ? "bg-primary text-white shadow-sm"
+                  : "bg-primary text-white shadow-lg"
+                : isDarkMode
+                ? "text-gray-700 hover:text-primary hover:bg-primary/5"
+                : "text-white hover:text-primary hover:bg-white/10"
+            }`}
           >
-            <Link
-              href={l.href}
-              className={`px-8 py-1 text-[25px] ${
-                isActivePath ? "text-primary" : "text-white"
-              }`}
-            >
-              {l.label}
-            </Link>
-          </div>
+            {l.label}
+            {isActivePath && (
+              <div
+                className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full ${
+                  isDarkMode ? "bg-white" : "bg-white"
+                }`}
+              />
+            )}
+          </Link>
         );
       })}
     </div>
