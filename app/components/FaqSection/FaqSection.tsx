@@ -1,6 +1,6 @@
 "use client";
 import { AccordionList } from "@/components";
-import { FAQs } from "@/utils/constants";
+import { FAQs, images } from "@/utils/constants";
 import { Icon } from "@/components";
 import { useState } from "react";
 
@@ -54,7 +54,7 @@ export const FaqSection = () => {
               {/* Main Image */}
               <div
                 className="w-full h-[400px] lg:h-[600px] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: `url("/images/faq_image.png")` }}
+                style={{ backgroundImage: `url(${images.jThree})` }}
               />
 
               {/* Gradient Overlay */}

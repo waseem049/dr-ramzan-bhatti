@@ -1,5 +1,11 @@
 import { BlogStatus, Salutation } from "@prisma/client";
 
+export const images = {
+  jOne: "https://harud.s3.ap-south-1.amazonaws.com/1751178403906.jpeg",
+  jTwo: "https://harud.s3.ap-south-1.amazonaws.com/1751178459126.jpeg",
+  jThree: "https://harud.s3.ap-south-1.amazonaws.com/1751178510283.jpeg",
+};
+
 export const AdminNavBarData = [
   { label: "Home", href: "/" },
   { label: "Admin", href: "/admin" },

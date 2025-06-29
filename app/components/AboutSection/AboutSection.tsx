@@ -1,4 +1,5 @@
 import { Icon } from "@/components";
+import { images } from "@/utils/constants";
 
 export const AboutSection = () => {
   const achievements = [
@@ -55,8 +56,8 @@ export const AboutSection = () => {
             <div className="relative overflow-hidden rounded-2xl shadow-2xl">
               {/* Main Image */}
               <div
-                className="w-full h-[400px] lg:h-[600px] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: `url("/images/about_image.png")` }}
+                className="w-full h-[500px] lg:h-[700px] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                style={{ backgroundImage: `url(${images.jTwo})` }}
               />
 
               {/* Gradient Overlay */}

@@ -1,5 +1,6 @@
 import { Icon } from "@/components";
 import Link from "next/link";
+import { images } from "@/utils/constants";
 
 export const HeroSection = () => {
   return (
@@ -7,7 +8,7 @@ export const HeroSection = () => {
       {/* Background Image with Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url("/images/hero_image.png")` }}
+        style={{ backgroundImage: `url(${images.jOne})` }}
       />
 
       {/* Gradient Overlays for better text readability */}
@@ -124,16 +125,6 @@ export const HeroSection = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex flex-col items-center gap-2 text-white/70 animate-bounce">
-          <span className="text-sm font-montserratRegular">
-            Scroll to explore
-          </span>
-          <Icon iconName="caretRight" className="rotate-90" />
         </div>
       </div>
 

@@ -21,14 +21,14 @@ export const Footer = () => {
 
   const locations = [
     {
-      name: "PC Depot, Parimpora",
-      address: "Parimpora, Srinagar, J&K",
-      timing: "Mon-Sat: 9:00 AM - 6:00 PM",
+      name: "BoneSense Joint Care Clinic",
+      address: "PC Depot, Parimpora, Srinagar, J&K",
+      // timing: "Mon-Sat: 9:00 AM - 6:00 PM",
     },
     {
-      name: "Khyber Medicose",
-      address: "Sopore, J&K",
-      timing: "Mon-Fri: 10:00 AM - 5:00 PM",
+      name: "Kawoosa Hospital",
+      address: "Umerabad, Srinagar, J&K",
+      // timing: "Mon-Fri: 10:00 AM - 5:00 PM",
     },
   ];
 
@@ -167,7 +167,7 @@ export const Footer = () => {
 
                 {/* Primary Contact */}
                 <div className="space-y-4">
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-center gap-3">
                     <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Icon iconName="phone" className="text-primary text-xs" />
                     </div>
@@ -178,11 +178,24 @@ export const Footer = () => {
                       >
                         +91-8491049816
                       </Link>
-                      <p className="text-gray-400 text-xs">24/7 Emergency</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon iconName="phone" className="text-primary text-xs" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <Link
+                        href="tel:+918491049816"
+                        className="text-white font-montserratSemibold hover:text-primary transition-colors duration-300 text-sm block"
+                      >
+                        +91-8491999816
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 hidden">
                     <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Icon iconName="email" className="text-primary text-xs" />
                     </div>
@@ -218,9 +231,9 @@ export const Footer = () => {
                             <p className="text-gray-400 text-xs">
                               {location.address}
                             </p>
-                            <p className="text-gray-500 text-xs">
+                            {/* <p className="text-gray-500 text-xs">
                               {location.timing}
-                            </p>
+                            </p> */}
                           </div>
                         </div>
                       </div>
@@ -230,7 +243,7 @@ export const Footer = () => {
               </div>
 
               {/* Newsletter & Emergency */}
-              <div className="space-y-6">
+              <div className="space-y-6 hidden">
                 <div className="space-y-3">
                   <h3 className="text-white font-montserratBold text-lg">
                     Stay Connected

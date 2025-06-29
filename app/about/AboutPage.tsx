@@ -1,6 +1,6 @@
 "use client";
 import { CareerHighlightsCard } from "@/components";
-import { CareerHighlights } from "@/utils/constants";
+import { CareerHighlights, images } from "@/utils/constants";
 import { Icon } from "@/components";
 import { useState } from "react";
 
@@ -96,9 +96,12 @@ export const AboutPage = () => {
               <div className="relative">
                 <div className="aspect-square bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl">
                   <div className="w-full h-full bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center">
-                    <div className="w-32 h-32 bg-white/20 rounded-full flex items-center justify-center">
-                      <Icon iconName="about" className="text-white" size="4x" />
-                    </div>
+                    <div
+                      className="w-full h-full bg-cover bg-center bg-no-repeat"
+                      style={{
+                        backgroundImage: `url(${images.jOne})`,
+                      }}
+                    />
                   </div>
                 </div>
 
