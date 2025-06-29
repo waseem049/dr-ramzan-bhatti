@@ -3,11 +3,11 @@ import { images } from "@/utils/constants";
 
 export const AboutSection = () => {
   const achievements = [
-    {
-      icon: "about",
-      title: "Fellowship Germany",
-      description: "RWTH University Hip & Knee Expertise",
-    },
+    // {
+    //   icon: "about",
+    //   title: "Fellowship Germany",
+    //   description: "RWTH University Hip & Knee Expertise",
+    // },
     {
       icon: "calendar",
       title: "10+ Years",
@@ -22,10 +22,10 @@ export const AboutSection = () => {
 
   const credentials = [
     "MBBS",
+    "DNB Orthopaedics",
     "D.Ortho",
-    "DNB Orthopedics",
     "MNAMS",
-    "Fellowship Germany",
+    "Fellowship in Joint Replacement and Knee Arthroscopy",
   ];
 
   return (
@@ -168,8 +168,7 @@ export const AboutSection = () => {
                 {[
                   "Robotic Joint Replacement",
                   "Trauma Care & Sports Medicine",
-                  "Advanced Joint Replacement",
-                  "Evidence-Based Practices",
+                  "Complex and Revision Joint Replacement",
                 ].map((specialty, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-primary rounded-full" />
@@ -179,22 +178,6 @@ export const AboutSection = () => {
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* CTA Section */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button className="group inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white font-montserratSemibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
-                <Icon
-                  iconName="calendar"
-                  className="text-white group-hover:animate-pulse"
-                />
-                <span>Schedule Consultation</span>
-              </button>
-
-              <button className="group inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 border-2 border-primary text-primary font-montserratSemibold px-6 py-3 rounded-lg transition-all duration-300">
-                <Icon iconName="phone" className="text-primary" />
-                <span>Contact Dr. Bashir</span>
-              </button>
             </div>
           </div>
         </div>

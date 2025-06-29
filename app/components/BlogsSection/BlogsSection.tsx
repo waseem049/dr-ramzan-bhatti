@@ -67,7 +67,7 @@ export const BlogsSection = () => {
         </div>
 
         {/* Newsletter Subscription */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12 border border-gray-100 mb-12">
+        <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12 border border-gray-100 mb-12 hidden">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -133,11 +133,6 @@ export const BlogsSection = () => {
                   className="text-white group-hover:translate-x-1 transition-transform duration-300"
                 />
               </Link>
-
-              <button className="group inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-50 border-2 border-primary text-primary font-montserratSemibold text-lg px-8 py-4 rounded-lg transition-all duration-300">
-                <Icon iconName="about" className="text-primary" />
-                <span>Browse by Category</span>
-              </button>
             </div>
           </div>
         </div>

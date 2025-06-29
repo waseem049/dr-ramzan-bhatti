@@ -1,6 +1,7 @@
 "use client";
 import { AnimatedNumber } from "@/components";
 import { Icon } from "@/components";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export const Counter = () => {
@@ -212,18 +213,16 @@ export const Counter = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end">
-                <button className="group inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-primary font-montserratBold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                <Link
+                  href={"/contact-us"}
+                  className="group inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-primary font-montserratBold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
                   <Icon
                     iconName="calendar"
                     className="text-primary group-hover:animate-pulse"
                   />
                   <span>Schedule Consultation</span>
-                </button>
-
-                <button className="group inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white text-white font-montserratBold text-lg px-8 py-4 rounded-lg transition-all duration-300">
-                  <Icon iconName="phone" className="text-white" />
-                  <span>Call Now</span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>

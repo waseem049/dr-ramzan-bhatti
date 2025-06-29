@@ -3,6 +3,7 @@ import { CareerHighlightsCard } from "@/components";
 import { CareerHighlights, images } from "@/utils/constants";
 import { Icon } from "@/components";
 import { useState } from "react";
+import Link from "next/link";
 
 export const AboutPage = () => {
   const [activeSection, setActiveSection] = useState("qualification");
@@ -268,18 +269,16 @@ export const AboutPage = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="group inline-flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 text-white font-montserratSemibold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
+              <Link
+                href={"/contact-us"}
+                className="group inline-flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 text-white font-montserratSemibold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105"
+              >
                 <Icon
                   iconName="calendar"
                   className="text-white group-hover:animate-pulse"
                 />
                 <span>Schedule Consultation</span>
-              </button>
-
-              <button className="group inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-50 border-2 border-primary text-primary font-montserratSemibold text-lg px-8 py-4 rounded-lg transition-all duration-300">
-                <Icon iconName="phone" className="text-primary" />
-                <span>Contact Office</span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

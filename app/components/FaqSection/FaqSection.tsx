@@ -63,7 +63,7 @@ export const FaqSection = () => {
               {/* Floating Info Card */}
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-lg">
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center gap-3">
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                       <Icon
                         iconName="about"
@@ -78,23 +78,6 @@ export const FaqSection = () => {
                       <p className="text-gray-600 text-sm font-poppinsRegular">
                         Personalized answers to your questions
                       </p>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4 text-center">
-                    <div>
-                      <div className="text-2xl font-montserratBold text-primary">
-                        24/7
-                      </div>
-                      <div className="text-xs text-gray-600">
-                        Support Available
-                      </div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-montserratBold text-primary">
-                        15min
-                      </div>
-                      <div className="text-xs text-gray-600">Response Time</div>
                     </div>
                   </div>
                 </div>
@@ -158,65 +141,6 @@ export const FaqSection = () => {
                   </p>
                 </div>
               )}
-            </div>
-
-            {/* Quick Contact Section */}
-            <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl p-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Icon iconName="phone" className="text-primary" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-montserratBold text-gray-900 text-lg mb-2">
-                    Still Have Questions?
-                  </h3>
-                  <p className="text-gray-600 font-poppinsRegular text-sm mb-4">
-                    Our medical team is here to provide personalized answers to
-                    your specific concerns.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <button className="group inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white font-montserratSemibold px-4 py-2 rounded-lg transition-all duration-300">
-                      <Icon
-                        iconName="phone"
-                        className="text-white group-hover:animate-pulse"
-                      />
-                      <span>Call Now</span>
-                    </button>
-                    <button className="group inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 border border-primary text-primary font-montserratSemibold px-4 py-2 rounded-lg transition-all duration-300">
-                      <Icon iconName="email" className="text-primary" />
-                      <span>Send Message</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom CTA Section */}
-        <div className="mt-16 lg:mt-20">
-          <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12 border border-gray-100 text-center">
-            <h3 className="text-2xl lg:text-3xl font-montserratBold text-gray-900 mb-4">
-              Ready to Schedule Your Consultation?
-            </h3>
-            <p className="text-gray-600 font-poppinsRegular text-base lg:text-lg mb-8 max-w-2xl mx-auto">
-              Get personalized answers and discuss your treatment options with
-              Dr. Jibran Bashir.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="group inline-flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 text-white font-montserratSemibold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
-                <Icon
-                  iconName="calendar"
-                  className="text-white group-hover:animate-pulse"
-                />
-                <span>Book Appointment</span>
-              </button>
-
-              <button className="group inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-50 border-2 border-primary text-primary font-montserratSemibold text-lg px-8 py-4 rounded-lg transition-all duration-300">
-                <Icon iconName="phone" className="text-primary" />
-                <span>Call (555) 123-4567</span>
-              </button>
             </div>
           </div>
         </div>

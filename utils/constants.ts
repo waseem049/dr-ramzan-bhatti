@@ -112,12 +112,12 @@ export const FAQs = [
   {
     question: "Whats the cost involved in knee surgery?",
     answer:
-      "The cost of knee surgery varies between 2.5-3.5 lakhs for a basic implant, and 4.5-5.5 lakhs for premium implants. Additional costs include hospital stay, medications, and rehabilitation. Insurance coverage may significantly reduce out-of-pocket expenses.",
+      "The cost of knee surgery varies between 1.5 - 3.5 lakhs for a basic implant, and upto 4.5 lakhs for premium implants. Additional costs include hospital stay, medications, and rehabilitation. Insurance coverage may significantly reduce out-of-pocket expenses.",
   },
   {
     question: "How long rest is required after unicondilar Knee replacement?",
     answer:
-      "After unicondylar knee replacement, initial rest of 2-3 weeks is needed. Most patients can resume light activities within 4-6 weeks. Full recovery with physiotherapy typically takes 8-12 weeks, though individual healing times may vary.",
+      "After unicondylar knee replacement, No rest is needed. Patients walks next day of surgery can return to normal activities in 4 weeks.",
   },
   {
     question: "What is the success rate of a Total Hip Replacement Surgery?",
@@ -168,7 +168,7 @@ export const CareerHighlights = {
     highlights: [
       "Fellowship in Adult Hip Reconstruction and Knee Arthroscopy, RWTH University, Germany",
       "DNB in Orthopaedic Surgery, National Board of Examinations, New Delhi",
-      "Diploma in Orthopaedic Surgery, Government Medical College, Jammu",
+      "Post Graduation Diploma in Orthopaedic Surgery, Government Medical College, Jammu",
       "MBBS, BVP Medical College, Pune",
     ],
   },
@@ -186,11 +186,11 @@ export const CareerHighlights = {
   workExperience: {
     heading: "WORK EXPERIENCE",
     highlights: [
-      "Post-Graduate Resident in Orthopaedics (2015-2018), Government Medical College, Jammu, India",
-      "DNB Resident in Orthopaedics (2019-2021), AIMS, Faridabad (Under NBE New Delhi)",
-      "Registrar Orthopaedics (2021-2024), SKIMS Medical College Hospital, Srinagar",
-      "Fellow in Adult Hip Reconstruction, Joint Replacement, and Advanced Knee Arthroscopy (2024), RWTH University, Germany",
-      "Consultant Orthopaedics (2024-2025), Amrita Hospital, Faridabad",
+      "Consultant Orthopaedics, Amrita Hospital, Faridabad (Asia's Largest Hospital)",
+      "Fellow in Adult Hip Reconstruction, Joint Replacement, and Advanced Knee Arthroscopy, Germany",
+      "Registrar Orthopaedics, SKIMS Medical College Hospital, Srinagar",
+      "DNB Resident in Orthopaedics, AIMS, Faridabad (Under NBE New Delhi)",
+      "Post-Graduate Resident in Orthopaedics, Government Medical College, Jammu, India",
     ],
   },
   affiliations: {

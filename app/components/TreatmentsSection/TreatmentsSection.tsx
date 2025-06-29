@@ -1,6 +1,7 @@
 import { TreatmentCard } from "@/components";
 import { TreatmentsList } from "@/utils/constants";
 import { Icon } from "@/components";
+import Link from "next/link";
 
 export const TreatmentsSection = () => {
   // Featured treatments (first 3)
@@ -148,18 +149,16 @@ export const TreatmentsSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="group inline-flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 text-white font-montserratSemibold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+              <Link
+                href={"/contact-us"}
+                className="group inline-flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 text-white font-montserratSemibold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+              >
                 <Icon
                   iconName="calendar"
                   className="text-white group-hover:animate-pulse"
                 />
                 <span>Book Consultation</span>
-              </button>
-
-              <button className="group inline-flex items-center justify-center gap-3 bg-white hover:bg-gray-50 border-2 border-primary text-primary font-montserratSemibold text-lg px-8 py-4 rounded-lg transition-all duration-300">
-                <Icon iconName="phone" className="text-primary" />
-                <span>Call Now</span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

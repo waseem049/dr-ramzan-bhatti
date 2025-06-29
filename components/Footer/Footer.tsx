@@ -187,7 +187,7 @@ export const Footer = () => {
                     </div>
                     <div className="min-w-0 flex-1">
                       <Link
-                        href="tel:+918491049816"
+                        href="tel:+918491999816"
                         className="text-white font-montserratSemibold hover:text-primary transition-colors duration-300 text-sm block"
                       >
                         +91-8491999816
@@ -348,7 +348,7 @@ export const Footer = () => {
                 <div className="flex items-center gap-2">
                   <Icon iconName="calendar" className="text-primary text-xs" />
                   <span className="text-gray-400 font-montserratSemibold text-xs">
-                    Germany Fellowship
+                    Fellowship Trained
                   </span>
                 </div>
               </div>

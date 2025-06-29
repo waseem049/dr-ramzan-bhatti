@@ -76,7 +76,7 @@ export const ClientNavBar: React.FC = () => {
                   hasScrolled || !isHomePage ? "text-gray-600" : "text-gray-200"
                 }`}
               >
-                MBBS, D-Ortho, DNB Orthopedics, MNAMS
+                MBBS,DNB Orthopedics, D-Ortho, MNAMS
               </p>
               <p
                 className={`font-poppinsRegular text-[9px] lg:text-[11px] transition-colors duration-300 ${
