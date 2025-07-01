@@ -59,9 +59,9 @@ export const AboutPage = () => {
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     { label: "Experience", value: "10+ Years" },
-                    { label: "Fellowship", value: "Germany" },
+                    { label: "Trained", value: "Fellowship" },
                     { label: "Procedures", value: "20,000+" },
-                    { label: "Specialty", value: "Robotic Surgery" },
+                    { label: "Specialty", value: "Robotic Joint Replacement" },
                   ].map((item, index) => (
                     <div
                       key={index}
@@ -109,14 +109,14 @@ export const AboutPage = () => {
                 {/* Floating Achievement Badges */}
                 <div className="absolute -top-4 -right-4 bg-white rounded-xl p-3 shadow-lg">
                   <div className="text-primary font-montserratBold text-sm">
-                    Fellowship
+                    Fellowship Trained Joint Replacement
                   </div>
-                  <div className="text-gray-600 text-xs">Germany</div>
+                  <div className="text-gray-600 text-xs">Surgeon</div>
                 </div>
 
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-xl p-3 shadow-lg">
                   <div className="text-primary font-montserratBold text-sm">
-                    MNAMS
+                    Board
                   </div>
                   <div className="text-gray-600 text-xs">Certified</div>
                 </div>

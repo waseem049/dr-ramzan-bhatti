@@ -69,7 +69,7 @@ export const ClientNavBar: React.FC = () => {
                   hasScrolled || !isHomePage ? "text-gray-600" : "text-gray-200"
                 }`}
               >
-                Consultant Orthopedic Surgeon
+                Consultant Orthopedic Trauma, Joint Replacement Surgeon
               </p>
               <p
                 className={`font-poppinsRegular text-[9px] lg:text-[11px] transition-colors duration-300 ${
