@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import AppLayout from "./AppLayout";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -78,6 +79,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AppLayout>{children}</AppLayout>
+        <GoogleAnalytics gaId="G-49WC28B23C" />
       </body>
     </html>
   );

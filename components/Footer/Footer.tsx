@@ -23,11 +23,14 @@ export const Footer = () => {
     {
       name: "BoneSense Joint Care Clinic",
       address: "PC Depot, Parimpora, Srinagar, J&K",
+      href: "https://maps.app.goo.gl/TJz9E84Sin76N2ZE9",
+
       // timing: "Mon-Sat: 9:00 AM - 6:00 PM",
     },
     {
       name: "Kawoosa Hospital",
       address: "Umerabad, Srinagar, J&K",
+      href: "https://maps.app.goo.gl/4pJNsqPeSS5tLEKc6",
       // timing: "Mon-Fri: 10:00 AM - 5:00 PM",
     },
   ];
@@ -195,7 +198,7 @@ export const Footer = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 hidden">
+                  <div className="items-start gap-3 hidden">
                     <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Icon iconName="email" className="text-primary text-xs" />
                     </div>
@@ -218,7 +221,12 @@ export const Footer = () => {
                   </h4>
                   <div className="space-y-3">
                     {locations.map((location, index) => (
-                      <div key={index} className="group">
+                      <Link
+                        href={location.href}
+                        target="_blank"
+                        key={index}
+                        className="group"
+                      >
                         <div className="flex items-start gap-2">
                           <Icon
                             iconName="location"
@@ -236,7 +244,7 @@ export const Footer = () => {
                             </p> */}
                           </div>
                         </div>
-                      </div>
+                      </Link>
                     ))}
                   </div>
                 </div>

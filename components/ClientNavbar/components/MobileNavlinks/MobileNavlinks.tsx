@@ -18,7 +18,7 @@ export const MobileNavlinks: React.FC<MobileNavlinksProps> = ({
 
   return (
     <div
-      className={`rounded-lg overflow-hidden shadow-lg ${
+      className={`flex flex-col rounded-lg overflow-hidden shadow-lg gap-2 ${
         isDarkMode
           ? "bg-white border border-gray-200"
           : "bg-white/10 backdrop-blur-lg border border-white/20"
@@ -47,6 +47,12 @@ export const MobileNavlinks: React.FC<MobileNavlinksProps> = ({
           </Link>
         );
       })}
+      <Link
+        href="tel:+918491999816"
+        className="px-4 lg:px-6 py-2 text-sm lg:text-base font-montserratSemibold transition-all duration-300 bg-primary text-white"
+      >
+        CALL US
+      </Link>
     </div>
   );
 };

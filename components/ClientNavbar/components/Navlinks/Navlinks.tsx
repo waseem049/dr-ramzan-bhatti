@@ -16,7 +16,7 @@ export const Navlinks: React.FC<NavlinksProps> = ({
 
   return (
     <div
-      className={`flex items-center rounded-lg p-1 transition-all duration-300 ${
+      className={`flex items-center rounded-lg p-1 transition-all duration-300 gap-2 ${
         isDarkMode
           ? "bg-gray-100 shadow-sm"
           : "bg-white/10 backdrop-blur-sm border border-white/20"
@@ -32,7 +32,7 @@ export const Navlinks: React.FC<NavlinksProps> = ({
           <Link
             key={i}
             href={l.href}
-            className={`relative px-4 lg:px-6 py-2 text-sm lg:text-base font-montserratSemibold rounded-md transition-all duration-300 ${
+            className={`px-4 lg:px-6 py-2 text-sm lg:text-base font-montserratSemibold rounded-md transition-all duration-300 ${
               isActivePath
                 ? isDarkMode
                   ? "bg-primary text-white shadow-sm"
@@ -43,16 +43,15 @@ export const Navlinks: React.FC<NavlinksProps> = ({
             }`}
           >
             {l.label}
-            {isActivePath && (
-              <div
-                className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full ${
-                  isDarkMode ? "bg-white" : "bg-white"
-                }`}
-              />
-            )}
           </Link>
         );
       })}
+      <Link
+        href="tel:+918491999816"
+        className="px-4 lg:px-6 py-2 text-sm lg:text-base font-montserratSemibold rounded-md transition-all duration-300 bg-primary text-white"
+      >
+        CALL US
+      </Link>
     </div>
   );
 };
