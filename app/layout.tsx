@@ -77,6 +77,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head><script defer src="https://cloud.umami.is/script.js" data-website-id="8979548d-f116-430d-838f-acc18971fe9a"></script></head>
       <body>
         <AppLayout>{children}</AppLayout>
         <GoogleAnalytics gaId="G-49WC28B23C" />
