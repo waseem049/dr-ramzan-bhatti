@@ -15,21 +15,45 @@ export const metadata: Metadata = {
     template: "%s | Dr. Jibran Bashir",
   },
   description:
-    "Dr. Jibran Bashir is a leading orthopedic surgeon and sports injury specialist in India, offering advanced treatments including joint replacements, arthroscopic surgery, and trauma care. Expert in knee replacement, hip surgery, and sports medicine.",
+    "Dr. Jibran Bashir, top orthopedic surgeon in Srinagar J&K, specializes in joint replacement, arthroscopy, sports injuries, knee, hip surgeries and more.",
   keywords: [
-    "orthopedic surgeon",
-    "sports injury specialist",
-    "knee replacement",
-    "hip replacement",
-    "arthroscopic surgery",
-    "joint replacement",
     "Dr Jibran Bashir",
-    "orthopedic trauma",
-    "deformity correction",
+    "orthopedic surgeon Srinagar",
+    "best orthopedic doctor in Srinagar",
+    "sports injury specialist Kashmir",
+    "knee replacement doctor Srinagar",
+    "hip replacement surgeon Kashmir",
+    "arthroscopic surgery Srinagar",
+    "joint replacement Kashmir",
+    "fracture treatment Srinagar",
+    "bone fracture specialist J&K",
+    "orthopedic trauma care Kashmir",
+    "sports medicine doctor India",
+    "ACL reconstruction Srinagar",
+    "arthritis treatment J&K",
+    "orthopedic care India",
     "3D navigated knee replacement",
-    "Ilizarov fixation",
+    "Ilizarov fixation Srinagar",
+    "minimally invasive orthopedic surgery",
+    "orthopedic rehabilitation Kashmir",
+    "joint pain specialist Srinagar",
+    "shoulder surgery J&K",
+    "bone and joint doctor near me",
+    "orthopedic clinic in Srinagar",
+    "best orthopedic in Jammu and Kashmir",
+    "sports injury treatment in Kashmir",
+    "orthopedic doctor in India",
+    "bone specialist in Kashmir",
+    "orthopedic hospital in Srinagar",
+    "joint care clinic in Kashmir",
+    "BoneSense Joint Care Clinic",
+    "Kawoosa Hospital Umerabad",
+    "orthopedic services in Srinagar",
+    "orthopedic consultation online India",
   ],
-  authors: [{ name: "Dr. Jibran Bashir" }],
+  authors: [
+    { name: "Dr. Jibran Bashir", url: "https://www.drjibranbashir.com" },
+  ],
   creator: "Dr. Jibran Bashir",
   publisher: "Dr. Jibran Bashir",
   formatDetection: {
@@ -38,17 +62,29 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
+    url: "https://www.drjibranbashir.com",
     title: "Dr. Jibran Bashir - Orthopedic Surgeon & Sports Injury Specialist",
     description:
-      "Expert orthopedic care including joint replacements, sports injuries, arthroscopic surgery, and trauma treatment. Specialized in knee and hip replacements with advanced 3D navigation technology.",
+      "Dr. Jibran Bashir, top orthopedic surgeon in Srinagar J&K, specializes in joint replacement, arthroscopy, sports injuries, knee, hip surgeries and more.",
     siteName: "Dr. Jibran Bashir",
     locale: "en_IN",
+    images: [
+      {
+        url: "https://harud.s3.ap-south-1.amazonaws.com/1751178403906.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Dr. Jibran Bashir - Orthopedic Surgeon Srinagar Kashmir",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dr. Jibran Bashir - Orthopedic Surgeon",
+    site: "@drjibranbashir",
+    creator: "@drjibranbashir",
+    title: "Dr. Jibran Bashir - Orthopedic Surgeon & Sports Injury Specialist",
     description:
-      "Specialized orthopedic surgery and sports injury treatment by Dr. Jibran Bashir. Expert in joint replacements and minimally invasive procedures.",
+      "Dr. Jibran Bashir, top orthopedic surgeon in Srinagar J&K, specializes in joint replacement, arthroscopy, sports injuries, knee, hip surgeries and more.",
+    images: ["https://harud.s3.ap-south-1.amazonaws.com/1751178403906.jpeg"],
   },
   robots: {
     index: true,
@@ -57,17 +93,36 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
     },
   },
   alternates: {
-    canonical: "https://drjibranbashir.com",
+    canonical: "https://www.drjibranbashir.com",
   },
   category: "Healthcare",
   other: {
-    "geo.region": "IN",
-    "geo.placename": "India",
+    "geo.region": "IN-JK",
+    "geo.placename": "Srinagar, Jammu & Kashmir, India",
+    "geo.position": "34.0837;74.7973",
+    ICBM: "34.0837,74.7973",
     "theme-color": "#1AB4BA",
+    "og:email": "info@drjibranbashir.com",
+    "og:phone_number": "+918491049816",
+    "og:instagram":
+      "https://www.instagram.com/yourbonedoctor?igsh=cm1hZjB2dGZvdmtu",
+    "og:facebook": "https://www.facebook.com/share/1JJm7bJiWN/",
+    "og:linkedin":
+      "https://www.linkedin.com/in/dr-jibran-bashir-387806190?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   },
+  metadataBase: new URL("https://www.drjibranbashir.com"),
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -77,7 +132,79 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head><script defer src="https://cloud.umami.is/script.js" data-website-id="8979548d-f116-430d-838f-acc18971fe9a"></script></head>
+      <head>
+        {/* Analytics */}
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="8979548d-f116-430d-838f-acc18971fe9a"
+        ></script>
+
+        {/* JSON-LD Schema for Person + Medical Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                name: "Dr. Jibran Bashir",
+                jobTitle: "Orthopedic Surgeon & Sports Injury Specialist",
+                description:
+                  "Dr. Jibran Bashir, top orthopedic surgeon in Srinagar J&K, specializes in joint replacement, arthroscopy, sports injuries, knee, hip surgeries and more.",
+                image:
+                  "https://harud.s3.ap-south-1.amazonaws.com/1751178403906.jpeg",
+                url: "https://www.drjibranbashir.com",
+                telephone: "+91-8491049816",
+                sameAs: [
+                  "https://www.facebook.com/share/1JJm7bJiWN/",
+                  "https://www.instagram.com/yourbonedoctor?igsh=cm1hZjB2dGZvdmtu",
+                  "https://www.linkedin.com/in/dr-jibran-bashir-387806190?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+                ],
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "PC Depot, Parimpora",
+                  addressLocality: "Srinagar",
+                  addressRegion: "Jammu & Kashmir",
+                  addressCountry: "India",
+                },
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "MedicalClinic",
+                name: "BoneSense Joint Care Clinic",
+                image:
+                  "https://harud.s3.ap-south-1.amazonaws.com/1751178403906.jpeg",
+                telephone: ["+91-8491049816", "+91-8491999816"],
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "PC Depot, Parimpora",
+                  addressLocality: "Srinagar",
+                  addressRegion: "Jammu & Kashmir",
+                  addressCountry: "India",
+                },
+                openingHours: "Mo-Sa 09:00-18:00",
+                url: "https://www.drjibranbashir.com",
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Hospital",
+                name: "Kawoosa Hospital",
+                image:
+                  "https://harud.s3.ap-south-1.amazonaws.com/1751178403906.jpeg",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "Umerabad, Srinagar",
+                  addressRegion: "Jammu & Kashmir",
+                  addressCountry: "India",
+                },
+                telephone: ["+91-8491049816", "+91-8491999816"],
+                url: "https://www.drjibranbashir.com",
+              },
+            ]),
+          }}
+        />
+      </head>
       <body>
         <AppLayout>{children}</AppLayout>
         <GoogleAnalytics gaId="G-49WC28B23C" />
