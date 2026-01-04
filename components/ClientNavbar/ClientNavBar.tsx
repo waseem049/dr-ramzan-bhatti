@@ -4,16 +4,20 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { MobileNavlinks } from "./components/MobileNavlinks";
 import { Icon } from "../Icon";
+import { MegaMenu } from "./components/MegaMenu/MegaMenu";
+import Link from "next/link";
 
 export const ClientNavBar: React.FC = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
+  const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      setHasScrolled(scrollPosition > 50);
+      setHasScrolled(scrollPosition > 20); // Lower threshold for sticky effect
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -32,92 +36,66 @@ export const ClientNavBar: React.FC = () => {
   }
 
   const isHomePage = pathname === "/";
-  const showLogo = false;
+  // Always use standard look now as per reference design
 
   return (
     <nav
-      className={`w-full py-3 px-4 lg:px-10 fixed top-0 z-50 transition-all duration-500 ${
-        hasScrolled || !isHomePage
-          ? "bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-100"
-          : "bg-gradient-to-b from-black/20 to-transparent backdrop-blur-sm"
-      }`}
+      className={`w-full fixed top-0 z-50 transition-all duration-300 bg-white shadow-sm`}
     >
-      <div className="flex justify-between items-center max-w-7xl mx-auto">
-        {showLogo ? (
-          <div
-            className="logo-container"
-            style={{
-              backgroundImage: `url(${
-                hasScrolled || !isHomePage
-                  ? "/svgs/logo_black.svg"
-                  : "/svgs/logo_white.svg"
-              })`,
-            }}
-          />
-        ) : (
-          <div className="flex flex-col space-y-0.5">
-            <h1
-              className={`font-poppinsSemibold text-[16px] lg:text-[20px] transition-colors duration-300 ${
-                hasScrolled || !isHomePage ? "text-primary" : "text-white"
-              }`}
-            >
-              Dr Jibran Bashir
-            </h1>
-            <div className="space-y-0.5">
-              <p
-                className={`font-poppinsRegular text-[9px] lg:text-[11px] transition-colors duration-300 ${
-                  hasScrolled || !isHomePage ? "text-gray-600" : "text-gray-200"
-                }`}
-              >
-                Consultant Orthopedic Trauma, Joint Replacement Surgeon
-              </p>
-              <p
-                className={`font-poppinsRegular text-[9px] lg:text-[11px] transition-colors duration-300 ${
-                  hasScrolled || !isHomePage ? "text-gray-600" : "text-gray-200"
-                }`}
-              >
-                MBBS,DNB Orthopedics, D-Ortho, MNAMS
-              </p>
-              <p
-                className={`font-poppinsRegular text-[9px] lg:text-[11px] transition-colors duration-300 ${
-                  hasScrolled || !isHomePage ? "text-gray-600" : "text-gray-200"
-                }`}
-              >
-                Fellowship Hip Arthroplasty & Advanced Knee Arthroscopy, Germany
-              </p>
-            </div>
-          </div>
-        )}
+      <div className="relative w-full px-4 lg:px-10 py-4 lg:py-5 flex justify-between items-center max-w-[1440px] mx-auto bg-white z-50">
+        <Link href="/" className="flex flex-col">
+          <h1 className="font-montserratBold text-xl lg:text-2xl text-primary tracking-tight">
+            Dr. Ramzan Bhatti
+          </h1>
+          <p className="font-medium text-[10px] lg:text-xs text-gray-500 tracking-wider hidden sm:block">
+            DERMATOLOGIST & LASER SPECIALIST
+          </p>
+        </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-12">
           <Navlinks
             pathname={pathname}
-            hasScrolled={hasScrolled}
+            hasScrolled={true}
             isHomePage={isHomePage}
+            onHoverService={setIsMegaMenuOpen}
           />
+
+          <Link
+            href="/contact-us"
+            className="px-8 py-3 text-sm font-montserratSemibold text-white bg-primary rounded-full hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/30 transform hover:-translate-y-0.5"
+          >
+            Book Appointment
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`lg:hidden p-2 rounded-lg transition-all duration-300 ${
-            hasScrolled || !isHomePage
-              ? "text-primary hover:bg-primary/10"
-              : "text-white hover:bg-white/10"
-          }`}
+          className="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
         >
           <Icon iconName={isOpen ? "close" : "menu"} size="lg" />
         </button>
       </div>
 
+      {/* Mega Menu Component - Rendered outside the z-50 container to be safe, or relative */}
+      {/* Passing state handlers to keep it open when hovering the menu itself via a wrapper if needed, 
+          but simpler to just pass handler to the component which wraps the content */}
+      <div className="hidden lg:block">
+        <MegaMenu
+          isVisible={isMegaMenuOpen}
+          onMouseEnter={() => setIsMegaMenuOpen(true)}
+          onMouseLeave={() => setIsMegaMenuOpen(false)}
+        />
+      </div>
+
       {/* Mobile Navigation Dropdown */}
       {isOpen && (
-        <div className="lg:hidden mt-4 animate-fadeIn">
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-xl animate-fadeIn border-t border-gray-100 h-[calc(100vh-80px)] overflow-y-auto">
           <MobileNavlinks
             pathname={pathname}
             onItemClick={() => setIsOpen(false)}
-            hasScrolled={hasScrolled}
+            hasScrolled={true}
             isHomePage={isHomePage}
           />
         </div>

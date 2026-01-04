@@ -15,21 +15,20 @@ export const AdminNavBarData = [
 
 export const NavBarData = [
   {
-    label: "HOME",
+    label: "Home",
     href: "/",
   },
   {
-    label: "BLOGS",
-    href: "/blogs",
+    label: "Treatments",
+    href: "/treatments",
   },
   {
-    label: "ABOUT",
+    label: "About",
     href: "/about",
   },
-
   {
-    label: "CONTACT US",
-    href: "/contact-us",
+    label: "Blog",
+    href: "/blogs",
   },
 ];
 
@@ -59,105 +58,115 @@ export const BlogStatusList = [
 
 export const TreatmentsList = [
   {
-    treatment: "Joint Replacement",
+    treatment: "Acne & Scar Treatment",
     description:
-      "Advanced surgical procedure to replace damaged joints with artificial implants, restoring mobility and reducing chronic pain.",
-    icon: "/svgs/joint_replacement.svg",
+      "Comprehensive solutions for active acne and post-acne scarring using advanced chemical peels, laser resurfacing, and microneedling.",
+    icon: "/svgs/acne_treatment.svg",
   },
   {
-    treatment: "Total Knee Replacement",
+    treatment: "Laser Hair Removal",
     description:
-      "Complete replacement of damaged knee joint surfaces with prosthetic components to restore function and eliminate arthritis pain.",
-    icon: "/svgs/total_knee_replacement.svg",
+      "State-of-the-art diode and candela laser technology for permanent hair reduction, safe for all skin types with minimal discomfort.",
+    icon: "/svgs/laser_hair_removal.svg",
   },
   {
-    treatment: "Arthroscopic Surgery",
+    treatment: "Pigmentation & Melasma",
     description:
-      "Minimally invasive procedure using tiny cameras and instruments to diagnose and treat joint problems through small incisions.",
-    icon: "/svgs/arthroscopic_surgery.svg",
+      "Targeted treatments for dark spots, sun damage, and melasma using specialized lasers and medical-grade skin brightening protocols.",
+    icon: "/svgs/pigmentation.svg",
   },
   {
-    treatment: "Hip Replacement",
+    treatment: "Tattoo Removal",
     description:
-      "Surgical replacement of damaged hip joint with prosthetic ball and socket to improve mobility and reduce pain.",
-    icon: "/svgs/hip_replacement.svg",
+      "Advanced Q-switched laser technology to safely and effectively fade and remove unwanted tattoos of various colors.",
+    icon: "/svgs/tattoo_removal.svg",
   },
   {
-    treatment: "Orthopedic Trauma",
+    treatment: "Anti-Aging & Rejuvenation",
     description:
-      "Specialized care for severe injuries to bones, joints, and soft tissues, including fractures and complex wound management.",
-    icon: "/svgs/orthopedic_trauma.svg",
+      "Restore youthful radiance with Botox, fillers, HIFU, and fractional lasers to reduce wrinkles and tighten loose skin.",
+    icon: "/svgs/anti_aging.svg",
   },
   {
-    treatment: "Ilizarov Fixation",
+    treatment: "Hair Fall & PRP Therapy",
     description:
-      "External frame system using rings and wires to gradually correct complex bone deformities and heal difficult fractures.",
-    icon: "/svgs/ilizarov_fixation.svg",
+      "Platelet-Rich Plasma (PRP) therapy and mesotherapy to stimulate hair growth and combat hair thinning and pattern baldness.",
+    icon: "/svgs/hair_prp.svg",
   },
   {
-    treatment: "Deformity Correction",
+    treatment: "HydraFacial & Glow",
     description:
-      "Surgical and non-surgical techniques to correct bone and joint misalignments, improving function and appearance of affected limbs.",
-    icon: "/svgs/deformity_correction.svg",
+      "Deep cleansing, exfoliating, and hydrating treatments to instantly improve skin texture and give you a radiant glow.",
+    icon: "/svgs/hydrafacial.svg",
   },
   {
-    treatment: "3D Navigated Total Knee Replacement",
+    treatment: "Mole & Wart Removal",
     description:
-      "Advanced knee replacement using 3D computer guidance for precise implant positioning and improved surgical outcomes.",
-    icon: "/svgs/3d_total_knee_replacement.svg",
+      "Safe and quick removal of moles, warts, and skin tags using CO2 laser or radiofrequency cautery with minimal scarring.",
+    icon: "/svgs/mole_removal.svg",
   },
 ];
 
 export const FAQs = [
   {
-    question: "Whats the cost involved in knee surgery?",
+    question: "Is Laser Hair Removal permanent?",
     answer:
-      "The cost of knee surgery varies between 1.5 - 3.5 lakhs for a basic implant, and upto 4.5 lakhs for premium implants. Additional costs include hospital stay, medications, and rehabilitation. Insurance coverage may significantly reduce out-of-pocket expenses.",
+      "Laser hair removal significantly reduces hair growth, with many patients achieving permanent hair reduction. Maintenance sessions may be required once or twice a year.",
   },
   {
-    question: "How long rest is required after unicondilar Knee replacement?",
+    question: "How can I get rid of Acne Scars?",
     answer:
-      "After unicondylar knee replacement, No rest is needed. Patients walks next day of surgery can return to normal activities in 4 weeks.",
+      "We use a combination of Fractional CO2 Laser, Microneedling RF, and Chemical Peels to effectively treat acne scars. The best treatment depends on your scar type and skin condition.",
   },
   {
-    question: "What is the success rate of a Total Hip Replacement Surgery?",
+    question: "Is Botox safe?",
     answer:
-      "Total Hip Replacement Surgery has a success rate of 90-95% over a 10-year period. More than 80% of hip replacements last 20+ years. Successful outcomes depend on proper rehabilitation and following post-surgery care instructions.",
+      "Yes, when administered by a qualified professional like Dr. Ramzan Bhatti, Botox is very safe. It temporarily relaxes facial muscles to smooth wrinkles and typically lasts 3-6 months.",
   },
   {
-    question: "Is it possible to go for Hip Replacement at the age of 72 yrs?",
+    question: "What is the downtime for a Chemical Peel?",
     answer:
-      "Yes, hip replacement is safe and effective at age 72. Age alone isn't a barrier - overall health and bone quality are more important factors. Many patients in their 70s and 80s successfully undergo hip replacement with excellent outcomes.",
+      "Downtime varies by peel strength. Superficial peels have little to no downtime, while deeper peels may cause peeling for 3-7 days. We will guide you on post-care.",
+  },
+  {
+    question: "Do I need a consultation before a procedure?",
+    answer:
+      "Yes, a consultation is essential to assess your skin type and concerns. Dr. Ramzan will create a personalized treatment plan to ensure the best and safest results for you.",
+  },
+  {
+    question: "How long do Dermal Filler results last?",
+    answer:
+      "Dermal fillers typically last between 6 to 18 months, depending on the type of filler used and the area treated. We use premium, FDA-approved fillers for natural-looking, long-lasting results.",
   },
 ];
 
 export const Testimonials = [
   {
-    name: "Mohd Ibrahim",
-    treatmentReceived: "Total Knee Replacement",
+    name: "Sarah A.",
+    treatmentReceived: "Laser Hair Removal",
     feedback:
-      "After years of knee pain, I can finally walk without discomfort. The surgery and recovery process was well-explained and managed. Thank you for giving me my mobility back.",
-    displayPicture: "/images/male_placeholder.png",
-  },
-  {
-    name: "Varun Patel",
-    treatmentReceived: "Arthroscopic ACL Reconstruction",
-    feedback:
-      "I was able to return to my regular activities within 6 months. The minimally invasive approach really helped with recovery time.",
-    displayPicture: "/images/male_placeholder.png",
-  },
-  {
-    name: "Fatima Begum",
-    treatmentReceived: "Hip Replacement Surgery",
-    feedback:
-      "The chronic hip pain was affecting my daily life. Post-surgery, I've regained my independence. The staff was supportive throughout my treatment journey.",
+      "I’ve had amazing results with laser hair removal. Dr. Ramzan and his staff made me feel very comfortable. The process was quick and virtually painless!",
     displayPicture: "/images/female_placeholder.png",
   },
   {
-    name: "Mohd Ismail",
-    treatmentReceived: "Knee Arthroscopy",
+    name: "Ahmed K.",
+    treatmentReceived: "Acne Scar Treatment",
     feedback:
-      "Professional treatment with great attention to detail. The keyhole surgery left minimal scarring, and the physiotherapy guidance helped me recover faster than expected.",
+      "My acne scars were affecting my confidence. After 3 sessions of laser treatment, my skin is smooth and clear. Highly recommend Dr. Ramzan Bhatti.",
+    displayPicture: "/images/male_placeholder.png",
+  },
+  {
+    name: "Priya S.",
+    treatmentReceived: "HydraFacial",
+    feedback:
+      "Best facial I have ever had! My skin feels so hydrated and glowing. The clinic is beautiful and very clean.",
+    displayPicture: "/images/female_placeholder.png",
+  },
+  {
+    name: "Rahul M.",
+    treatmentReceived: "Hair PRP Therapy",
+    feedback:
+      "I was skeptical about PRP for hair loss, but the results speak for themselves. My hair density has improved significantly.",
     displayPicture: "/images/male_placeholder.png",
   },
 ];
@@ -166,42 +175,37 @@ export const CareerHighlights = {
   qualification: {
     heading: "QUALIFICATION",
     highlights: [
-      "Fellowship in Adult Hip Reconstruction and Knee Arthroscopy, RWTH University, Germany",
-      "DNB in Orthopaedic Surgery, National Board of Examinations, New Delhi",
-      "Post Graduation Diploma in Orthopaedic Surgery, Government Medical College, Jammu",
-      "MBBS, BVP Medical College, Pune",
+      "MD Dermatology, Venereology & Leprosy",
+      "MBBS, Prestigious Medical College",
+      "Fellowship in Aesthetic Medicine (FAM)",
+      "Certified Laser Specialist",
     ],
   },
   careerHighlights: {
     heading: "CAREER HIGHLIGHTS",
     highlights: [
-      "Extensive experience in performing complex orthopaedic trauma, primary & revision knee & hip replacement surgeries, and knee arthroscopy",
-      "Delivered multiple guest lectures at prestigious institutions",
-      "Published research papers in reputed Orthopaedic Journals",
-      "Authored several chapters in Orthopaedic textbooks",
-      "Multiple national podium and poster presentations",
-      "Trained in Robotic-Assisted Hip and Knee Arthroplasty",
+      "Over 10 years of experience in Clinical & Aesthetic Dermatology",
+      "Expertise in Advanced Laser Treatments & Cosmetic Procedures",
+      "Published research in International Journal of Dermatology",
+      "Speaker at various National Dermatology Conferences",
+      "Specialist in Anti-Aging and Hair Restoration Therapies",
     ],
   },
   workExperience: {
     heading: "WORK EXPERIENCE",
     highlights: [
-      "Consultant Orthopaedics, Amrita Hospital, Faridabad (Asia's Largest Hospital)",
-      "Fellow in Adult Hip Reconstruction, Joint Replacement, and Advanced Knee Arthroscopy, Germany",
-      "Registrar Orthopaedics, SKIMS Medical College Hospital, Srinagar",
-      "DNB Resident in Orthopaedics, AIMS, Faridabad (Under NBE New Delhi)",
-      "Post-Graduate Resident in Orthopaedics, Government Medical College, Jammu, India",
+      "Consultant Dermatologist at Skin Care Clinic",
+      "Senior Resident at Govt Medical College",
+      "Consultant at Private Multi-Specialty Hospital",
+      "Visiting Consultant for Laser Clinics",
     ],
   },
   affiliations: {
     heading: "AFFILIATIONS",
     highlights: [
-      "Member, AO Switzerland",
-      "Member, British Orthopaedic Society",
-      "Member, The International Society of Arthroscopy, Knee Surgery and Orthopaedic Sports Medicine (ISAKOS)",
-      "Member, Société Internationale de Chirurgie Orthopédique et de Traumatologie (SICOT), Belgium",
-      "Member, Indian Orthopaedic Association",
-      "Member, National Academy of Medical Sciences (MNAMS)",
+      "Member, Indian Association of Dermatologists, Venereologists and Leprologists (IADVL)",
+      "Member, Association of Cutaneous Surgeons of India (ACSI)",
+      "Member, Cosmetic Dermatology Society of India (CDSI)",
     ],
   },
 };

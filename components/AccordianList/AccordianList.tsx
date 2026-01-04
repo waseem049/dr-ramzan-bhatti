@@ -15,7 +15,7 @@ export const AccordionList = ({ accordianItems }: AccordionListProps) => {
   };
 
   return (
-    <div className="w-full flex flex-col gap-5">
+    <div className="w-full flex flex-col divide-y divide-gray-100">
       {accordianItems.map((f, i) => (
         <Accordion
           key={i}

@@ -1,148 +1,111 @@
 "use client";
-import { AccordionList } from "@/components";
-import { FAQs, images } from "@/utils/constants";
-import { Icon } from "@/components";
+import { AccordionList, Icon } from "@/components"; // standardized import
+import { FAQs } from "@/utils/constants";
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export const FaqSection = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("all");
 
-  // Filter FAQs based on search term
   const filteredFAQs = FAQs.filter(
     (faq) =>
       faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
       faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // FAQ Categories for organization
-  const categories = [
-    { id: "all", label: "All Questions", count: FAQs.length },
-    { id: "surgery", label: "Surgery", count: 2 },
-    { id: "recovery", label: "Recovery", count: 1 },
-    { id: "costs", label: "Costs", count: 1 },
-  ];
-
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-16 py-12 lg:py-20 bg-gradient-to-br from-white via-gray-50 to-white">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-12 lg:mb-16">
-          <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
-            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-primary text-sm font-montserratSemibold uppercase tracking-wider">
-              Patient Questions
-            </span>
-          </div>
-          <h2 className="text-3xl lg:text-5xl font-montserratBold text-gray-900 mb-6">
-            Frequently Asked
-            <span className="block text-primary">Questions</span>
+    <section className="w-full px-4 sm:px-6 lg:px-16 py-24 bg-white">
+      <div className="max-w-[1440px] mx-auto">
+
+        {/* Header */}
+        <div className="text-center mb-16 animate-fadeInUp">
+          <h4 className="text-primary font-montserratBold text-sm tracking-[0.2em] uppercase mb-4">
+            Common Queries
+          </h4>
+          <h2 className="text-4xl lg:text-5xl font-montserratBold text-gray-900">
+            Frequently Asked <span className="text-primary">Questions</span>
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-6" />
-          <p className="text-lg lg:text-xl text-gray-600 font-poppinsRegular leading-relaxed max-w-3xl mx-auto">
-            {`Find answers to common questions about orthopedic procedures,
-            recovery times, and treatment options. Can't find what you're
-            looking for? Contact us directly.`}
-          </p>
         </div>
 
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-          {/* Image Section with Enhanced Design */}
-          <div className="relative group order-2 lg:order-1">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-              {/* Main Image */}
-              <div
-                className="w-full h-[400px] lg:h-[600px] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: `url(${images.jThree})` }}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+
+          {/* Left Column: Interactive Search & Accordion */}
+          <div className="lg:col-span-7 space-y-8 animate-slideInLeft">
+            {/* Search Bar */}
+            <div className="relative group">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <Icon iconName="search" className="text-gray-400 group-focus-within:text-primary transition-colors" />
+              </div>
+              <input
+                type="text"
+                placeholder="Search for acne, laser, fillers..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-12 pr-4 py-4 bg-gray-50 border border-gray-100 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary focus:bg-white transition-all duration-300 font-poppinsRegular outline-none"
               />
-
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-              {/* Floating Info Card */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-lg">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                      <Icon
-                        iconName="about"
-                        className="text-primary"
-                        size="lg"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="font-montserratBold text-gray-900 text-lg">
-                        Expert Consultation
-                      </h3>
-                      <p className="text-gray-600 text-sm font-poppinsRegular">
-                        Personalized answers to your questions
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            {/* Decorative Elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
-            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/5 rounded-full blur-3xl" />
-          </div>
-
-          {/* FAQ Content Section */}
-          <div className="space-y-8 order-1 lg:order-2">
-            {/* Search and Filter */}
-            <div className="space-y-4">
-              {/* Search Bar */}
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Icon iconName="about" className="text-gray-400" />
-                </div>
-                <input
-                  type="text"
-                  placeholder="Search questions..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 font-poppinsRegular"
-                />
-              </div>
-
-              {/* Category Filters */}
-              <div className="flex flex-wrap gap-2">
-                {categories.map((category) => (
-                  <button
-                    key={category.id}
-                    onClick={() => setSelectedCategory(category.id)}
-                    className={`px-4 py-2 rounded-full text-sm font-montserratSemibold transition-all duration-300 ${
-                      selectedCategory === category.id
-                        ? "bg-primary text-white shadow-lg"
-                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+            {/* Categories (Visual only for now as constants don't have categories mapped yet, but good for UI) */}
+            <div className="flex flex-wrap gap-2">
+              {["All", "Treatments", "Consultation", "Recovery"].map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat.toLowerCase())}
+                  className={`px-4 py-2 rounded-full text-xs font-montserratSemibold uppercase tracking-wider transition-all duration-300 ${activeCategory === cat.toLowerCase()
+                    ? "bg-primary text-white shadow-md"
+                    : "bg-gray-100 text-gray-500 hover:bg-gray-200"
                     }`}
-                  >
-                    {category.label} ({category.count})
-                  </button>
-                ))}
-              </div>
+                >
+                  {cat}
+                </button>
+              ))}
             </div>
 
-            {/* FAQ Accordion */}
-            <div className="space-y-4">
+            {/* Accordion */}
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
               {filteredFAQs.length > 0 ? (
                 <AccordionList accordianItems={filteredFAQs} />
               ) : (
-                <div className="text-center py-12">
-                  <Icon
-                    iconName="error"
-                    className="text-gray-400 mb-4"
-                    size="2x"
-                  />
-                  <p className="text-gray-600 font-poppinsRegular">
-                    No questions found matching your search.
-                  </p>
+                <div className="p-12 text-center text-gray-500">
+                  <p>No matching questions found.</p>
                 </div>
               )}
             </div>
           </div>
+
+          {/* Right Column: Visual Interaction Card */}
+          <div className="lg:col-span-5 relative animate-slideInRight delay-200">
+            <div className="relative bg-[#FAF7F5] rounded-[2rem] p-8 lg:p-12 overflow-hidden shadow-lg border border-white">
+              {/* Background Decor */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-0" />
+
+              <div className="relative z-10 space-y-6 text-center">
+                <div className="w-24 h-24 relative mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-xl animate-pulseSlow">
+                  <Image
+                    src="/images/doctor.png"
+                    alt="Dr. Ramzan Bhatti"
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
+
+                <h3 className="text-2xl font-montserratBold text-gray-900">Still have questions?</h3>
+                <p className="text-gray-600 font-poppinsRegular leading-relaxed">
+                  Can't find the answer you're looking for? Dr. Ramzan and his team are here to help.
+                </p>
+
+                <div className="pt-4">
+                  <Link href="/contact-us" className="inline-block w-full bg-primary hover:bg-primary/90 text-white font-montserratSemibold py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1">
+                    Contact Support
+                  </Link>
+                  <p className="mt-4 text-sm text-gray-400">Usually responds within 24 hours</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

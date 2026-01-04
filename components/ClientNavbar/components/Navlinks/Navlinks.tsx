@@ -1,5 +1,6 @@
 import { NavBarData } from "@/utils/constants";
 import Link from "next/link";
+import { Icon } from "@/components/Icon";
 
 type NavlinksProps = {
   pathname: string;
@@ -7,51 +8,47 @@ type NavlinksProps = {
   isHomePage: boolean;
 };
 
-export const Navlinks: React.FC<NavlinksProps> = ({
+export const Navlinks: React.FC<NavlinksProps & { onHoverService: (isHovering: boolean) => void }> = ({
   pathname,
   hasScrolled,
   isHomePage,
+  onHoverService,
 }) => {
-  const isDarkMode = hasScrolled || !isHomePage;
+  const isDarkMode = true; // Force dark text style for the new white header design
 
   return (
-    <div
-      className={`flex items-center rounded-lg p-1 transition-all duration-300 gap-2 ${
-        isDarkMode
-          ? "bg-gray-100 shadow-sm"
-          : "bg-white/10 backdrop-blur-sm border border-white/20"
-      }`}
-    >
+    <div className="flex items-center gap-6">
       {NavBarData.map((l, i) => {
         const isActivePath =
           l.href === "/"
             ? pathname === "/"
             : pathname === l.href || pathname.startsWith(l.href + "/");
 
+        const isTreatments = l.label === "Treatments" || l.label === "Services";
+
         return (
-          <Link
+          <div
             key={i}
-            href={l.href}
-            className={`px-4 lg:px-6 py-2 text-sm lg:text-base font-montserratSemibold rounded-md transition-all duration-300 ${
-              isActivePath
-                ? isDarkMode
-                  ? "bg-primary text-white shadow-sm"
-                  : "bg-primary text-white shadow-lg"
-                : isDarkMode
-                ? "text-gray-700 hover:text-primary hover:bg-primary/5"
-                : "text-white hover:text-primary hover:bg-white/10"
-            }`}
+            onMouseEnter={() => isTreatments && onHoverService(true)}
+            onMouseLeave={() => isTreatments && onHoverService(false)}
+            className="relative py-4"
           >
-            {l.label}
-          </Link>
+            <Link
+              href={l.href}
+              className={`text-sm lg:text-[15px] font-montserratMedium tracking-wide transition-all duration-300 relative group ${isActivePath ? "text-primary" : "text-gray-600 hover:text-primary"
+                }`}
+            >
+              {l.label}
+              {/* Underline animation */}
+              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full ${isActivePath ? 'w-full' : ''}`}></span>
+
+              {isTreatments && (
+                <Icon iconName="chevronDown" className="inline-block ml-1 w-3 h-3 mb-0.5" />
+              )}
+            </Link>
+          </div>
         );
       })}
-      <Link
-        href="tel:+918491999816"
-        className="px-4 lg:px-6 py-2 text-sm lg:text-base font-montserratSemibold rounded-md transition-all duration-300 bg-primary text-white"
-      >
-        CALL US
-      </Link>
     </div>
   );
 };

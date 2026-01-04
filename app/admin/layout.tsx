@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import AdminBaseLayout from "./AdminLayout";
 
 export const metadata: Metadata = {
-  title: "Dr Jibran Bashir | Admin Panel",
-  description: "Admin panel for Dr Jibran Bashir",
+  title: "Dr. Ramzan Bhatti | Admin Panel",
+  description: "Admin panel for Dr. Ramzan Bhatti",
 };
 
 export default function AdminLayout({

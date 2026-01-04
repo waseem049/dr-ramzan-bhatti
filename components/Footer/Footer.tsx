@@ -21,38 +21,31 @@ export const Footer = () => {
 
   const locations = [
     {
-      name: "BoneSense Joint Care Clinic",
-      address: "PC Depot, Parimpora, Srinagar, J&K",
-      href: "https://maps.app.goo.gl/TJz9E84Sin76N2ZE9",
-
-      // timing: "Mon-Sat: 9:00 AM - 6:00 PM",
-    },
-    {
-      name: "Kawoosa Hospital",
-      address: "Umerabad, Srinagar, J&K",
-      href: "https://maps.app.goo.gl/4pJNsqPeSS5tLEKc6",
-      // timing: "Mon-Fri: 10:00 AM - 5:00 PM",
+      name: "Dr. Ramzan Skin Clinic",
+      address: "Clinic Address, City",
+      href: "#",
+      // timing: "Mon-Sat: 10:00 AM - 7:00 PM",
     },
   ];
 
   const quickLinks = [
     { name: "Home", href: "/", icon: "home" },
     { name: "About", href: "/about", icon: "about" },
-    { name: "Blogs", href: "/blogs", icon: "blog" },
+    { name: "Services", href: "/#treatments", icon: "blog" }, // Changed to anchor for now or keep /blogs if valid
     { name: "Contact", href: "/contact-us", icon: "email" },
   ];
 
   const services = [
-    "Joint Replacement",
-    "Arthroscopic Surgery",
-    "Hip Replacement",
-    "Knee Replacement",
-    "Trauma Care",
-    "Deformity Correction",
+    "Laser Hair Removal",
+    "Acne Treatment",
+    "Anti-Aging",
+    "Pigmentation",
+    "HydraFacial",
+    "Skin Rejuvenation",
   ];
 
   return (
-    <footer className="w-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+    <footer className="w-full bg-[#f8f5f2] relative overflow-hidden border-t border-primary/10">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-48 h-48 bg-primary/5 rounded-full blur-2xl" />
@@ -63,59 +56,50 @@ export const Footer = () => {
           <div className="max-w-7xl mx-auto">
             {/* Top Section - Improved Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 lg:gap-6 xl:gap-8 mb-12">
-              {/* Brand & About - Full width on mobile, spans 2 cols on xl */}
+              {/* Brand & About */}
               <div className="md:col-span-2 xl:col-span-1 space-y-6">
                 <div className="space-y-4">
-                  {/* Logo - Responsive sizing */}
+                  {/* Logo - Text based for now or placeholder */}
                   <div className="flex items-center">
-                    <div
-                      className="w-40 h-12 lg:w-48 lg:h-14 xl:w-52 xl:h-16 bg-contain bg-no-repeat bg-left"
-                      style={{ backgroundImage: "url(/svgs/logo_white.svg)" }}
-                    />
+                    <h2 className="text-2xl font-montserratBold text-gray-900">
+                      Dr. Ramzan <span className="text-primary">Bhatti</span>
+                    </h2>
                   </div>
 
                   <div>
-                    <h2 className="text-lg lg:text-xl font-montserratBold text-white mb-2">
-                      Dr. Jibran Bashir
-                    </h2>
-                    <p className="text-sm text-gray-400 font-poppinsRegular mb-1">
-                      Consultant Orthopedic Surgeon
+                    <p className="text-sm text-primary font-montserratSemibold mb-1 uppercase tracking-wider">
+                      Dermatologist & Laser Specialist
                     </p>
-                    <p className="text-gray-300 font-poppinsRegular text-sm leading-relaxed">
-                      Leading orthopedic surgeon specializing in robotic joint
-                      replacement and advanced surgical techniques.
+                    <p className="text-gray-600 font-poppinsRegular text-sm leading-relaxed">
+                      Dedicated to restoring skin health and confidence through advanced dermatological and aesthetic treatments.
                     </p>
                   </div>
                 </div>
 
                 {/* Credentials */}
                 <div className="space-y-3">
-                  <h3 className="text-white font-montserratSemibold text-sm uppercase tracking-wider">
+                  <h3 className="text-gray-900 font-montserratSemibold text-sm uppercase tracking-wider">
                     Credentials
                   </h3>
                   <div className="flex flex-wrap gap-2">
-                    {["MBBS", "D.Ortho", "DNB", "MNAMS"].map(
+                    {["MD", "FAM", "IADVL"].map(
                       (credential, index) => (
                         <span
                           key={index}
-                          className="bg-primary/20 text-primary font-montserratSemibold text-xs px-2 py-1 rounded-full"
+                          className="bg-primary/10 text-primary font-montserratSemibold text-xs px-2 py-1 rounded-full"
                         >
                           {credential}
                         </span>
                       )
                     )}
                   </div>
-                  <p className="text-gray-400 text-xs leading-relaxed">
-                    Fellowship in Hip Arthroplasty & Advanced Knee Arthroscopy,
-                    Germany
-                  </p>
                 </div>
               </div>
 
               {/* Quick Links & Services */}
               <div className="space-y-6">
                 <div className="space-y-3">
-                  <h3 className="text-white font-montserratBold text-lg">
+                  <h3 className="text-gray-900 font-montserratBold text-lg">
                     Quick Links
                   </h3>
                   <div className="w-12 h-1 bg-primary rounded-full" />
@@ -126,9 +110,9 @@ export const Footer = () => {
                     <Link
                       key={index}
                       href={link.href}
-                      className="group flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300"
+                      className="group flex items-center gap-3 text-gray-600 hover:text-primary transition-colors duration-300"
                     >
-                      <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center group-hover:bg-primary/30 transition-colors duration-300 flex-shrink-0">
+                      <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300 flex-shrink-0">
                         <Icon
                           iconName={link.icon}
                           className="text-primary text-xs"
@@ -143,14 +127,14 @@ export const Footer = () => {
 
                 {/* Services */}
                 <div className="space-y-3 pt-2">
-                  <h4 className="text-white font-montserratSemibold text-sm uppercase tracking-wider">
+                  <h4 className="text-gray-900 font-montserratSemibold text-sm uppercase tracking-wider">
                     Services
                   </h4>
                   <div className="space-y-2">
                     {services.slice(0, 4).map((service, index) => (
                       <div key={index} className="flex items-center gap-2">
                         <div className="w-1 h-1 bg-primary rounded-full flex-shrink-0" />
-                        <span className="text-gray-400 font-poppinsRegular text-sm">
+                        <span className="text-gray-600 font-poppinsRegular text-sm">
                           {service}
                         </span>
                       </div>
@@ -162,7 +146,7 @@ export const Footer = () => {
               {/* Contact Information */}
               <div className="space-y-6">
                 <div className="space-y-3">
-                  <h3 className="text-white font-montserratBold text-lg">
+                  <h3 className="text-gray-900 font-montserratBold text-lg">
                     Contact Info
                   </h3>
                   <div className="w-12 h-1 bg-primary rounded-full" />
@@ -171,52 +155,37 @@ export const Footer = () => {
                 {/* Primary Contact */}
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Icon iconName="phone" className="text-primary text-xs" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <Link
-                        href="tel:+918491049816"
-                        className="text-white font-montserratSemibold hover:text-primary transition-colors duration-300 text-sm block"
+                        href="tel:+910000000000"
+                        className="text-gray-700 font-montserratSemibold hover:text-primary transition-colors duration-300 text-sm block"
                       >
-                        +91-8491049816
+                        +91-0000000000
                       </Link>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Icon iconName="phone" className="text-primary text-xs" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <Link
-                        href="tel:+918491999816"
-                        className="text-white font-montserratSemibold hover:text-primary transition-colors duration-300 text-sm block"
-                      >
-                        +91-8491999816
-                      </Link>
-                    </div>
-                  </div>
-
-                  <div className="items-start gap-3 hidden">
-                    <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Icon iconName="email" className="text-primary text-xs" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <Link
-                        href="mailto:hello@drjibranbashir.com"
-                        className="text-white font-montserratSemibold hover:text-primary transition-colors duration-300 text-sm block break-all"
+                        href="mailto:info@drramzanbhatti.com"
+                        className="text-gray-700 font-montserratSemibold hover:text-primary transition-colors duration-300 text-sm block break-all"
                       >
-                        hello@drjibranbashir.com
+                        info@drramzanbhatti.com
                       </Link>
-                      <p className="text-gray-400 text-xs">General Inquiries</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Locations */}
                 <div className="space-y-3">
-                  <h4 className="text-white font-montserratSemibold text-sm uppercase tracking-wider">
+                  <h4 className="text-gray-900 font-montserratSemibold text-sm uppercase tracking-wider">
                     Locations
                   </h4>
                   <div className="space-y-3">
@@ -233,15 +202,12 @@ export const Footer = () => {
                             className="text-primary mt-1 flex-shrink-0 text-xs"
                           />
                           <div className="min-w-0 flex-1">
-                            <p className="text-white font-montserratSemibold text-sm group-hover:text-primary transition-colors duration-300">
+                            <p className="text-gray-700 font-montserratSemibold text-sm group-hover:text-primary transition-colors duration-300">
                               {location.name}
                             </p>
-                            <p className="text-gray-400 text-xs">
+                            <p className="text-gray-500 text-xs">
                               {location.address}
                             </p>
-                            {/* <p className="text-gray-500 text-xs">
-                              {location.timing}
-                            </p> */}
                           </div>
                         </div>
                       </Link>
@@ -250,122 +216,46 @@ export const Footer = () => {
                 </div>
               </div>
 
-              {/* Newsletter & Emergency */}
-              <div className="space-y-6 hidden">
+              {/* Social */}
+              <div className="space-y-6">
                 <div className="space-y-3">
-                  <h3 className="text-white font-montserratBold text-lg">
-                    Stay Connected
+                  <h3 className="text-gray-900 font-montserratBold text-lg">
+                    Socials
                   </h3>
                   <div className="w-12 h-1 bg-primary rounded-full" />
                 </div>
-
-                {/* Newsletter */}
-                <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
-                  <h4 className="text-white font-montserratSemibold text-sm mb-2">
-                    Newsletter
-                  </h4>
-                  <p className="text-gray-400 text-xs mb-4">
-                    Get medical insights & health tips
-                  </p>
-
-                  <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter email"
-                      className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300 text-sm"
-                      required
-                    />
-                    <button
-                      type="submit"
-                      className="w-full bg-primary hover:bg-primary/90 text-white font-montserratSemibold py-2 rounded-lg transition-all duration-300 text-sm"
-                    >
-                      Subscribe
-                    </button>
-                  </form>
-                </div>
-
-                {/* Professional Affiliations */}
-                <div className="space-y-3">
-                  <h4 className="text-white font-montserratSemibold text-sm uppercase tracking-wider">
-                    Affiliations
-                  </h4>
-                  <div className="space-y-1">
-                    {[
-                      "AO Switzerland",
-                      "British Orthopaedic Society",
-                      "ISAKOS",
-                      "SICOT Belgium",
-                    ].map((org, index) => (
-                      <div
-                        key={index}
-                        className="text-gray-400 font-poppinsRegular text-xs"
-                      >
-                        • {org}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Emergency Notice */}
-                <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3">
-                  <div className="flex items-center gap-2 mb-1">
-                    <Icon iconName="phone" className="text-red-400 text-xs" />
-                    <span className="text-red-400 font-montserratBold text-xs uppercase">
-                      Emergency
-                    </span>
-                  </div>
-                  <p className="text-gray-300 text-xs leading-relaxed">
-                    For emergencies, call immediately or visit nearest ER.
-                  </p>
+                <div className="flex gap-4">
+                  {/* Add social icons if available in Icon component, else text links */}
+                  <Link href="#" className="text-gray-500 hover:text-primary transition-colors">Facebook</Link>
+                  <Link href="#" className="text-gray-500 hover:text-primary transition-colors">Instagram</Link>
                 </div>
               </div>
             </div>
 
             {/* Divider */}
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-8" />
+            <div className="w-full h-px bg-gray-200 mb-8" />
 
-            {/* Bottom Section - Improved Responsive Layout */}
+            {/* Bottom Section */}
             <div className="flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-6">
               {/* Copyright */}
               <div className="text-center lg:text-left flex-1">
-                <p className="text-gray-400 font-poppinsRegular text-sm">
-                  © {new Date().getFullYear()} Dr. Jibran Bashir. All Rights
-                  Reserved.
-                </p>
-                <p className="text-gray-500 font-poppinsRegular text-xs mt-1">
-                  Leading Orthopedic Care • RWTH Fellowship • Robotic Surgery
+                <p className="text-gray-500 font-poppinsRegular text-sm">
+                  © {new Date().getFullYear()} Dr. Ramzan Bhatti. All Rights Reserved.
                 </p>
               </div>
 
-              {/* Trust Indicators - Responsive */}
+              {/* Trust Indicators */}
               <div className="flex flex-wrap justify-center lg:justify-end items-center gap-4 lg:gap-6">
                 <div className="flex items-center gap-2">
                   <Icon iconName="about" className="text-primary text-xs" />
-                  <span className="text-gray-400 font-montserratSemibold text-xs">
+                  <span className="text-gray-500 font-montserratSemibold text-xs">
                     Board Certified
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Icon iconName="home" className="text-primary text-xs" />
-                  <span className="text-gray-400 font-montserratSemibold text-xs">
-                    10+ Years
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Icon iconName="calendar" className="text-primary text-xs" />
-                  <span className="text-gray-400 font-montserratSemibold text-xs">
-                    Fellowship Trained
                   </span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Bottom Accent */}
-        <div className="h-1 bg-gradient-to-r from-primary/0 via-primary to-primary/0" />
       </div>
     </footer>
   );

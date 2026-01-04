@@ -11,13 +11,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: "https://drjibranbashir.com",
+      url: "https://drramzanbhatti.com",
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 1,
     },
     ...blogs.map((blog) => ({
-      url: `https://drjibranbashir.com/blogs/${blog.slug}`,
+      url: `https://drramzanbhatti.com/blogs/${blog.slug}`,
       lastModified: blog.updatedAt,
       changeFrequency: "weekly" as const,
       priority: 0.8,

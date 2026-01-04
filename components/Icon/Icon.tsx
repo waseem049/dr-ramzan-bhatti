@@ -18,6 +18,7 @@ import {
   faRightFromBracket,
   faRotateRight,
   faSpinner,
+  faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   FontAwesomeIcon,
@@ -49,6 +50,8 @@ const IconMap: Record<string, IconDefinition> = {
   blog: faBlog,
   about: faAddressCard,
   location: faMapLocation,
+  caretDown: faChevronDown,
+  chevronDown: faChevronDown,
 };
 
 export const Icon: React.FC<IconProps> = ({

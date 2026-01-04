@@ -14,16 +14,10 @@ export const MobileNavlinks: React.FC<MobileNavlinksProps> = ({
   hasScrolled,
   isHomePage,
 }) => {
-  const isDarkMode = hasScrolled || !isHomePage;
+  const isDarkMode = true; // Force white theme for mobile menu
 
   return (
-    <div
-      className={`flex flex-col rounded-lg overflow-hidden shadow-lg gap-2 ${
-        isDarkMode
-          ? "bg-white border border-gray-200"
-          : "bg-white/10 backdrop-blur-lg border border-white/20"
-      }`}
-    >
+    <div className="flex flex-col bg-white rounded-lg overflow-hidden shadow-sm gap-0">
       {NavBarData.map((l, i) => {
         const isActivePath =
           pathname === l.href || pathname.startsWith(l.href + "/");
@@ -33,15 +27,10 @@ export const MobileNavlinks: React.FC<MobileNavlinksProps> = ({
             key={i}
             href={l.href}
             onClick={onItemClick}
-            className={`flex items-center px-4 py-3 text-base font-montserratSemibold transition-all duration-300 ${
-              isActivePath
-                ? "bg-primary text-white"
-                : isDarkMode
-                ? "text-gray-700 hover:bg-primary/5 hover:text-primary"
-                : "text-white hover:bg-white/10"
-            } ${
-              i !== NavBarData.length - 1 ? "border-b border-gray-200/20" : ""
-            }`}
+            className={`flex items-center px-6 py-4 text-[15px] font-montserratMedium transition-all duration-300 border-b border-gray-100 last:border-0 ${isActivePath
+                ? "text-primary bg-primary/5 font-montserratSemibold"
+                : "text-gray-700 hover:bg-gray-50 hover:text-primary"
+              }`}
           >
             {l.label}
           </Link>
