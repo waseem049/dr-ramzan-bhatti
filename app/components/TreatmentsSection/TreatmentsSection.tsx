@@ -46,7 +46,6 @@ export const TreatmentsSection = () => {
                 <TreatmentCard
                   treatment={treatment.treatment}
                   description={treatment.description}
-                  icon={treatment.icon}
                   featured={true}
                 />
               </div>
@@ -69,7 +68,6 @@ export const TreatmentsSection = () => {
                 <TreatmentCard
                   treatment={treatment.treatment}
                   description={treatment.description}
-                  icon={treatment.icon}
                   featured={false}
                 />
               </div>

@@ -4,17 +4,12 @@ import { Icon } from "@/components/Icon";
 
 type NavlinksProps = {
   pathname: string;
-  hasScrolled: boolean;
-  isHomePage: boolean;
 };
 
 export const Navlinks: React.FC<NavlinksProps & { onHoverService: (isHovering: boolean) => void }> = ({
   pathname,
-  // hasScrolled,
-  isHomePage,
   onHoverService,
 }) => {
-  const isDarkMode = true; // Force dark text style for the new white header design
 
   return (
     <div className="flex items-center gap-6">

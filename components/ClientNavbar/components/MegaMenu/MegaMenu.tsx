@@ -1,7 +1,6 @@
 import { Icon } from "@/components/Icon";
 import Link from "next/link";
 import { TreatmentsList } from "@/utils/constants";
-import Image from "next/image";
 
 export const MegaMenu = ({
     isVisible,
@@ -12,45 +11,6 @@ export const MegaMenu = ({
     onMouseEnter: () => void;
     onMouseLeave: () => void;
 }) => {
-    // const services = [
-    //     {
-    //         icon: "plus", // Using a generic icon for now, will map to specific ones
-    //         title: "Acne Treatment",
-    //         desc: "Effective solutions for active acne and scars.",
-    //         href: "/treatments#acne",
-    //     },
-    //     {
-    //         icon: "plus",
-    //         title: "Laser Hair Removal",
-    //         desc: "Painless and permanent hair reduction.",
-    //         href: "/treatments#laser",
-    //     },
-    //     {
-    //         icon: "plus",
-    //         title: "Anti-Aging",
-    //         desc: "Botox, fillers, and skin tightening.",
-    //         href: "/treatments#anti-aging",
-    //     },
-    //     {
-    //         icon: "plus",
-    //         title: "Pigmentation",
-    //         desc: "Treat melasma, sun spots, and uneven tone.",
-    //         href: "/treatments#pigmentation",
-    //     },
-    //     {
-    //         icon: "plus",
-    //         title: "HydraFacial",
-    //         desc: "Deep cleansing and hydration for glowing skin.",
-    //         href: "/treatments#hydrafacial",
-    //     },
-    //     {
-    //         icon: "plus",
-    //         title: "Hair Loss",
-    //         desc: "PRP and advanced hair restoration therapies.",
-    //         href: "/treatments#hair-loss",
-    //     },
-    // ];
-
     return (
         <div
             onMouseEnter={onMouseEnter}
@@ -75,7 +35,7 @@ export const MegaMenu = ({
                             your skin&apos;s health and radiance.
                         </p>
                         <Link
-                            href="/treatments"
+                            href="/#treatments"
                             className="inline-flex items-center text-primary font-montserratSemibold text-sm hover:translate-x-1 transition-transform duration-200"
                         >
                             Explore all treatments
@@ -88,18 +48,11 @@ export const MegaMenu = ({
                         {TreatmentsList.slice(0, 6).map((service, index) => (
                             <Link
                                 key={index}
-                                href="/treatments"
+                                href="/#treatments"
                                 className="group flex gap-4 hover:bg-gray-50 p-3 rounded-lg transition-colors border border-transparent hover:border-gray-50"
                             >
                                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                                    <div className="w-5 h-5 relative">
-                                        <Image
-                                            src={service.icon}
-                                            alt={service.treatment}
-                                            fill
-                                            className="object-contain filter group-hover:brightness-0 group-hover:invert transition-all duration-300"
-                                        />
-                                    </div>
+                                    <Icon iconName="about" className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
                                 </div>
                                 <div>
                                     <h4 className="font-montserratSemibold text-gray-900 text-sm mb-1 group-hover:text-primary transition-colors">

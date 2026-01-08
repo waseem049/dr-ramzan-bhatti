@@ -2,12 +2,19 @@ import prisma from "@/utils/prisma";
 import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const blogs = await prisma.blog.findMany({
-    select: {
-      slug: true,
-      updatedAt: true,
-    },
-  });
+  let blogs: { slug: string; updatedAt: Date }[] = [];
+
+  try {
+    blogs = await prisma.blog.findMany({
+      select: {
+        slug: true,
+        updatedAt: true,
+      },
+    });
+  } catch (error) {
+    // If DATABASE_URL is not available during build, continue without blog entries
+    console.warn("Could not fetch blogs for sitemap:", error);
+  }
 
   return [
     {

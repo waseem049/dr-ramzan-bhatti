@@ -1,37 +1,20 @@
 "use client";
 import Link from "next/link";
 import { Icon } from "../Icon";
-import { usePathname } from "next/navigation";
-// import { useState } from "react";
 
 export const Footer = () => {
-  const pathname = usePathname();
-  // const [email, setEmail] = useState("");
-
-  if (pathname.startsWith("/admin") || pathname.startsWith("/login")) {
-    return null;
-  }
-
-  // const handleNewsletterSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   // Handle newsletter subscription
-  //   console.log("Newsletter subscription:", email);
-  //   setEmail("");
-  // };
-
   const locations = [
     {
       name: "Dr. Ramzan Skin Clinic",
       address: "Clinic Address, City",
       href: "#",
-      // timing: "Mon-Sat: 10:00 AM - 7:00 PM",
     },
   ];
 
   const quickLinks = [
     { name: "Home", href: "/", icon: "home" },
     { name: "About", href: "/about", icon: "about" },
-    { name: "Services", href: "/#treatments", icon: "blog" }, // Changed to anchor for now or keep /blogs if valid
+    { name: "Services", href: "/#treatments", icon: "blog" },
     { name: "Contact", href: "/contact-us", icon: "email" },
   ];
 

@@ -59,7 +59,6 @@ export const Counter = () => {
   return (
     <section id="counter-section" className="w-full py-24 relative overflow-hidden bg-[#0a0a0a]">
       {/* Premium Dark Background Effects */}
-      <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
       <div className="absolute top-0 center w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] -z-0 opacity-20" />
 
@@ -149,7 +148,7 @@ export const Counter = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end pt-4">
-              <Link href="/appointment" className="group relative px-8 py-4 bg-primary text-white font-montserratBold rounded-full overflow-hidden shadow-[0_0_20px_rgba(216,141,127,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(216,141,127,0.6)]">
+              <Link href="/contact-us" className="group relative px-8 py-4 bg-primary text-white font-montserratBold rounded-full overflow-hidden shadow-[0_0_20px_rgba(216,141,127,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(216,141,127,0.6)]">
                 <span className="relative z-10 flex items-center gap-3">
                   Book Consultation
                   <Icon iconName="caretRight" className="text-xl group-hover:translate-x-1 transition-transform" />

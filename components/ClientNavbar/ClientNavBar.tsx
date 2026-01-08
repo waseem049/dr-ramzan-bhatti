@@ -1,7 +1,7 @@
 "use client";
 import { Navlinks } from "./components/Navlinks";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { MobileNavlinks } from "./components/MobileNavlinks";
 import { Icon } from "../Icon";
 import { MegaMenu } from "./components/MegaMenu/MegaMenu";
@@ -10,33 +10,7 @@ import Link from "next/link";
 export const ClientNavBar: React.FC = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  // const [hasScrolled, setHasScrolled] = useState(false);
-
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // const scrollPosition = window.scrollY;
-      // setHasScrolled(scrollPosition > 20); // Lower threshold for sticky effect
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const shouldHide =
-    pathname.startsWith("/admin") || pathname.startsWith("/login");
-
-  if (shouldHide) {
-    return null;
-  }
-
-  const isHomePage = pathname === "/";
-  // Always use standard look now as per reference design
 
   return (
     <nav
@@ -56,8 +30,6 @@ export const ClientNavBar: React.FC = () => {
         <div className="hidden lg:flex items-center gap-12">
           <Navlinks
             pathname={pathname}
-            hasScrolled={true}
-            isHomePage={isHomePage}
             onHoverService={setIsMegaMenuOpen}
           />
 
@@ -78,9 +50,6 @@ export const ClientNavBar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mega Menu Component - Rendered outside the z-50 container to be safe, or relative */}
-      {/* Passing state handlers to keep it open when hovering the menu itself via a wrapper if needed, 
-          but simpler to just pass handler to the component which wraps the content */}
       <div className="hidden lg:block">
         <MegaMenu
           isVisible={isMegaMenuOpen}
@@ -95,8 +64,6 @@ export const ClientNavBar: React.FC = () => {
           <MobileNavlinks
             pathname={pathname}
             onItemClick={() => setIsOpen(false)}
-            hasScrolled={true}
-            isHomePage={isHomePage}
           />
         </div>
       )}

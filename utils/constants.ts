@@ -1,18 +1,3 @@
-import { BlogStatus, Salutation } from "@prisma/client";
-
-export const images = {
-  jOne: "https://harud.s3.ap-south-1.amazonaws.com/1751178403906.jpeg",
-  jTwo: "https://harud.s3.ap-south-1.amazonaws.com/1751178459126.jpeg",
-  jThree: "https://harud.s3.ap-south-1.amazonaws.com/1751178510283.jpeg",
-};
-
-export const AdminNavBarData = [
-  { label: "Home", href: "/" },
-  { label: "Admin", href: "/admin" },
-  { label: "Blog", href: "/admin/my-blogs" },
-  { label: "Contact Requests", href: "/admin/contact-requests" },
-];
-
 export const NavBarData = [
   {
     label: "Home",
@@ -20,7 +5,7 @@ export const NavBarData = [
   },
   {
     label: "Treatments",
-    href: "/treatments",
+    href: "/#treatments",
   },
   {
     label: "About",
@@ -32,78 +17,46 @@ export const NavBarData = [
   },
 ];
 
-export const Salutations = [
-  { label: "Dr", value: Salutation.DR },
-  { label: "Mr", value: Salutation.MR },
-  { label: "Ms", value: Salutation.MS },
-  { label: "Mrs", value: Salutation.MRS },
-];
-
-export const Categories = [
-  { label: "Surgery", value: "SURGERY" },
-  { label: "Prosthetics", value: "PROSTHETICS" },
-  { label: "Bone Grafting", value: "BONE_GRAFTING" },
-];
-
-export const Featured = [
-  { label: "Yes", value: true },
-  { label: "No", value: false },
-];
-
-export const BlogStatusList = [
-  { label: "Draft", value: BlogStatus.DRAFT },
-  { label: "Published", value: BlogStatus.PUBLISHED },
-  { label: "Withdrawn", value: BlogStatus.WITHDRAWN },
-];
-
 export const TreatmentsList = [
   {
     treatment: "Acne & Scar Treatment",
     description:
       "Comprehensive solutions for active acne and post-acne scarring using advanced chemical peels, laser resurfacing, and microneedling.",
-    icon: "/svgs/acne_treatment.svg",
   },
   {
     treatment: "Laser Hair Removal",
     description:
       "State-of-the-art diode and candela laser technology for permanent hair reduction, safe for all skin types with minimal discomfort.",
-    icon: "/svgs/laser_hair_removal.svg",
   },
   {
     treatment: "Pigmentation & Melasma",
     description:
       "Targeted treatments for dark spots, sun damage, and melasma using specialized lasers and medical-grade skin brightening protocols.",
-    icon: "/svgs/pigmentation.svg",
   },
   {
     treatment: "Tattoo Removal",
     description:
       "Advanced Q-switched laser technology to safely and effectively fade and remove unwanted tattoos of various colors.",
-    icon: "/svgs/tattoo_removal.svg",
   },
   {
     treatment: "Anti-Aging & Rejuvenation",
     description:
       "Restore youthful radiance with Botox, fillers, HIFU, and fractional lasers to reduce wrinkles and tighten loose skin.",
-    icon: "/svgs/anti_aging.svg",
   },
   {
     treatment: "Hair Fall & PRP Therapy",
     description:
       "Platelet-Rich Plasma (PRP) therapy and mesotherapy to stimulate hair growth and combat hair thinning and pattern baldness.",
-    icon: "/svgs/hair_prp.svg",
   },
   {
     treatment: "HydraFacial & Glow",
     description:
       "Deep cleansing, exfoliating, and hydrating treatments to instantly improve skin texture and give you a radiant glow.",
-    icon: "/svgs/hydrafacial.svg",
   },
   {
     treatment: "Mole & Wart Removal",
     description:
       "Safe and quick removal of moles, warts, and skin tags using CO2 laser or radiofrequency cautery with minimal scarring.",
-    icon: "/svgs/mole_removal.svg",
   },
 ];
 

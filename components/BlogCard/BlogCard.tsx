@@ -36,7 +36,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
             className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
             style={{
               backgroundImage: `url(${
-                coverImage || "/images/blog-placeholder.jpg"
+                coverImage || "/images/hero-bg.png"
               })`,
             }}
           />
@@ -114,7 +114,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
                 <Icon iconName="about" className="text-primary" />
               </div>
               <span className="text-gray-600 font-poppinsRegular text-sm">
-                Dr. Jibran Bashir
+                Dr. Ramzan Bhatti
               </span>
             </div>
 

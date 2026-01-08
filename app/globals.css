@@ -90,12 +90,6 @@ body {
   -webkit-backdrop-filter: blur(5px);
 }
 
-.bg-svg {
-  background-image: url("/svgs/login-bg.svg");
-  background-size: cover;
-  background-position: center;
-}
-
 .green-radial {
   background: radial-gradient(
     circle,
