@@ -1,18 +1,22 @@
 "use client";
 
-import { useGetSimiliarBlogs } from "@/hooks/useGetSimiliarBlogs";
-import { Loading } from "../Loading";
 import { SimiliarBlogCard } from "@/components";
+import { Blog } from "@/utils/types";
 
 type SimiliarBlogListProps = {
   slug: string;
 };
 
-export const SimiliarBlogList: React.FC<SimiliarBlogListProps> = ({ slug }) => {
-  const { blogs, isLoading } = useGetSimiliarBlogs(slug);
+export const SimiliarBlogList: React.FC<SimiliarBlogListProps> = ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  slug,
+}) => {
+  const blogs: Blog[] = [];
+  const isLoading = false;
+
   const renderBlogCards = () => {
     if (isLoading) {
-      return <Loading size="4x" className="text-primary" />;
+      return <div className="w-full text-center text-primary text-[22px]">Loading...</div>;
     } else if (blogs.length < 1) {
       return (
         <div className="w-full text-center text-primary text-[22px]">

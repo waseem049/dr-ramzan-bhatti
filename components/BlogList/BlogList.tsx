@@ -1,9 +1,9 @@
 "use client";
-import { useFetchBlogs } from "@/hooks/useFetchBlogs";
 import { useState } from "react";
 import { BlogCard } from "../BlogCard";
 import { PaginationBar } from "@/components";
 import { Icon } from "@/components";
+import { Blog } from "@/utils/types";
 
 type BlogListProps = {
   selectedCategory?: string;
@@ -13,7 +13,9 @@ export const BlogList: React.FC<BlogListProps> = ({
   selectedCategory = "all",
 }) => {
   const [skip, setSkip] = useState<number>(0);
-  const { blogs, count, isLoading } = useFetchBlogs(skip, 9);
+  const blogs: Blog[] = [];
+  const count = 0;
+  const isLoading = false;
 
   const currentPage = Math.floor(skip / 9) + 1;
   const totalPages = Math.ceil(count / 9);

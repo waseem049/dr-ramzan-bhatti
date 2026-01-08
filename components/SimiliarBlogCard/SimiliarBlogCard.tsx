@@ -1,4 +1,4 @@
-import { Blog } from "@prisma/client";
+import { Blog } from "@/utils/types";
 import Link from "next/link";
 
 type SimiliarBlogCardProps = {

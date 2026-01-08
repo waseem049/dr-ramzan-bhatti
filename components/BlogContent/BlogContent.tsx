@@ -1,4 +1,4 @@
-import { Blog } from "@prisma/client";
+import { Blog } from "@/utils/types";
 
 type BlogContentProps = {
   blog: Blog;

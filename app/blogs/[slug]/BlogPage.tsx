@@ -1,6 +1,6 @@
 "use client";
 import { BlogContent, SimiliarBlogList } from "@/components";
-import { Blog } from "@prisma/client";
+import { Blog } from "@/utils/types";
 import Link from "next/link";
 import { Icon } from "@/components";
 import { useState, useEffect } from "react";

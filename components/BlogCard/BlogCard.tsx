@@ -1,4 +1,4 @@
-import { Blog } from "@prisma/client";
+import { Blog } from "@/utils/types";
 import { Icon } from "../Icon";
 import { formatIso } from "@/utils/dateFormatters";
 import Link from "next/link";

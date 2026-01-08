@@ -1,3 +1,3 @@
-import { Contact } from "@prisma/client";
+import { Contact } from "./types";
 
 export type ContactDataDto = Omit<Contact, "createdAt" | "updatedAt" | "id">;

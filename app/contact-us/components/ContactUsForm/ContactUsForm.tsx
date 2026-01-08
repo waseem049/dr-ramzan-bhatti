@@ -3,7 +3,6 @@ import { FormButton, InputBox, SelectInput, TextArea } from "@/components";
 import { ApiResponse, LabelValue } from "@/utils/types";
 import { Form, Formik } from "formik";
 import { Countries } from "@/utils/countryCodes";
-import { useCreateContact } from "@/hooks/useCreateContact";
 import { useState } from "react";
 import * as Yup from "yup";
 
@@ -33,7 +32,7 @@ const initialValues: ContactUsFormValues = {
 };
 
 export const ContactUsForm = () => {
-  const { createContact, isLoading } = useCreateContact();
+  const isLoading = false;
   const [message, setMessage] = useState<ApiResponse | null>(null);
 
   const transformedCountryList: LabelValue[] = Countries.map((c) => ({
@@ -55,30 +54,15 @@ export const ContactUsForm = () => {
 
   const handleSubmit = async (
     values: ContactUsFormValues,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     { resetForm }: { resetForm: () => void }
   ) => {
-    try {
-      const response = await createContact({
-        name: values.name,
-        email: values.email,
-        countryCode: (values.countryCode?.value as string) || null,
-        phone: values.phone || null,
-        subject: values.subject,
-        message: values.message,
-      });
-
-      if (response.success) {
-        setMessage(ApiResponse.CREATION_SUCCESS);
-        resetForm();
-      }
-    } catch (err) {
-      console.error("Error Creating Contact:", err);
-      setMessage(ApiResponse.CREATION_FAILURE);
-    } finally {
-      setTimeout(() => {
-        setMessage(null);
-      }, 5000);
-    }
+    // Contact form submission disabled - API removed
+    console.log("Contact form submission:", values);
+    setMessage(ApiResponse.CREATION_FAILURE);
+    setTimeout(() => {
+      setMessage(null);
+    }, 5000);
   };
 
   return (

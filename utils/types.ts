@@ -1,5 +1,40 @@
-import { Blog, Contact } from "@prisma/client";
 import { ContactDataDto } from "./dto";
+
+export enum BlogStatus {
+  DRAFT = "DRAFT",
+  PUBLISHED = "PUBLISHED",
+  WITHDRAWN = "WITHDRAWN",
+}
+
+export type Blog = {
+  id: string;
+  slug: string;
+  title: string;
+  subTitle: string;
+  content: string;
+  coverImage: string | null;
+  category: string | null;
+  media: string[];
+  author: string;
+  excerpt: string;
+  isFeatured: boolean;
+  tags: string[];
+  status: BlogStatus;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+export type Contact = {
+  id: string;
+  name: string;
+  email: string;
+  countryCode: string | null;
+  phone: string | null;
+  subject: string;
+  message: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
 
 export enum ApiResponse {
   // Blog related responses

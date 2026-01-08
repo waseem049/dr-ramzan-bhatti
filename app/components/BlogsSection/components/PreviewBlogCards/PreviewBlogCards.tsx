@@ -1,7 +1,7 @@
 "use client";
 
 import { BlogCard } from "@/components";
-import { useFetchBlogs } from "@/hooks/useFetchBlogs";
+import { Blog } from "@/utils/types";
 
 type PreviewBlogCardsProps = {
   selectedCategory?: string;
@@ -10,7 +10,8 @@ type PreviewBlogCardsProps = {
 export const PreviewBlogCards: React.FC<PreviewBlogCardsProps> = ({
   selectedCategory = "all",
 }) => {
-  const { blogs, isLoading } = useFetchBlogs(0, 6);
+  const blogs: Blog[] = [];
+  const isLoading = false;
 
   if (isLoading) {
     return (
