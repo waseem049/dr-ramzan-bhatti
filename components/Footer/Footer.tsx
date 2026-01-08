@@ -2,22 +2,22 @@
 import Link from "next/link";
 import { Icon } from "../Icon";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+// import { useState } from "react";
 
 export const Footer = () => {
   const pathname = usePathname();
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
 
   if (pathname.startsWith("/admin") || pathname.startsWith("/login")) {
     return null;
   }
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle newsletter subscription
-    console.log("Newsletter subscription:", email);
-    setEmail("");
-  };
+  // const handleNewsletterSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   // Handle newsletter subscription
+  //   console.log("Newsletter subscription:", email);
+  //   setEmail("");
+  // };
 
   const locations = [
     {

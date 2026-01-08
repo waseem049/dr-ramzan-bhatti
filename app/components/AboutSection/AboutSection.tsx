@@ -43,7 +43,7 @@ export const AboutSection = () => {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">Skin Health</span>
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed font-poppinsRegular">
-                "I believe that confidence begins with healthy skin. My practice combines cutting-edge medical dermatology with the artistry of aesthetic medicine to deliver natural, lasting results."
+                {"I believe that confidence begins with healthy skin. My practice combines cutting-edge medical dermatology with the artistry of aesthetic medicine to deliver natural, lasting results."}
               </p>
             </div>
 

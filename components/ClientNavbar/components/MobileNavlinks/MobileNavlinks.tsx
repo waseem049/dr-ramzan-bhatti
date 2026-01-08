@@ -11,10 +11,10 @@ type MobileNavlinksProps = {
 export const MobileNavlinks: React.FC<MobileNavlinksProps> = ({
   pathname,
   onItemClick,
-  hasScrolled,
-  isHomePage,
+  // hasScrolled,
+  // isHomePage,
 }) => {
-  const isDarkMode = true; // Force white theme for mobile menu
+  // const isDarkMode = true; // Force white theme for mobile menu
 
   return (
     <div className="flex flex-col bg-white rounded-lg overflow-hidden shadow-sm gap-0">

@@ -10,7 +10,7 @@ type NavlinksProps = {
 
 export const Navlinks: React.FC<NavlinksProps & { onHoverService: (isHovering: boolean) => void }> = ({
   pathname,
-  hasScrolled,
+  // hasScrolled,
   isHomePage,
   onHoverService,
 }) => {

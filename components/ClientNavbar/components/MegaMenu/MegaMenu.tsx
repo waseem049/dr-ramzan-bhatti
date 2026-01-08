@@ -12,44 +12,44 @@ export const MegaMenu = ({
     onMouseEnter: () => void;
     onMouseLeave: () => void;
 }) => {
-    const services = [
-        {
-            icon: "plus", // Using a generic icon for now, will map to specific ones
-            title: "Acne Treatment",
-            desc: "Effective solutions for active acne and scars.",
-            href: "/treatments#acne",
-        },
-        {
-            icon: "plus",
-            title: "Laser Hair Removal",
-            desc: "Painless and permanent hair reduction.",
-            href: "/treatments#laser",
-        },
-        {
-            icon: "plus",
-            title: "Anti-Aging",
-            desc: "Botox, fillers, and skin tightening.",
-            href: "/treatments#anti-aging",
-        },
-        {
-            icon: "plus",
-            title: "Pigmentation",
-            desc: "Treat melasma, sun spots, and uneven tone.",
-            href: "/treatments#pigmentation",
-        },
-        {
-            icon: "plus",
-            title: "HydraFacial",
-            desc: "Deep cleansing and hydration for glowing skin.",
-            href: "/treatments#hydrafacial",
-        },
-        {
-            icon: "plus",
-            title: "Hair Loss",
-            desc: "PRP and advanced hair restoration therapies.",
-            href: "/treatments#hair-loss",
-        },
-    ];
+    // const services = [
+    //     {
+    //         icon: "plus", // Using a generic icon for now, will map to specific ones
+    //         title: "Acne Treatment",
+    //         desc: "Effective solutions for active acne and scars.",
+    //         href: "/treatments#acne",
+    //     },
+    //     {
+    //         icon: "plus",
+    //         title: "Laser Hair Removal",
+    //         desc: "Painless and permanent hair reduction.",
+    //         href: "/treatments#laser",
+    //     },
+    //     {
+    //         icon: "plus",
+    //         title: "Anti-Aging",
+    //         desc: "Botox, fillers, and skin tightening.",
+    //         href: "/treatments#anti-aging",
+    //     },
+    //     {
+    //         icon: "plus",
+    //         title: "Pigmentation",
+    //         desc: "Treat melasma, sun spots, and uneven tone.",
+    //         href: "/treatments#pigmentation",
+    //     },
+    //     {
+    //         icon: "plus",
+    //         title: "HydraFacial",
+    //         desc: "Deep cleansing and hydration for glowing skin.",
+    //         href: "/treatments#hydrafacial",
+    //     },
+    //     {
+    //         icon: "plus",
+    //         title: "Hair Loss",
+    //         desc: "PRP and advanced hair restoration therapies.",
+    //         href: "/treatments#hair-loss",
+    //     },
+    // ];
 
     return (
         <div
@@ -72,7 +72,7 @@ export const MegaMenu = ({
                         <p className="text-gray-600 font-poppinsRegular text-sm leading-relaxed mb-6">
                             From acne solutions to advanced anti-aging procedures, we provide
                             customized treatments using state-of-the-art technology to restore
-                            your skin's health and radiance.
+                            your skin&apos;s health and radiance.
                         </p>
                         <Link
                             href="/treatments"

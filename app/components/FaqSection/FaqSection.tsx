@@ -93,7 +93,7 @@ export const FaqSection = () => {
 
                 <h3 className="text-2xl font-montserratBold text-gray-900">Still have questions?</h3>
                 <p className="text-gray-600 font-poppinsRegular leading-relaxed">
-                  Can't find the answer you're looking for? Dr. Ramzan and his team are here to help.
+                  Can&apos;t find the answer you&apos;re looking for? Dr. Ramzan and his team are here to help.
                 </p>
 
                 <div className="pt-4">

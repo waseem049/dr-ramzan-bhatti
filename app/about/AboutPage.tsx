@@ -1,5 +1,5 @@
 "use client";
-import { CareerHighlightsCard, Icon } from "@/components"; // standardized import
+import { CareerHighlightsCard } from "@/components"; // standardized import
 import { CareerHighlights } from "@/utils/constants";
 import { useState } from "react";
 import Link from "next/link";

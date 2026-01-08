@@ -8,7 +8,7 @@ type TreatmentCardProps = {
 export const TreatmentCard: React.FC<TreatmentCardProps> = ({
   treatment,
   description,
-  icon,
+  // icon,
   featured = false,
 }) => {
   // Map treatment names to specific SVG icons

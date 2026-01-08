@@ -10,14 +10,14 @@ import Link from "next/link";
 export const ClientNavBar: React.FC = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [hasScrolled, setHasScrolled] = useState(false);
+  // const [hasScrolled, setHasScrolled] = useState(false);
 
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setHasScrolled(scrollPosition > 20); // Lower threshold for sticky effect
+      // const scrollPosition = window.scrollY;
+      // setHasScrolled(scrollPosition > 20); // Lower threshold for sticky effect
     };
 
     window.addEventListener("scroll", handleScroll);
