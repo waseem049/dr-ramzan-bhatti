@@ -1,17 +1,14 @@
 type TreatmentCardProps = {
   treatment: string;
   description: string;
-  icon: string;
   featured?: boolean;
 };
 
 export const TreatmentCard: React.FC<TreatmentCardProps> = ({
   treatment,
   description,
-  // icon,
   featured = false,
 }) => {
-  // Map treatment names to specific SVG icons
   const getIconSVG = () => {
     const treatmentLower = treatment.toLowerCase();
 

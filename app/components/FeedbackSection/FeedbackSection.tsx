@@ -83,7 +83,7 @@ export const FeedbackSection = () => {
 
                                                 {/* Review Text */}
                                                 <p className="text-gray-600 font-poppinsRegular text-lg leading-relaxed mb-8 min-h-[100px]">
-                                                    {testimonial.comment}
+                                                    {testimonial.feedback}
                                                 </p>
 
                                                 {/* Author Footer */}
@@ -93,7 +93,7 @@ export const FeedbackSection = () => {
                                                     </div>
                                                     <div>
                                                         <h4 className="text-gray-900 font-montserratBold text-base">{testimonial.name}</h4>
-                                                        <p className="text-gray-400 text-xs font-montserratMedium uppercase tracking-wide">{testimonial.treatment || "Patient"}</p>
+                                                        <p className="text-gray-400 text-xs font-montserratMedium uppercase tracking-wide">{testimonial.treatmentReceived || "Patient"}</p>
                                                     </div>
                                                 </div>
 

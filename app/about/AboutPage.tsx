@@ -33,7 +33,7 @@ export const AboutPage = () => {
             <Image src="/images/doctor.png" alt="Dr. Ramzan" fill className="object-cover hover:scale-105 transition-transform duration-1000" />
             {/* Overlay Stat */}
             <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-10 backdrop-blur-[2px]">
-              <p className="text-white text-lg font-montserratRegular italic border-l-4 border-primary pl-4">"Healthy skin is the foundation of confidence."</p>
+              <p className="text-white text-lg font-montserratRegular italic border-l-4 border-primary pl-4">&quot;Healthy skin is the foundation of confidence.&quot;</p>
             </div>
           </div>
 

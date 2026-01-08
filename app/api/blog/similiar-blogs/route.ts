@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          response: ApiResponse.SLUG_NOT_FOUND,
+          response: ApiResponse.VALIDATION_ERROR,
           error: "Slug Parameter Is Required",
         },
         { status: 400 }

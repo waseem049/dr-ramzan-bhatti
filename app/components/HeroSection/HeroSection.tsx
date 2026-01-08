@@ -10,7 +10,7 @@ export const HeroSection = () => {
       {/* Background with overlay */}
       <div className="absolute inset-0 w-full h-full z-0">
         <Image
-          src="/images/hero_bg.png"
+          src="/images/hero-bg.png"
           alt="Skin Care Background"
           fill
           className="object-cover opacity-100"
@@ -31,7 +31,7 @@ export const HeroSection = () => {
           </div>
 
           <h1 className="text-4xl lg:text-7xl font-montserratLight text-gray-900 leading-[1.1] animate-fadeIn delay-100">
-            Reveal Your Skin's <br />
+            Reveal Your Skin&apos;s <br />
             <span className="font-montserratBold text-primary">
               True Radiance
             </span>

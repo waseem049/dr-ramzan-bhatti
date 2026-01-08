@@ -1,120 +1,58 @@
-import { NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
-import { PrismaClient } from "@prisma/client";
-import { ApiResponse } from "@/utils/types";
+import { NextRequest, NextResponse } from "next/server";
+import prisma from "@/utils/prisma";
+import { ApiResponse, CreateContactInput } from "@/utils/types";
 
-const prisma = new PrismaClient();
-const JWT_SECRET = process.env.JWT_SECRET;
-
-export async function GET(req: Request) {
+export async function POST(request: NextRequest) {
   try {
-    // Authorization check
-    const token = req.headers.get("Authorization")?.replace("Bearer ", "");
-    if (!token) {
+    const body: CreateContactInput = await request.json();
+
+    if (!body.name || !body.email || !body.subject || !body.message) {
       return NextResponse.json(
         {
           success: false,
-          response: ApiResponse.AUTH_TOKEN_MISSING,
-          error: "Authorization Token Is Required",
+          response: ApiResponse.VALIDATION_ERROR,
+          error: "Missing required fields",
         },
         { status: 400 }
       );
     }
 
-    if (!JWT_SECRET) {
-      return NextResponse.json(
-        {
-          success: false,
-          response: ApiResponse.AUTH_SECRET_MISSING,
-          error: "Server Configuration Error",
-        },
-        { status: 401 }
-      );
-    }
-
-    const decoded = jwt.verify(token, JWT_SECRET) as unknown;
-    if (!decoded) {
-      return NextResponse.json(
-        {
-          success: false,
-          response: ApiResponse.AUTH_TOKEN_MISSING,
-          error: "Invalid Authorization Token",
-        },
-        { status: 401 }
-      );
-    }
-
-    // Get all contacts
-    const contacts = await prisma.contact.findMany({
-      orderBy: {
-        createdAt: "desc",
+    const contact = await prisma.contact.create({
+      data: {
+        name: body.name,
+        email: body.email,
+        countryCode: body.countryCode || null,
+        phone: body.phone || null,
+        subject: body.subject,
+        message: body.message,
       },
     });
 
     return NextResponse.json(
       {
         success: true,
-        response: ApiResponse.FETCH_SUCCESS,
-        data: contacts,
-      },
-      { status: 200 }
-    );
-  } catch (error) {
-    console.error("Error Fetching Contacts:", error);
-    return NextResponse.json(
-      {
-        success: false,
-        response: ApiResponse.FETCH_FAILURE,
-        error: "Internal Server Error",
-      },
-      { status: 500 }
-    );
-  }
-}
-
-export async function POST(req: Request) {
-  try {
-    const body = await req.json();
-    const { name, email, countryCode, phone, subject, message } = body;
-
-    // Validate required fields
-    if (!name || !email || !subject || !message) {
-      return NextResponse.json(
-        {
-          success: false,
-          response: ApiResponse.CREATION_FAILURE,
-          error: "Required Fields Missing",
+        response: ApiResponse.CREATION_SUCCESS,
+        data: {
+          name: contact.name,
+          email: contact.email,
+          countryCode: contact.countryCode,
+          phone: contact.phone,
+          subject: contact.subject,
+          message: contact.message,
         },
-        { status: 400 }
-      );
-    }
-
-    // Create contact
-    const contact = await prisma.contact.create({
-      data: {
-        name,
-        email,
-        countryCode,
-        phone,
-        subject,
-        message,
       },
-    });
-
-    return NextResponse.json({
-      success: true,
-      response: ApiResponse.CREATION_SUCCESS,
-      data: contact,
-    });
+      { status: 201 }
+    );
   } catch (error) {
     console.error("Error Creating Contact:", error);
     return NextResponse.json(
       {
         success: false,
         response: ApiResponse.CREATION_FAILURE,
-        error: "Error Creating Contact Submission.",
+        error: "Error Creating Contact",
       },
       { status: 500 }
     );
   }
 }
+
