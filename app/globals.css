@@ -2,6 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* === Luxe v2.0 Mobile Rhythm Utilities === */
+.mobile-section-py {
+  @apply py-24 px-6;
+}
+
+.mobile-hero-pt {
+  @apply pt-32 pb-24 px-6;
+}
+
+.text-luxe-display {
+  @apply text-[40px] leading-[1.05] tracking-tight font-montserratBold text-luxe-charcoal;
+}
+
+.text-luxe-header {
+  @apply text-[28px] leading-tight font-montserratBold text-luxe-charcoal;
+}
+
+.text-luxe-body {
+  @apply text-base leading-relaxed font-montserratRegular text-luxe-slate;
+}
+
+.text-luxe-eyebrow {
+  @apply text-[11px] tracking-[0.25em] uppercase font-montserratBold text-luxe-gold;
+}
+
+/* Base Styles */
+body {
+  @apply bg-white text-luxe-charcoal;
+}
+
+
 @font-face {
   font-family: "PoppinsThin";
   src: url("/fonts/Poppins-Thin.ttf") format("truetype");
@@ -91,12 +122,10 @@ body {
 }
 
 .green-radial {
-  background: radial-gradient(
-    circle,
-    hsla(150, 50%, 65%, 1) 1%,
-    hsla(0, 0%, 10%, 1) 40%,
-    hsla(0, 0%, 0%, 1) 100%
-  );
+  background: radial-gradient(circle,
+      hsla(150, 50%, 65%, 1) 1%,
+      hsla(0, 0%, 10%, 1) 40%,
+      hsla(0, 0%, 0%, 1) 100%);
 }
 
 .perspective-1000 {

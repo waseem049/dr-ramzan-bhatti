@@ -8,8 +8,8 @@ export const AboutSection = () => {
       <div className="max-w-[1440px] mx-auto px-4 lg:px-16 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
 
-          {/* Left Column: Portrait & Badge - Asymmetrical Width */}
-          <div className="w-full lg:w-[45%] relative group">
+          {/* Left Column: Portrait & Badge - Asymmetrical Width - HIDDEN ON MOBILE */}
+          <div className="hidden lg:block w-full lg:w-[45%] relative group">
             <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl shadow-2xl">
               <Image
                 src="/images/doctor.png"
@@ -30,11 +30,11 @@ export const AboutSection = () => {
             <div className="absolute -top-6 -left-6 w-32 h-32 border-t-4 border-l-4 border-primary/20 rounded-tl-3xl -z-10"></div>
           </div>
 
-          {/* Right Column: Content & Interactive Grid */}
-          <div className="w-full lg:w-[55%] space-y-12">
+          {/* Right Column: Content & Interactive Grid - Centered on Mobile */}
+          <div className="w-full lg:w-[55%] space-y-12 text-center lg:text-left">
 
             <div className="space-y-6 animate-fadeInUp">
-              <h4 className="text-primary font-montserratBold text-sm tracking-[0.2em] uppercase flex items-center gap-3">
+              <h4 className="text-primary font-montserratBold text-sm tracking-[0.2em] uppercase flex items-center justify-center lg:justify-start gap-3">
                 <span className="w-8 h-[2px] bg-primary"></span>
                 Meet The Specialist
               </h4>

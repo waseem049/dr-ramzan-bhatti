@@ -54,7 +54,7 @@ export const SelectInput: React.FC<SelectInputProps> = ({
       ...provided,
       fontSize: 12,
       fontFamily: "PoppinsRegular",
-      color: "#9CA3AF",
+      color: "#9CA3AF", // lightGrey from palette
     }),
   };
 

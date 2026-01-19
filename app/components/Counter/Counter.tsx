@@ -74,7 +74,7 @@ export const Counter = () => {
           </div>
           <h2 className="text-4xl lg:text-5xl font-montserratBold text-white leading-tight mb-6">
             Refining Beauty, <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#EFCAC4] to-primary">Restoring Confidence</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary">Restoring Confidence</span>
           </h2>
           <p className="max-w-2xl mx-auto text-gray-400 text-lg font-poppinsLight leading-relaxed">
             Join thousands who have trusted Dr. Ramzan for their skin health journey. Precision, safety, and artistry in every procedure.

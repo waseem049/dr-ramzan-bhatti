@@ -1,6 +1,5 @@
 import { NavBarData } from "@/utils/constants";
 import Link from "next/link";
-import { Icon } from "@/components/Icon";
 
 type NavlinksProps = {
   pathname: string;
@@ -8,18 +7,11 @@ type NavlinksProps = {
 
 export const Navlinks: React.FC<NavlinksProps & { onHoverService: (isHovering: boolean) => void }> = ({
   pathname,
-  onHoverService,
 }) => {
-
-  const links = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Blogs", href: "/blogs" },
-  ];
 
   return (
     <div className="flex items-center gap-6">
-      {links.map((l, i) => {
+      {NavBarData.map((l, i) => {
         const isActivePath =
           l.href === "/"
             ? pathname === "/"

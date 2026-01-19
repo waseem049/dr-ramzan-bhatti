@@ -77,7 +77,7 @@ export const FaqSection = () => {
 
           {/* Right Column: Visual Interaction Card */}
           <div className="lg:col-span-5 relative animate-slideInRight delay-200">
-            <div className="relative bg-[#FAF7F5] rounded-[2rem] p-8 lg:p-12 overflow-hidden shadow-lg border border-white">
+            <div className="relative bg-skin-lighter rounded-[2rem] p-8 lg:p-12 overflow-hidden shadow-lg border border-white">
               {/* Background Decor */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-0" />
 

@@ -3,9 +3,10 @@ export const NavBarData = [
     label: "Home",
     href: "/",
   },
+
   {
-    label: "Treatments",
-    href: "/#treatments",
+    label: "Clinics",
+    href: "/clinics",
   },
   {
     label: "About",
@@ -13,7 +14,7 @@ export const NavBarData = [
   },
   {
     label: "Blogs",
-    href: "/blog",
+    href: "/blogs",
   },
 ];
 
@@ -162,3 +163,54 @@ export const CareerHighlights = {
     ],
   },
 };
+
+export const ClinicsData = [
+  {
+    slug: "downtown-clinic",
+    name: "Downtown Skin Center",
+    address: "123 Healthcare Blvd, Suite 101, Downtown City, 54000",
+    phone: "+92 300 1234567",
+    timings: "Mon - Sat: 10:00 AM - 2:00 PM",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13606.594750462058!2d74.3084!3d31.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc202479ca4d2e38c!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1650000000000!5m2!1sen!2s",
+    description: "Our flagship clinic located in the heart of the city, offering premium aesthetic services."
+  },
+  {
+    slug: "uptown-specialists",
+    name: "Uptown Specialists",
+    address: "456 Wellness Avenue, Uptown District, 54000",
+    phone: "+92 300 7654321",
+    timings: "Mon - Fri: 3:00 PM - 7:00 PM",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13606.594750462058!2d74.3084!3d31.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc202479ca4d2e38c!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1650000000000!5m2!1sen!2s",
+    description: "Modern facility focused on advanced laser treatments and cosmetic surgery."
+  },
+  {
+    slug: "medical-city-complex",
+    name: "Medical City Complex",
+    address: "789 Health Road, Medical City, 54000",
+    phone: "+92 300 9876543",
+    timings: "Tue - Sun: 5:00 PM - 9:00 PM",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13606.594750462058!2d74.3084!3d31.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc202479ca4d2e38c!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1650000000000!5m2!1sen!2s",
+    description: "Comprehensive dermatology center equipped with the latest diagnostic tools."
+  }
+];
+
+export const AwardsData = [
+  {
+    title: "Best Dermatologist of the Year",
+    year: "2024",
+    organization: "National Medical Association",
+    description: "Recognized for outstanding contribution to clinical dermatology and patient care."
+  },
+  {
+    title: "Excellence in Laser Surgery",
+    year: "2022",
+    organization: "Asian Congress of Dermatology",
+    description: "Awarded for pioneering work in advanced laser hair removal techniques."
+  },
+  {
+    title: "Young Achiever Award",
+    year: "2019",
+    organization: "Dermatological Society of Pakistan",
+    description: "Acknowledging early career excellence and research contributions."
+  }
+];

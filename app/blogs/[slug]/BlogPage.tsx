@@ -111,7 +111,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({ blog }) => {
             <div className="sticky top-24 space-y-8 animate-fadeInUp delay-100">
 
               {/* Author / Booking Card */}
-              <div className="bg-[#FAF7F5] rounded-3xl p-8 text-center border border-[#EFCAC4]/20">
+              <div className="bg-skin-lighter rounded-3xl p-8 text-center border border-accent/20">
                 <div className="w-20 h-20 bg-white rounded-full mx-auto mb-4 flex items-center justify-center shadow-sm">
                   <Icon iconName="stethoscope" className="text-3xl text-primary" />
                 </div>

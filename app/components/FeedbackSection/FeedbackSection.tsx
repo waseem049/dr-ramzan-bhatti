@@ -30,7 +30,7 @@ export const FeedbackSection = () => {
     };
 
     return (
-        <section className="w-full py-24 bg-[#FFFCF9] relative overflow-hidden">
+        <section className="w-full py-24 bg-skin-lightest relative overflow-hidden">
 
             {/* Subtle Background Pattern */}
             <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#D88D7F_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
@@ -47,7 +47,7 @@ export const FeedbackSection = () => {
                         </div>
                     </div>
 
-                    <h2 className="text-4xl lg:text-5xl font-montserratBold text-gray-900 mb-6">
+                    <h2 className="text-3xl lg:text-5xl font-montserratBold text-gray-900 mb-6">
                         Patient Stories
                     </h2>
                     <p className="font-poppinsLight text-2xl lg:text-3xl text-gray-400 italic">
@@ -88,7 +88,7 @@ export const FeedbackSection = () => {
 
                                                 {/* Author Footer */}
                                                 <div className="flex items-center gap-4 pt-6 border-t border-gray-50">
-                                                    <div className="w-12 h-12 rounded-full bg-[#FAF7F5] flex items-center justify-center text-primary border border-primary/10">
+                                                    <div className="w-12 h-12 rounded-full bg-skin-lighter flex items-center justify-center text-primary border border-primary/10">
                                                         <Icon iconName="user" className="text-xl" />
                                                     </div>
                                                     <div>

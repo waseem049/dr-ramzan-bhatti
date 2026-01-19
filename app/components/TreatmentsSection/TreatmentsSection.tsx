@@ -8,7 +8,7 @@ export const TreatmentsSection = () => {
   const featuredTreatments = TreatmentsList.slice(0, 3);
 
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-16 py-12 lg:py-20 bg-gradient-to-br from-[#FFFCF9] via-white to-gray-50">
+    <section className="w-full px-4 sm:px-6 lg:px-16 py-20 lg:py-24 bg-gradient-to-br from-skin-lightest via-white to-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Section Header - Refined Typography */}
         <div className="text-center mb-12 lg:mb-16">
@@ -70,6 +70,51 @@ export const TreatmentsSection = () => {
                   description={treatment.description}
                   featured={false}
                 />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Process Section - NEW */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl lg:text-3xl font-montserratBold text-gray-900 mb-4">
+              Your Journey to Radiance
+            </h3>
+            <p className="text-gray-600 font-poppinsRegular max-w-2xl mx-auto">
+              We ensure a smooth, comfortable, and transparent experience from your first visit to your final result.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 relative">
+            {/* Connector Line (Desktop) */}
+            <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gray-200 -z-10" />
+
+            {[
+              {
+                step: "01",
+                title: "Consultation",
+                desc: "In-depth skin analysis and discussion of your aesthetic goals with Dr. Ramzan."
+              },
+              {
+                step: "02",
+                title: "Treatment",
+                desc: "Customized procedure performed using advanced technology in a safe environment."
+              },
+              {
+                step: "03",
+                title: "Aftercare",
+                desc: "Comprehensive post-treatment guidance to ensure long-lasting results."
+              }
+            ].map((process, i) => (
+              <div key={i} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center relative group hover:-translate-y-2 transition-transform duration-500">
+                <div className="w-24 h-24 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-montserratBold mx-auto mb-6 border-8 border-white shadow-lg relative z-10 group-hover:scale-110 transition-transform duration-300">
+                  {process.step}
+                </div>
+                <h4 className="text-xl font-montserratBold text-gray-900 mb-3">{process.title}</h4>
+                <p className="text-gray-500 font-poppinsRegular text-sm leading-relaxed">
+                  {process.desc}
+                </p>
               </div>
             ))}
           </div>

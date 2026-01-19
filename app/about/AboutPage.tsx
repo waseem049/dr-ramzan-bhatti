@@ -1,6 +1,6 @@
 "use client";
 import { CareerHighlightsCard } from "@/components"; // standardized import
-import { CareerHighlights } from "@/utils/constants";
+import { CareerHighlights, AwardsData } from "@/utils/constants";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -97,6 +97,32 @@ export const AboutPage = () => {
               isActive={true}
             />
           </div>
+        </div>
+      </section>
+
+      {/* 4. Awards & Recognition */}
+      <section className="py-20 px-4 lg:px-16 max-w-[1440px] mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-montserratBold text-gray-900 mb-4">Awards & Recognition</h2>
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {AwardsData.map((award, index) => (
+            <div key={index} className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-primary/40 hover:shadow-2xl transition-all duration-300 text-center group">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="8" r="7" />
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-montserratBold text-gray-900 mb-2">{award.title}</h3>
+              <p className="text-primary font-montserratSemibold text-sm mb-4">{award.organization} - {award.year}</p>
+              <p className="text-gray-500 font-poppinsRegular text-sm leading-relaxed">
+                {award.description}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
