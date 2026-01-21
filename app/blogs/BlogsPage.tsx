@@ -8,10 +8,12 @@ export const BlogsPage = () => {
 
   const categories = [
     { id: "all", label: "All Articles" },
-    { id: "skincare", label: "Skin Care" },
+    { id: "skin-care", label: "Skin Care" },
     { id: "treatments", label: "Treatments" },
+    { id: "skin-conditions", label: "Skin Conditions" },
     { id: "anti-aging", label: "Anti-Aging" },
     { id: "hair-care", label: "Hair Care" },
+    { id: "cosmetic-procedures", label: "Cosmetic Procedures" },
   ];
 
   return (

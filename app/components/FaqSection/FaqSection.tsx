@@ -4,10 +4,12 @@ import { FAQs } from "@/utils/constants";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useAppointmentBooking } from "@/contexts/AppointmentBookingContext";
 
 export const FaqSection = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
+  const { openModal } = useAppointmentBooking();
 
   const filteredFAQs = FAQs.filter(
     (faq) =>
@@ -97,9 +99,9 @@ export const FaqSection = () => {
                 </p>
 
                 <div className="pt-4">
-                  <Link href="/contact-us" className="inline-block w-full bg-primary hover:bg-primary/90 text-white font-montserratSemibold py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1">
-                    Contact Support
-                  </Link>
+                  <button onClick={openModal} className="inline-block w-full bg-primary hover:bg-primary/90 text-white font-montserratSemibold py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1">
+                    Book Consultation
+                  </button>
                   <p className="mt-4 text-sm text-gray-400">Usually responds within 24 hours</p>
                 </div>
               </div>

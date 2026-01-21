@@ -1,0 +1,106 @@
+{
+  "invoices": [
+    {
+      "id": "inv_001",
+      "invoiceNumber": "INV-2026-001",
+      "patientId": "pat_001",
+      "patientName": "John Doe",
+      "appointmentId": "apt_001",
+      "date": "2026-01-20",
+      "dueDate": "2026-02-04",
+      "items": [
+        {
+          "description": "Consultation Fee",
+          "quantity": 1,
+          "unitPrice": 1000,
+          "total": 1000
+        },
+        {
+          "description": "Acne Treatment Package (3 months)",
+          "quantity": 1,
+          "unitPrice": 15000,
+          "total": 15000
+        },
+        {
+          "description": "Medications (Isotretinoin + Topicals)",
+          "quantity": 1,
+          "unitPrice": 3500,
+          "total": 3500
+        }
+      ],
+      "subtotal": 19500,
+      "discount": 500,
+      "tax": 0,
+      "total": 19000,
+      "amountPaid": 19000,
+      "amountDue": 0,
+      "paymentStatus": "paid",
+      "paymentMethod": "Credit Card",
+      "paymentDate": "2026-01-20",
+      "notes": "Full payment received. Package includes 3 months treatment.",
+      "createdBy": "usr_002",
+      "createdAt": "2026-01-20T11:00:00.000Z",
+      "updatedAt": "2026-01-20T11:00:00.000Z"
+    },
+    {
+      "id": "inv_002",
+      "invoiceNumber": "INV-2026-002",
+      "patientId": "pat_002",
+      "patientName": "Jane Smith",
+      "appointmentId": "apt_002",
+      "date": "2026-01-19",
+      "dueDate": "2026-02-03",
+      "items": [
+        {
+          "description": "Laser Hair Removal - Session 3",
+          "quantity": 1,
+          "unitPrice": 5000,
+          "total": 5000
+        }
+      ],
+      "subtotal": 5000,
+      "discount": 0,
+      "tax": 0,
+      "total": 5000,
+      "amountPaid": 5000,
+      "amountDue": 0,
+      "paymentStatus": "paid",
+      "paymentMethod": "Cash",
+      "paymentDate": "2026-01-19",
+      "notes": "Part of 6-session package. 3 sessions remaining.",
+      "createdBy": "usr_002",
+      "createdAt": "2026-01-19T15:00:00.000Z",
+      "updatedAt": "2026-01-19T15:00:00.000Z"
+    },
+    {
+      "id": "inv_003",
+      "invoiceNumber": "INV-2026-003",
+      "patientId": "pat_003",
+      "patientName": "Mike Johnson",
+      "appointmentId": "apt_003",
+      "date": "2026-01-21",
+      "dueDate": "2026-02-05",
+      "items": [
+        {
+          "description": "Initial Consultation",
+          "quantity": 1,
+          "unitPrice": 1000,
+          "total": 1000
+        }
+      ],
+      "subtotal": 1000,
+      "discount": 0,
+      "tax": 0,
+      "total": 1000,
+      "amountPaid": 0,
+      "amountDue": 1000,
+      "paymentStatus": "pending",
+      "paymentMethod": null,
+      "paymentDate": null,
+      "notes": "Pending payment. Follow-up scheduled.",
+      "createdBy": "usr_002",
+      "createdAt": "2026-01-21T09:30:00.000Z",
+      "updatedAt": "2026-01-21T09:30:00.000Z"
+    }
+  ]
+}

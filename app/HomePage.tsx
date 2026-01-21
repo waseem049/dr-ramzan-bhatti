@@ -5,6 +5,7 @@ import { FaqSection } from "./components/FaqSection";
 import { FeedbackSection } from "./components/FeedbackSection";
 import { HeroSection } from "./components/HeroSection";
 import { TreatmentsSection } from "./components/TreatmentsSection";
+import { BeforeAfterGallery } from "@/components/BeforeAfterGallery";
 
 export const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ export const HomePage = () => {
       <HeroSection />
       <AboutSection />
       <TreatmentsSection />
+      <BeforeAfterGallery />
       <FaqSection />
       <Counter />
       <FeedbackSection />

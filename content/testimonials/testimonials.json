@@ -1,0 +1,48 @@
+{
+  "testimonials": [
+    {
+      "id": "sarah-a",
+      "name": "Sarah A.",
+      "treatmentReceived": "Laser Hair Removal",
+      "rating": 5,
+      "feedback": "I've had amazing results with laser hair removal. Dr. Ramzan and his staff made me feel very comfortable. The process was quick and virtually painless!",
+      "displayPicture": "/images/female_placeholder.png",
+      "location": "Downtown Clinic",
+      "date": "2024-01-15",
+      "featured": true
+    },
+    {
+      "id": "ahmed-k",
+      "name": "Ahmed K.",
+      "treatmentReceived": "Acne Scar Treatment",
+      "rating": 5,
+      "feedback": "My acne scars were affecting my confidence. After 3 sessions of laser treatment, my skin is smooth and clear. Highly recommend Dr. Ramzan Bhatti.",
+      "displayPicture": "/images/male_placeholder.png",
+      "location": "Uptown Specialists",
+      "date": "2023-12-20",
+      "featured": true
+    },
+    {
+      "id": "priya-s",
+      "name": "Priya S.",
+      "treatmentReceived": "HydraFacial",
+      "rating": 5,
+      "feedback": "Best facial I have ever had! My skin feels so hydrated and glowing. The clinic is beautiful and very clean.",
+      "displayPicture": "/images/female_placeholder.png",
+      "location": "Downtown Clinic",
+      "date": "2024-02-10",
+      "featured": false
+    },
+    {
+      "id": "rahul-m",
+      "name": "Rahul M.",
+      "treatmentReceived": "Hair PRP Therapy",
+      "rating": 5,
+      "feedback": "I was skeptical about PRP for hair loss, but the results speak for themselves. My hair density has improved significantly.",
+      "displayPicture": "/images/male_placeholder.png",
+      "location": "Medical City Complex",
+      "date": "2023-11-05",
+      "featured": true
+    }
+  ]
+}

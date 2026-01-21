@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Icon } from "@/components/Icon";
+import { useAppointmentBooking } from "@/contexts/AppointmentBookingContext";
 
 // Sleek Counter Hook
 const useCountUp = (end: number, duration: number = 2000) => {
@@ -33,6 +34,7 @@ const useCountUp = (end: number, duration: number = 2000) => {
 export const HeroSection = () => {
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [hasScrolled, setHasScrolled] = useState(false);
+    const { openModal } = useAppointmentBooking();
     const yearsExp = useCountUp(10, 2500);
     const patients = useCountUp(5000, 2500);
 
@@ -134,15 +136,15 @@ export const HeroSection = () => {
 
                     {/* Premium CTAs */}
                     <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-2 animate-fadeInUp delay-300">
-                        <Link
-                            href="/contact-us"
+                        <button
+                            onClick={openModal}
                             className="group relative px-8 py-4 bg-primary text-white rounded-full font-montserratSemibold text-sm tracking-wide hover:bg-white hover:text-primary border-2 border-primary transition-all duration-300 shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 flex items-center justify-center gap-2 overflow-hidden hover:-translate-y-0.5"
                         >
                             <span className="relative z-10 flex items-center gap-2">
-                                <Icon iconName="phone" className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
+                                <Icon iconName="calendar" className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
                                 Book Your Consultation
                             </span>
-                        </Link>
+                        </button>
                         <Link
                             href="/treatments"
                             className="group px-8 py-4 bg-white/50 backdrop-blur-sm text-gray-900 border-2 border-gray-300 rounded-full font-montserratSemibold text-sm tracking-wide hover:bg-white hover:border-gray-400 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 hover:-translate-y-0.5"

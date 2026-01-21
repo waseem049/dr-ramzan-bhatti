@@ -1,0 +1,45 @@
+{
+  "siteName": "Dr. Ramzan Bhatti",
+  "siteTitle": "Dr. Ramzan Bhatti - Dermatologist & Laser Skin Specialist",
+  "siteDescription": "Dr. Ramzan Bhatti, top Dermatologist & Laser Specialist, specializes in acne treatment, laser hair removal, anti-aging, pigmentation, and cosmetic dermatology.",
+  "siteUrl": "https://www.drramzanbhatti.com",
+  "siteLocale": "en_IN",
+  "keywords": [
+    "Dermatology",
+    "Skin Specialist",
+    "Laser Hair Removal",
+    "Acne Treatment",
+    "Cosmetic Dermatologist",
+    "Skin Care Clinic",
+    "Anti-Aging Treatment",
+    "Dr. Ramzan Bhatti",
+    "Laser Skin Specialist",
+    "Best Skin Doctor",
+    "Pigmentation Treatment",
+    "Tattoo Removal",
+    "Scar Treatment",
+    "HydraFacial",
+    "Botox and Fillers",
+    "PRP Therapy"
+  ],
+  "author": {
+    "name": "Dr. Ramzan Bhatti",
+    "url": "https://www.drramzanbhatti.com"
+  },
+  "socialMedia": {
+    "facebook": "https://www.facebook.com/drramzanbhatti",
+    "instagram": "https://www.instagram.com/drramzanbhatti",
+    "twitter": "@drramzanbhatti"
+  },
+  "analytics": {
+    "googleAnalyticsId": "G-49WC28B23C",
+    "umamiWebsiteId": "8979548d-f116-430d-838f-acc18971fe9a",
+    "umamiScriptUrl": "https://cloud.umami.is/script.js"
+  },
+  "geo": {
+    "region": "IN-JK",
+    "placename": "Srinagar, Jammu & Kashmir, India",
+    "latitude": "34.0837",
+    "longitude": "74.7973"
+  }
+}

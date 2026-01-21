@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "id": "usr_001",
+      "name": "Dr. Ramzan Bhatti",
+      "email": "doctor@clinic.com",
+      "password": "$2a$10$rKVqF8xGKqPvXvXvXvXvXeO5kqPvXvXvXvXvXvXvXvXvXvXvXvXvX",
+      "role": "doctor",
+      "phone": "+91 9876543210",
+      "avatar": null,
+      "isActive": true,
+      "createdAt": "2025-01-01T00:00:00.000Z",
+      "lastLogin": "2026-01-20T22:12:37.042Z"
+    },
+    {
+      "id": "usr_002",
+      "name": "Sarah Ahmed",
+      "email": "receptionist@clinic.com",
+      "password": "$2a$10$sKVqF8xGKqPvXvXvXvXvXeO5kqPvXvXvXvXvXvXvXvXvXvXvXvXvY",
+      "role": "receptionist",
+      "phone": "+91 9876543215",
+      "avatar": null,
+      "isActive": true,
+      "createdAt": "2025-02-15T00:00:00.000Z",
+      "lastLogin": "2026-01-21T09:00:00.000Z"
+    },
+    {
+      "id": "usr_003",
+      "name": "John Smith",
+      "email": "editor@clinic.com",
+      "password": "$2a$10$tKVqF8xGKqPvXvXvXvXvXeO5kqPvXvXvXvXvXvXvXvXvXvXvXvXvZ",
+      "role": "editor",
+      "phone": "+91 9876543216",
+      "avatar": null,
+      "isActive": true,
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "lastLogin": "2026-01-20T16:45:00.000Z"
+    }
+  ],
+  "_note": "Passwords are hashed with bcrypt. Plain text passwords for demo: doctor123, receptionist123, editor123"
+}

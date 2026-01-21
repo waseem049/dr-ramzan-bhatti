@@ -8,6 +8,7 @@ import { MegaMenu } from "./components/MegaMenu/MegaMenu";
 import { TreatmentsModal } from "./components/TreatmentsModal/TreatmentsModal";
 import Link from "next/link";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
+import { useAppointmentBooking } from "@/contexts/AppointmentBookingContext";
 
 export const ClientNavBar: React.FC = () => {
   const pathname = usePathname();
@@ -16,6 +17,7 @@ export const ClientNavBar: React.FC = () => {
   const [isTreatmentsModalOpen, setIsTreatmentsModalOpen] = useState(false);
   const { scrollDirection } = useScrollDirection();
   const [scrolled, setScrolled] = useState(false);
+  const { openModal } = useAppointmentBooking();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -97,12 +99,12 @@ export const ClientNavBar: React.FC = () => {
                 />
               </div>
 
-              <Link
-                href="/contact-us"
+              <button
+                onClick={openModal}
                 className="px-6 py-2.5 text-sm font-montserratBold text-white bg-primary rounded-full hover:bg-primary-600 transition-all shadow-lg hover:shadow-primary/30 transform hover:-translate-y-0.5"
               >
                 Book Consultation
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -137,13 +139,13 @@ export const ClientNavBar: React.FC = () => {
         className={`lg:hidden fixed bottom-0 left-0 right-0 z-[60] p-4 bg-white/80 backdrop-blur-md border-t border-gray-100 transition-transform duration-500 
         ${scrollDirection === "down" ? "translate-y-[200%]" : "translate-y-0"}`}
       >
-        <Link
-          href="/contact-us"
+        <button
+          onClick={openModal}
           className="flex items-center justify-center w-full py-3.5 bg-gradient-to-r from-primary to-primary-600 text-white font-montserratBold text-sm uppercase tracking-wide rounded-full shadow-lg hover:shadow-primary/30 active:scale-[0.98] transition-all"
         >
           Book Appointment
           <Icon iconName="arrowRight" size="sm" className="ml-2" />
-        </Link>
+        </button>
       </div>
     </>
   );

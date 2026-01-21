@@ -1,0 +1,14 @@
+# Before/After Images Placeholder
+
+This folder will contain before and after treatment images.
+Please add the following images:
+- acne-before.jpg
+- acne-after.jpg
+- hair-before.jpg
+- hair-after.jpg
+- pigment-before.jpg
+- pigment-after.jpg
+- aging-before.jpg
+- aging-after.jpg
+
+For now, the gallery will use placeholder images from the existing assets.

@@ -4,6 +4,7 @@ import { Blog } from "@/utils/types";
 import Link from "next/link";
 import { Icon } from "@/components";
 import { useState, useEffect } from "react";
+import { useAppointmentBooking } from "@/contexts/AppointmentBookingContext";
 
 type BlogPageProps = {
   blog: Blog;
@@ -11,6 +12,7 @@ type BlogPageProps = {
 
 export const BlogPage: React.FC<BlogPageProps> = ({ blog }) => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const { openModal } = useAppointmentBooking();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -119,12 +121,12 @@ export const BlogPage: React.FC<BlogPageProps> = ({ blog }) => {
                 <p className="text-gray-500 text-sm mb-6 leading-relaxed">
                   Have questions about your skin health? Book a session with Dr. Ramzan Bhatti today.
                 </p>
-                <Link
-                  href="/contact-us"
+                <button
+                  onClick={openModal}
                   className="block w-full py-3 bg-primary text-white rounded-full font-montserratSemiBold text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
                 >
                   Book Appointment
-                </Link>
+                </button>
               </div>
 
               {/* Related Articles (Clean List) */}

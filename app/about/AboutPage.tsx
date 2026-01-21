@@ -4,9 +4,11 @@ import { CareerHighlights, AwardsData } from "@/utils/constants";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useAppointmentBooking } from "@/contexts/AppointmentBookingContext";
 
 export const AboutPage = () => {
   const [activeTab, setActiveTab] = useState("qualification");
+  const { openModal } = useAppointmentBooking();
 
   return (
     <div className="w-full bg-white overflow-hidden">
@@ -151,9 +153,9 @@ export const AboutPage = () => {
       {/* CTA */}
       <section className="bg-primary py-20 text-center text-white">
         <h2 className="text-4xl font-montserratBold mb-8">Start Your Journey to Radiant Skin</h2>
-        <Link href="/contact-us" className="inline-block bg-white text-primary px-10 py-4 rounded-full font-montserratBold hover:bg-gray-100 transition-colors shadow-xl">
+        <button onClick={openModal} className="inline-block bg-white text-primary px-10 py-4 rounded-full font-montserratBold hover:bg-gray-100 transition-colors shadow-xl">
           Book Consultation
-        </Link>
+        </button>
       </section>
 
     </div>

@@ -1,6 +1,7 @@
 "use client";
-
+import { useState, useEffect } from "react";
 import { BlogCard } from "@/components";
+import { BlogModal } from "@/components/BlogModal";
 import { Blog } from "@/utils/types";
 
 type PreviewBlogCardsProps = {
@@ -10,8 +11,32 @@ type PreviewBlogCardsProps = {
 export const PreviewBlogCards: React.FC<PreviewBlogCardsProps> = ({
   selectedCategory = "all",
 }) => {
-  const blogs: Blog[] = [];
-  const isLoading = false;
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      setIsLoading(true);
+      try {
+        // Fetch featured blogs or latest 3 blogs
+        const response = await fetch('/api/blogs?limit=6');
+        const data = await response.json();
+
+        if (data.success) {
+          setBlogs(data.blogs);
+        }
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+        setBlogs([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
 
   if (isLoading) {
     return (
@@ -53,25 +78,55 @@ export const PreviewBlogCards: React.FC<PreviewBlogCardsProps> = ({
     );
   }
 
-  // Filter blogs based on selected category (for demo purposes)
-  const filteredBlogs =
-    selectedCategory === "all"
-      ? blogs.slice(0, 3)
-      : blogs
-          .filter((blog) => blog.category?.toLowerCase() === selectedCategory)
-          .slice(0, 3);
+  const handleBlogClick = async (blog: Blog) => {
+    // Fetch full blog content if not already loaded
+    if (!blog.content || blog.content.length < 100) {
+      try {
+        const response = await fetch(`/api/blogs/${blog.slug}`);
+        const data = await response.json();
+        if (data.success) {
+          setSelectedBlog(data.blog);
+          setIsModalOpen(true);
+        }
+      } catch (error) {
+        console.error('Error fetching blog:', error);
+      }
+    } else {
+      setSelectedBlog(blog);
+      setIsModalOpen(true);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedBlog(null), 300);
+  };
+
+  // Display first 3 blogs
+  const displayBlogs = blogs.slice(0, 3);
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-      {filteredBlogs.map((blog, index) => (
-        <div
-          key={blog.id}
-          className="animate-slideUp"
-          style={{ animationDelay: `${index * 0.1}s` }}
-        >
-          <BlogCard {...blog} />
-        </div>
-      ))}
-    </div>
+    <>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {displayBlogs.map((blog, index) => (
+          <div
+            key={blog.id}
+            className="animate-slideUp"
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
+            <BlogCard {...blog} onClick={() => handleBlogClick(blog)} />
+          </div>
+        ))}
+      </div>
+
+      {/* Blog Modal */}
+      {selectedBlog && (
+        <BlogModal
+          blog={selectedBlog}
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+        />
+      )}
+    </>
   );
 };

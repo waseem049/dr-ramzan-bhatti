@@ -1,0 +1,20 @@
+{
+  "_comment": "IMPORTANT: Update with your real contact information. WhatsApp number format: Country code + number WITHOUT + or spaces (e.g., 919876543210 for India)",
+  "primaryPhone": "+919876543210",
+  "primaryEmail": "info@drramzanbhatti.com",
+  "whatsapp": {
+    "number": "919876543210",
+    "message": "Hello Dr. Ramzan Bhatti, I would like to inquire about a consultation."
+  },
+  "workingHours": {
+    "weekdays": "Monday - Saturday: 10:00 AM - 7:00 PM",
+    "weekend": "Sunday: Closed"
+  },
+  "address": {
+    "street": "Clinic Address",
+    "city": "City",
+    "state": "State",
+    "country": "India",
+    "zipCode": "000000"
+  }
+}

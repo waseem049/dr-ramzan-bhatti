@@ -1,12 +1,14 @@
 import { Blog } from "@/utils/types";
 import { Icon } from "../Icon";
 import { formatIso } from "@/utils/dateFormatters";
-import Link from "next/link";
 
-type BlogCardProps = Blog;
+type BlogCardProps = Blog & {
+  onClick?: () => void;
+};
 
 export const BlogCard: React.FC<BlogCardProps> = ({
   coverImage,
+  featuredImage,
   category,
   tags,
   title,
@@ -15,14 +17,19 @@ export const BlogCard: React.FC<BlogCardProps> = ({
   excerpt,
   slug,
   isFeatured,
+  featured,
+  onClick,
 }) => {
-  const url = `/blogs/${slug}`;
+  const imageUrl = featuredImage || coverImage || "/images/hero-bg.png";
+  const isFeaturedPost = isFeatured || featured;
 
   return (
-    <Link href={url} className="group block h-full">
-      <article className="relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-primary/20 h-full flex flex-col group-hover:transform group-hover:scale-105">
+    <article 
+      onClick={onClick}
+      className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-primary/20 h-full flex flex-col hover:transform hover:scale-105 cursor-pointer"
+    >
         {/* Featured Badge */}
-        {isFeatured && (
+        {isFeaturedPost && (
           <div className="absolute top-4 left-4 z-10">
             <div className="bg-primary text-white text-xs font-montserratBold px-3 py-1 rounded-full shadow-lg">
               FEATURED
@@ -35,9 +42,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({
           <div
             className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
             style={{
-              backgroundImage: `url(${
-                coverImage || "/images/hero-bg.png"
-              })`,
+              backgroundImage: `url(${imageUrl})`,
             }}
           />
 
@@ -134,6 +139,5 @@ export const BlogCard: React.FC<BlogCardProps> = ({
         {/* Decorative Elements */}
         <div className="absolute -top-2 -right-2 w-16 h-16 bg-primary/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </article>
-    </Link>
   );
 };

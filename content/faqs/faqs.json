@@ -1,0 +1,68 @@
+{
+  "categories": [
+    {
+      "id": "all",
+      "name": "All",
+      "slug": "all"
+    },
+    {
+      "id": "treatments",
+      "name": "Treatments",
+      "slug": "treatments"
+    },
+    {
+      "id": "consultation",
+      "name": "Consultation",
+      "slug": "consultation"
+    },
+    {
+      "id": "recovery",
+      "name": "Recovery",
+      "slug": "recovery"
+    }
+  ],
+  "faqs": [
+    {
+      "id": "laser-hair-removal-permanent",
+      "question": "Is Laser Hair Removal permanent?",
+      "answer": "Laser hair removal significantly reduces hair growth, with many patients achieving permanent hair reduction. Maintenance sessions may be required once or twice a year.",
+      "category": "treatments",
+      "order": 1
+    },
+    {
+      "id": "acne-scars-treatment",
+      "question": "How can I get rid of Acne Scars?",
+      "answer": "We use a combination of Fractional CO2 Laser, Microneedling RF, and Chemical Peels to effectively treat acne scars. The best treatment depends on your scar type and skin condition.",
+      "category": "treatments",
+      "order": 2
+    },
+    {
+      "id": "botox-safe",
+      "question": "Is Botox safe?",
+      "answer": "Yes, when administered by a qualified professional like Dr. Ramzan Bhatti, Botox is very safe. It temporarily relaxes facial muscles to smooth wrinkles and typically lasts 3-6 months.",
+      "category": "treatments",
+      "order": 3
+    },
+    {
+      "id": "chemical-peel-downtime",
+      "question": "What is the downtime for a Chemical Peel?",
+      "answer": "Downtime varies by peel strength. Superficial peels have little to no downtime, while deeper peels may cause peeling for 3-7 days. We will guide you on post-care.",
+      "category": "recovery",
+      "order": 4
+    },
+    {
+      "id": "consultation-required",
+      "question": "Do I need a consultation before a procedure?",
+      "answer": "Yes, a consultation is essential to assess your skin type and concerns. Dr. Ramzan will create a personalized treatment plan to ensure the best and safest results for you.",
+      "category": "consultation",
+      "order": 5
+    },
+    {
+      "id": "dermal-filler-duration",
+      "question": "How long do Dermal Filler results last?",
+      "answer": "Dermal fillers typically last between 6 to 18 months, depending on the type of filler used and the area treated. We use premium, FDA-approved fillers for natural-looking, long-lasting results.",
+      "category": "treatments",
+      "order": 6
+    }
+  ]
+}

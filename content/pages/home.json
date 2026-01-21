@@ -1,0 +1,105 @@
+{
+  "hero": {
+    "tagline": "Expert Dermatology & Laser Specialist",
+    "title": "Transform Your Skin with Advanced Treatments",
+    "subtitle": "Expert care for acne, laser hair removal, anti-aging, and cosmetic dermatology",
+    "description": "Certified dermatologist with 10+ years of experience in clinical & aesthetic dermatology. State-of-the-art treatments for all your skin concerns.",
+    "primaryCta": {
+      "text": "Book Your Consultation",
+      "action": "openModal"
+    },
+    "secondaryCta": {
+      "text": "Explore Treatments",
+      "href": "/treatments"
+    },
+    "stats": {
+      "yearsExperience": {
+        "value": 10,
+        "label": "Years Experience",
+        "icon": "award"
+      },
+      "happyPatients": {
+        "value": 5000,
+        "label": "Happy Patients",
+        "icon": "users"
+      },
+      "procedures": {
+        "value": 8,
+        "label": "Specializations",
+        "icon": "stethoscope"
+      }
+    },
+    "trustBadges": [
+      {
+        "icon": "certificate",
+        "text": "Board Certified"
+      },
+      {
+        "icon": "award",
+        "text": "Award Winning"
+      },
+      {
+        "icon": "shield",
+        "text": "100% Safe"
+      }
+    ]
+  },
+  "counter": {
+    "title": "Trusted by Thousands",
+    "description": "Experience the perfect blend of medical expertise and aesthetic artistry. Your path to radiant, healthy skin begins with a conversation.",
+    "stats": [
+      {
+        "number": 5000,
+        "suffix": "+",
+        "label": "Happy Patients",
+        "icon": "users",
+        "color": "primary"
+      },
+      {
+        "number": 10,
+        "suffix": "+",
+        "label": "Years Experience",
+        "icon": "award",
+        "color": "secondary"
+      },
+      {
+        "number": 15000,
+        "suffix": "+",
+        "label": "Procedures Done",
+        "icon": "stethoscope",
+        "color": "accent"
+      },
+      {
+        "number": 98,
+        "suffix": "%",
+        "label": "Success Rate",
+        "icon": "chartBar",
+        "color": "success"
+      }
+    ]
+  },
+  "aboutSection": {
+    "subtitle": "About Dr. Ramzan Bhatti",
+    "title": "Your Trusted Skin Care Expert",
+    "description": "Dr. Ramzan Bhatti is a board-certified dermatologist with over 10 years of experience in clinical and cosmetic dermatology. Specialized in advanced laser treatments, anti-aging procedures, and personalized skin care solutions.",
+    "highlights": [
+      "MD Dermatology",
+      "Fellowship in Aesthetic Medicine",
+      "Certified Laser Specialist",
+      "10+ Years Experience"
+    ],
+    "cta": {
+      "text": "Learn More About Dr. Ramzan",
+      "href": "/about"
+    }
+  },
+  "treatmentsSection": {
+    "subtitle": "Our Specializations",
+    "title": "Advanced Skin Treatments",
+    "description": "From acne solutions to anti-aging therapies, we offer comprehensive dermatology services tailored to your unique needs.",
+    "cta": {
+      "text": "View All Treatments",
+      "href": "/treatments"
+    }
+  }
+}

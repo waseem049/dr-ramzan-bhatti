@@ -1,0 +1,81 @@
+{
+  "clinics": [
+    {
+      "id": "downtown-clinic",
+      "slug": "downtown-clinic",
+      "name": "Downtown Skin Center",
+      "address": "123 Healthcare Blvd, Suite 101, Downtown City, 54000",
+      "phone": "+92 300 1234567",
+      "email": "downtown@drramzanbhatti.com",
+      "timings": "Mon - Sat: 10:00 AM - 2:00 PM",
+      "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13606.594750462058!2d74.3084!3d31.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc202479ca4d2e38c!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1650000000000!5m2!1sen!2s",
+      "description": "Our flagship clinic located in the heart of the city, offering premium aesthetic services.",
+      "image": "/images/clinic-1.jpg",
+      "featured": true,
+      "facilities": [
+        "Advanced Laser Equipment",
+        "Private Consultation Rooms",
+        "Post-Treatment Recovery Area",
+        "Free Parking",
+        "Wheelchair Accessible"
+      ],
+      "services": [
+        "Laser Hair Removal",
+        "Acne Treatment",
+        "Anti-Aging",
+        "Botox & Fillers",
+        "Chemical Peels"
+      ]
+    },
+    {
+      "id": "uptown-specialists",
+      "slug": "uptown-specialists",
+      "name": "Uptown Specialists",
+      "address": "456 Wellness Avenue, Uptown District, 54000",
+      "phone": "+92 300 7654321",
+      "email": "uptown@drramzanbhatti.com",
+      "timings": "Mon - Fri: 3:00 PM - 7:00 PM",
+      "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13606.594750462058!2d74.3084!3d31.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc202479ca4d2e38c!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1650000000000!5m2!1sen!2s",
+      "description": "Modern facility focused on advanced laser treatments and cosmetic surgery.",
+      "image": "/images/clinic-2.jpg",
+      "featured": false,
+      "facilities": [
+        "State-of-the-art Laser Technology",
+        "VIP Treatment Rooms",
+        "Surgical Suite",
+        "Pharmacy on-site"
+      ],
+      "services": [
+        "Laser Treatments",
+        "Cosmetic Surgery",
+        "Tattoo Removal",
+        "Scar Revision"
+      ]
+    },
+    {
+      "id": "medical-city-complex",
+      "slug": "medical-city-complex",
+      "name": "Medical City Complex",
+      "address": "789 Health Road, Medical City, 54000",
+      "phone": "+92 300 9876543",
+      "email": "medicalcity@drramzanbhatti.com",
+      "timings": "Tue - Sun: 5:00 PM - 9:00 PM",
+      "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13606.594750462058!2d74.3084!3d31.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc202479ca4d2e38c!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1650000000000!5m2!1sen!2s",
+      "description": "Comprehensive dermatology center equipped with the latest diagnostic tools.",
+      "image": "/images/clinic-3.jpg",
+      "featured": false,
+      "facilities": [
+        "Diagnostic Laboratory",
+        "Dermatopathology Lab",
+        "Phototherapy Unit",
+        "24/7 Emergency Care"
+      ],
+      "services": [
+        "Clinical Dermatology",
+        "Hair Restoration",
+        "Pigmentation Treatment",
+        "Medical Facials"
+      ]
+    }
+  ]
+}

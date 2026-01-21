@@ -1,9 +1,12 @@
+"use client";
 import { TreatmentCard } from "@/components";
 import { TreatmentsList } from "@/utils/constants";
 import { Icon } from "@/components";
 import Link from "next/link";
+import { useAppointmentBooking } from "@/contexts/AppointmentBookingContext";
 
 export const TreatmentsSection = () => {
+  const { openModal } = useAppointmentBooking();
   // Featured treatments (first 3)
   const featuredTreatments = TreatmentsList.slice(0, 3);
 
@@ -192,8 +195,8 @@ export const TreatmentsSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href={"/contact-us"}
+              <button
+                onClick={openModal}
                 className="group inline-flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 text-white font-montserratSemibold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
               >
                 <Icon
@@ -201,7 +204,7 @@ export const TreatmentsSection = () => {
                   className="text-white group-hover:animate-pulse"
                 />
                 <span>Book Consultation</span>
-              </Link>
+              </button>
             </div>
           </div>
         </div>

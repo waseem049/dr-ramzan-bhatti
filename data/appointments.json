@@ -1,0 +1,74 @@
+{
+  "appointments": [
+    {
+      "id": "apt_001",
+      "patientName": "John Doe",
+      "patientEmail": "john@example.com",
+      "patientPhone": "+91 9876543210",
+      "date": "2026-01-22",
+      "time": "10:00 AM",
+      "treatment": "Acne Treatment",
+      "clinic": "Downtown Skin Center",
+      "status": "confirmed",
+      "notes": "First visit - full consultation needed",
+      "createdAt": "2026-01-20T10:00:00.000Z",
+      "updatedAt": "2026-01-20T10:00:00.000Z"
+    },
+    {
+      "id": "apt_002",
+      "patientName": "Jane Smith",
+      "patientEmail": "jane@example.com",
+      "patientPhone": "+91 9876543211",
+      "date": "2026-01-22",
+      "time": "11:30 AM",
+      "treatment": "Laser Hair Removal",
+      "clinic": "Downtown Skin Center",
+      "status": "confirmed",
+      "notes": "Session 3 of 6",
+      "createdAt": "2026-01-19T14:30:00.000Z",
+      "updatedAt": "2026-01-19T14:30:00.000Z"
+    },
+    {
+      "id": "apt_003",
+      "patientName": "Mike Johnson",
+      "patientEmail": "mike@example.com",
+      "patientPhone": "+91 9876543212",
+      "date": "2026-01-22",
+      "time": "02:00 PM",
+      "treatment": "Consultation",
+      "clinic": "Uptown Specialists",
+      "status": "pending",
+      "notes": "New patient inquiry",
+      "createdAt": "2026-01-21T09:15:00.000Z",
+      "updatedAt": "2026-01-21T09:15:00.000Z"
+    },
+    {
+      "id": "apt_004",
+      "patientName": "Sarah Williams",
+      "patientEmail": "sarah@example.com",
+      "patientPhone": "+91 9876543213",
+      "date": "2026-01-23",
+      "time": "10:30 AM",
+      "treatment": "HydraFacial",
+      "clinic": "Medical City Complex",
+      "status": "confirmed",
+      "notes": "Regular monthly session",
+      "createdAt": "2026-01-18T16:45:00.000Z",
+      "updatedAt": "2026-01-18T16:45:00.000Z"
+    },
+    {
+      "id": "apt_005",
+      "patientName": "Robert Brown",
+      "patientEmail": "robert@example.com",
+      "patientPhone": "+91 9876543214",
+      "date": "2026-01-21",
+      "time": "03:00 PM",
+      "treatment": "Follow-up",
+      "clinic": "Downtown Skin Center",
+      "status": "completed",
+      "notes": "Post-treatment checkup completed successfully",
+      "createdAt": "2026-01-15T11:20:00.000Z",
+      "updatedAt": "2026-01-21T15:30:00.000Z"
+    }
+  ]
+}

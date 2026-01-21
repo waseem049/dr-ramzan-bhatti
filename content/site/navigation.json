@@ -1,0 +1,92 @@
+{
+  "navbar": [
+    {
+      "label": "Home",
+      "href": "/",
+      "icon": "home"
+    },
+    {
+      "label": "Clinics",
+      "href": "/clinics",
+      "icon": "mapMarker"
+    },
+    {
+      "label": "About",
+      "href": "/about",
+      "icon": "user"
+    },
+    {
+      "label": "Blogs",
+      "href": "/blogs",
+      "icon": "newspaper"
+    }
+  ],
+  "footer": {
+    "quickLinks": [
+      {
+        "name": "Home",
+        "href": "/",
+        "icon": "home"
+      },
+      {
+        "name": "Clinics",
+        "href": "/clinics",
+        "icon": "mapMarker"
+      },
+      {
+        "name": "About",
+        "href": "/about",
+        "icon": "user"
+      },
+      {
+        "name": "Blogs",
+        "href": "/blogs",
+        "icon": "newspaper"
+      },
+      {
+        "name": "Contact",
+        "href": "/contact-us",
+        "icon": "email"
+      }
+    ],
+    "treatments": [
+      {
+        "name": "Acne Treatment",
+        "href": "/treatments/acne-scar-treatment"
+      },
+      {
+        "name": "Laser Hair Removal",
+        "href": "/treatments/laser-hair-removal"
+      },
+      {
+        "name": "Pigmentation",
+        "href": "/treatments/pigmentation-melasma"
+      },
+      {
+        "name": "Anti-Aging",
+        "href": "/treatments/anti-aging-rejuvenation"
+      }
+    ],
+    "social": [
+      {
+        "name": "Facebook",
+        "url": "https://www.facebook.com/drramzanbhatti",
+        "icon": "facebook"
+      },
+      {
+        "name": "Instagram",
+        "url": "https://www.instagram.com/drramzanbhatti",
+        "icon": "instagram"
+      },
+      {
+        "name": "Twitter",
+        "url": "https://twitter.com/drramzanbhatti",
+        "icon": "twitter"
+      }
+    ],
+    "legal": {
+      "copyright": "2026 Dr. Ramzan Bhatti. All rights reserved.",
+      "poweredBy": "Designed with care for your skin health"
+    }
+  }
+}

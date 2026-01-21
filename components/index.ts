@@ -1,9 +1,11 @@
 export * from "./Accordian";
 export * from "./AccordianList";
 export * from "./AnimatedNumber";
+export * from "./BackToTop";
 export * from "./BlogCard";
 export * from "./BlogContent";
 export * from "./BlogList";
+export * from "./BlogModal";
 export * from "./CareerHighlightsCard";
 export * from "./ClientNavbar";
 export * from "./FeedbackCard";
@@ -18,3 +20,4 @@ export * from "./SimiliarBlogCard";
 export * from "./SimiliarBlogList";
 export * from "./TextArea";
 export * from "./TreatmentCard";
+export * from "./WhatsAppButton";

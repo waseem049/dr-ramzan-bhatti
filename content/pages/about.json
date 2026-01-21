@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "title": "Meet Dr. Ramzan Bhatti",
+    "subtitle": "Board-Certified Dermatologist & Laser Specialist",
+    "description": "Transforming lives through advanced dermatology and personalized skincare solutions",
+    "image": "/images/doctor.png"
+  },
+  "biography": {
+    "title": "About Dr. Ramzan",
+    "content": [
+      "Dr. Ramzan Bhatti is a highly skilled and compassionate dermatologist with over 10 years of experience in both clinical and cosmetic dermatology. With a commitment to excellence and patient-centered care, Dr. Ramzan has helped thousands of patients achieve healthier, more radiant skin.",
+      "Specializing in advanced laser treatments, anti-aging procedures, and medical dermatology, Dr. Ramzan stays at the forefront of innovation by continuously updating his skills through international conferences and training programs.",
+      "His approach combines medical expertise with an artistic eye, ensuring that each patient receives personalized treatment plans tailored to their unique needs and aesthetic goals."
+    ]
+  },
+  "careerHighlights": {
+    "qualification": {
+      "heading": "QUALIFICATION",
+      "highlights": [
+        "MD Dermatology, Venereology & Leprosy",
+        "MBBS, Prestigious Medical College",
+        "Fellowship in Aesthetic Medicine (FAM)",
+        "Certified Laser Specialist"
+      ]
+    },
+    "careerHighlights": {
+      "heading": "CAREER HIGHLIGHTS",
+      "highlights": [
+        "Over 10 years of experience in Clinical & Aesthetic Dermatology",
+        "Expertise in Advanced Laser Treatments & Cosmetic Procedures",
+        "Published research in International Journal of Dermatology",
+        "Speaker at various National Dermatology Conferences",
+        "Specialist in Anti-Aging and Hair Restoration Therapies"
+      ]
+    },
+    "workExperience": {
+      "heading": "WORK EXPERIENCE",
+      "highlights": [
+        "Consultant Dermatologist at Skin Care Clinic",
+        "Senior Resident at Govt Medical College",
+        "Consultant at Private Multi-Specialty Hospital",
+        "Visiting Consultant for Laser Clinics"
+      ]
+    },
+    "affiliations": {
+      "heading": "AFFILIATIONS",
+      "highlights": [
+        "Member, Indian Association of Dermatologists, Venereologists and Leprologists (IADVL)",
+        "Member, Association of Cutaneous Surgeons of India (ACSI)",
+        "Member, Cosmetic Dermatology Society of India (CDSI)"
+      ]
+    }
+  },
+  "awards": [
+    {
+      "id": "best-dermatologist-2024",
+      "title": "Best Dermatologist of the Year",
+      "year": "2024",
+      "organization": "National Medical Association",
+      "description": "Recognized for outstanding contribution to clinical dermatology and patient care.",
+      "icon": "award"
+    },
+    {
+      "id": "excellence-laser-2022",
+      "title": "Excellence in Laser Surgery",
+      "year": "2022",
+      "organization": "Asian Congress of Dermatology",
+      "description": "Awarded for pioneering work in advanced laser hair removal techniques.",
+      "icon": "certificate"
+    },
+    {
+      "id": "young-achiever-2019",
+      "title": "Young Achiever Award",
+      "year": "2019",
+      "organization": "Dermatological Society of Pakistan",
+      "description": "Acknowledging early career excellence and research contributions.",
+      "icon": "star"
+    }
+  ],
+  "expertise": [
+    {
+      "name": "Laser Treatments",
+      "description": "Advanced laser technology for hair removal, skin rejuvenation, and pigmentation",
+      "icon": "sparkles",
+      "experience": "10+ years"
+    },
+    {
+      "name": "Anti-Aging",
+      "description": "Botox, fillers, and non-surgical face lifting procedures",
+      "icon": "heart",
+      "experience": "8+ years"
+    },
+    {
+      "name": "Medical Dermatology",
+      "description": "Treatment of acne, eczema, psoriasis, and other skin conditions",
+      "icon": "stethoscope",
+      "experience": "10+ years"
+    },
+    {
+      "name": "Hair Restoration",
+      "description": "PRP therapy, mesotherapy, and advanced hair loss treatments",
+      "icon": "scissors",
+      "experience": "7+ years"
+    }
+  ]
+}

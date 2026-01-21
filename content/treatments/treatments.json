@@ -1,0 +1,280 @@
+{
+  "treatments": [
+    {
+      "id": "acne-scar-treatment",
+      "name": "Acne & Scar Treatment",
+      "slug": "acne-scar-treatment",
+      "description": "Comprehensive solutions for active acne and post-acne scarring using advanced chemical peels, laser resurfacing, and microneedling.",
+      "icon": "faceSmile",
+      "category": "Medical Dermatology",
+      "featured": true,
+      "details": {
+        "duration": "30-60 minutes",
+        "sessions": "4-8 sessions",
+        "downtime": "3-7 days",
+        "results": "Visible in 2-3 months"
+      },
+      "benefits": [
+        "Reduces active acne and prevents future breakouts",
+        "Smooths acne scars and improves skin texture",
+        "Minimizes pore size and controls oil production",
+        "Promotes collagen production for healthier skin"
+      ],
+      "procedures": [
+        "Chemical Peels",
+        "Fractional CO2 Laser",
+        "Microneedling RF",
+        "Subcision",
+        "Dermal Fillers"
+      ],
+      "suitableFor": [
+        "Active acne",
+        "Acne scars (atrophic, ice-pick, boxcar)",
+        "Post-inflammatory hyperpigmentation",
+        "Large pores",
+        "Oily skin"
+      ]
+    },
+    {
+      "id": "laser-hair-removal",
+      "name": "Laser Hair Removal",
+      "slug": "laser-hair-removal",
+      "description": "State-of-the-art diode and candela laser technology for permanent hair reduction, safe for all skin types with minimal discomfort.",
+      "icon": "sparkles",
+      "category": "Laser Treatments",
+      "featured": true,
+      "details": {
+        "duration": "15-60 minutes",
+        "sessions": "6-8 sessions",
+        "downtime": "None",
+        "results": "Progressive reduction"
+      },
+      "benefits": [
+        "Permanent hair reduction (up to 90%)",
+        "Smooth, hair-free skin",
+        "Safe for all skin types",
+        "Minimal discomfort with cooling technology"
+      ],
+      "procedures": [
+        "Diode Laser",
+        "Candela Laser",
+        "Alexandrite Laser"
+      ],
+      "suitableFor": [
+        "Unwanted facial hair",
+        "Body hair (arms, legs, underarms)",
+        "Bikini area",
+        "Back and chest hair",
+        "All skin types (Fitzpatrick I-VI)"
+      ]
+    },
+    {
+      "id": "pigmentation-melasma",
+      "name": "Pigmentation & Melasma",
+      "slug": "pigmentation-melasma",
+      "description": "Targeted treatments for dark spots, sun damage, and melasma using specialized lasers and medical-grade skin brightening protocols.",
+      "icon": "sun",
+      "category": "Medical Dermatology",
+      "featured": true,
+      "details": {
+        "duration": "30-45 minutes",
+        "sessions": "4-6 sessions",
+        "downtime": "2-5 days",
+        "results": "Visible in 4-6 weeks"
+      },
+      "benefits": [
+        "Fades dark spots and hyperpigmentation",
+        "Treats melasma effectively",
+        "Evens skin tone",
+        "Brightens complexion"
+      ],
+      "procedures": [
+        "Q-Switched Laser",
+        "IPL (Intense Pulsed Light)",
+        "Chemical Peels",
+        "Skin Lightening Treatments"
+      ],
+      "suitableFor": [
+        "Melasma",
+        "Post-inflammatory hyperpigmentation",
+        "Sun spots and age spots",
+        "Freckles",
+        "Uneven skin tone"
+      ]
+    },
+    {
+      "id": "tattoo-removal",
+      "name": "Tattoo Removal",
+      "slug": "tattoo-removal",
+      "description": "Advanced Q-switched laser technology to safely and effectively fade and remove unwanted tattoos of various colors.",
+      "icon": "paintBrush",
+      "category": "Laser Treatments",
+      "featured": false,
+      "details": {
+        "duration": "15-30 minutes",
+        "sessions": "6-12 sessions",
+        "downtime": "1-2 weeks",
+        "results": "Progressive fading"
+      },
+      "benefits": [
+        "Safe removal of all tattoo colors",
+        "Minimal scarring",
+        "Effective on amateur and professional tattoos",
+        "FDA-approved technology"
+      ],
+      "procedures": [
+        "Q-Switched Nd:YAG Laser",
+        "Picosecond Laser"
+      ],
+      "suitableFor": [
+        "Black and colored tattoos",
+        "Amateur tattoos",
+        "Professional tattoos",
+        "All skin types"
+      ]
+    },
+    {
+      "id": "anti-aging-rejuvenation",
+      "name": "Anti-Aging & Rejuvenation",
+      "slug": "anti-aging-rejuvenation",
+      "description": "Restore youthful radiance with Botox, fillers, HIFU, and fractional lasers to reduce wrinkles and tighten loose skin.",
+      "icon": "heart",
+      "category": "Cosmetic Dermatology",
+      "featured": true,
+      "details": {
+        "duration": "30-90 minutes",
+        "sessions": "1-3 sessions",
+        "downtime": "1-3 days",
+        "results": "Immediate to 3 months"
+      },
+      "benefits": [
+        "Reduces fine lines and wrinkles",
+        "Lifts and tightens sagging skin",
+        "Restores facial volume",
+        "Natural-looking results"
+      ],
+      "procedures": [
+        "Botox Injections",
+        "Dermal Fillers",
+        "HIFU (High-Intensity Focused Ultrasound)",
+        "Fractional Laser Resurfacing",
+        "Thread Lift"
+      ],
+      "suitableFor": [
+        "Fine lines and wrinkles",
+        "Sagging skin",
+        "Volume loss",
+        "Crow's feet",
+        "Forehead lines"
+      ]
+    },
+    {
+      "id": "hair-fall-prp-therapy",
+      "name": "Hair Fall & PRP Therapy",
+      "slug": "hair-fall-prp-therapy",
+      "description": "Platelet-Rich Plasma (PRP) therapy and mesotherapy to stimulate hair growth and combat hair thinning and pattern baldness.",
+      "icon": "scissors",
+      "category": "Hair Restoration",
+      "featured": false,
+      "details": {
+        "duration": "45-60 minutes",
+        "sessions": "4-6 sessions",
+        "downtime": "None",
+        "results": "Visible in 3-6 months"
+      },
+      "benefits": [
+        "Stimulates hair growth",
+        "Increases hair density and thickness",
+        "Reduces hair fall",
+        "Natural and safe treatment"
+      ],
+      "procedures": [
+        "PRP (Platelet-Rich Plasma) Therapy",
+        "Mesotherapy",
+        "Microneedling for Scalp",
+        "Low-Level Laser Therapy"
+      ],
+      "suitableFor": [
+        "Male and female pattern baldness",
+        "Thinning hair",
+        "Alopecia areata",
+        "Post-partum hair loss",
+        "Stress-related hair fall"
+      ]
+    },
+    {
+      "id": "hydrafacial-glow",
+      "name": "HydraFacial & Glow",
+      "slug": "hydrafacial-glow",
+      "description": "Deep cleansing, exfoliating, and hydrating treatments to instantly improve skin texture and give you a radiant glow.",
+      "icon": "droplet",
+      "category": "Aesthetic Treatments",
+      "featured": false,
+      "details": {
+        "duration": "30-45 minutes",
+        "sessions": "1 session (monthly maintenance)",
+        "downtime": "None",
+        "results": "Immediate"
+      },
+      "benefits": [
+        "Deep cleanses and exfoliates",
+        "Hydrates and nourishes skin",
+        "Instant glow and radiance",
+        "Improves skin texture"
+      ],
+      "procedures": [
+        "HydraFacial",
+        "Oxygen Facial",
+        "Carbon Laser Peel",
+        "Chemical Peels"
+      ],
+      "suitableFor": [
+        "Dull skin",
+        "Dehydrated skin",
+        "Fine lines",
+        "Enlarged pores",
+        "Pre-event glow"
+      ]
+    },
+    {
+      "id": "mole-wart-removal",
+      "name": "Mole & Wart Removal",
+      "slug": "mole-wart-removal",
+      "description": "Safe and quick removal of moles, warts, and skin tags using CO2 laser or radiofrequency cautery with minimal scarring.",
+      "icon": "scissors",
+      "category": "Medical Dermatology",
+      "featured": false,
+      "details": {
+        "duration": "15-30 minutes",
+        "sessions": "1-2 sessions",
+        "downtime": "3-7 days",
+        "results": "Immediate"
+      },
+      "benefits": [
+        "Safe and painless removal",
+        "Minimal scarring",
+        "Quick procedure",
+        "No recurrence"
+      ],
+      "procedures": [
+        "CO2 Laser",
+        "Radiofrequency Cautery",
+        "Cryotherapy",
+        "Surgical Excision"
+      ],
+      "suitableFor": [
+        "Benign moles",
+        "Warts",
+        "Skin tags",
+        "Seborrheic keratosis"
+      ]
+    }
+  ],
+  "categories": [
+    "Medical Dermatology",
+    "Laser Treatments",
+    "Cosmetic Dermatology",
+    "Hair Restoration",
+    "Aesthetic Treatments"
+  ]
+}

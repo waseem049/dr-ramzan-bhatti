@@ -1,0 +1,81 @@
+{
+  "posts": [
+    {
+      "id": "blog_001",
+      "title": "Complete Guide to Acne Treatment in 2026",
+      "slug": "complete-guide-acne-treatment-2026",
+      "excerpt": "Discover the latest and most effective acne treatment methods, from topical solutions to advanced laser therapies.",
+      "content": "## Understanding Acne\n\nAcne is one of the most common skin conditions affecting millions worldwide. In this comprehensive guide, we'll explore the latest treatment options available in 2026.\n\n### Causes of Acne\n\n- Hormonal changes\n- Excess sebum production\n- Bacterial infection\n- Inflammation\n\n### Treatment Options\n\n#### 1. Topical Treatments\nBenzoyl peroxide and salicylic acid remain effective first-line treatments.\n\n#### 2. Oral Medications\nIsotretinoin has revolutionized severe acne treatment.\n\n#### 3. Advanced Therapies\nLaser treatments and chemical peels offer excellent results for stubborn cases.\n\n### Prevention Tips\n\n- Cleanse twice daily\n- Use non-comedogenic products\n- Avoid touching your face\n- Maintain a healthy diet\n\n## Conclusion\n\nWith proper treatment and care, acne can be effectively managed. Consult with a dermatologist for personalized treatment plans.",
+      "featuredImage": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=1200",
+      "category": "Skin Care",
+      "tags": ["acne", "treatment", "skincare", "dermatology"],
+      "author": "Dr. Ramzan Bhatti",
+      "authorId": "usr_001",
+      "status": "published",
+      "featured": true,
+      "views": 1234,
+      "publishedDate": "2026-01-15T10:00:00.000Z",
+      "seo": {
+        "metaTitle": "Complete Guide to Acne Treatment 2026 | Dr. Ramzan Bhatti",
+        "metaDescription": "Expert guide on acne treatment options including topical solutions, oral medications, and advanced laser therapies by Dr. Ramzan Bhatti.",
+        "keywords": ["acne treatment", "dermatology", "skin care", "laser therapy"]
+      },
+      "createdAt": "2026-01-10T09:00:00.000Z",
+      "updatedAt": "2026-01-15T10:00:00.000Z"
+    },
+    {
+      "id": "blog_002",
+      "title": "Laser Hair Removal: Everything You Need to Know",
+      "slug": "laser-hair-removal-complete-guide",
+      "excerpt": "A comprehensive guide to laser hair removal, including benefits, process, costs, and what to expect during treatment.",
+      "content": "## Laser Hair Removal Overview\n\nLaser hair removal has become one of the most popular cosmetic procedures for permanent hair reduction.\n\n### How It Works\n\nLaser energy targets the melanin in hair follicles, destroying them to prevent future growth.\n\n### Benefits\n\n- Long-lasting results\n- Precision targeting\n- Speed and efficiency\n- Reduced ingrown hairs\n\n### Treatment Process\n\n1. Consultation and assessment\n2. Preparation (shaving treatment area)\n3. Laser treatment session\n4. Post-treatment care\n\n### Number of Sessions\n\nMost patients require 6-8 sessions for optimal results.\n\n### Aftercare\n\n- Avoid sun exposure\n- Use gentle skincare\n- No hot baths for 24 hours\n- Apply soothing gel",
+      "featuredImage": "https://images.unsplash.com/photo-1519824145371-296894a0daa9?w=1200",
+      "category": "Treatments",
+      "tags": ["laser hair removal", "hair removal", "cosmetic procedure"],
+      "author": "Dr. Ramzan Bhatti",
+      "authorId": "usr_001",
+      "status": "published",
+      "featured": false,
+      "views": 2156,
+      "publishedDate": "2026-01-10T14:00:00.000Z",
+      "seo": {
+        "metaTitle": "Laser Hair Removal Guide | Expert Dermatologist",
+        "metaDescription": "Complete guide to laser hair removal covering benefits, process, costs, and aftercare by expert dermatologist Dr. Ramzan Bhatti.",
+        "keywords": ["laser hair removal", "permanent hair reduction", "cosmetic dermatology"]
+      },
+      "createdAt": "2026-01-08T11:00:00.000Z",
+      "updatedAt": "2026-01-10T14:00:00.000Z"
+    },
+    {
+      "id": "blog_003",
+      "title": "Understanding Melasma and Treatment Options",
+      "slug": "melasma-treatment-options-guide",
+      "excerpt": "Learn about melasma, its causes, and the most effective treatment options available for this common pigmentation condition.",
+      "content": "## What is Melasma?\n\nMelasma is a common skin condition characterized by brown or gray-brown patches on the face.\n\n### Common Triggers\n\n- Sun exposure\n- Hormonal changes\n- Pregnancy\n- Birth control pills\n\n### Treatment Approaches\n\n#### Topical Treatments\n- Hydroquinone creams\n- Tretinoin\n- Azelaic acid\n\n#### Professional Procedures\n- Chemical peels\n- Laser therapy\n- Microdermabrasion\n\n### Prevention\n\nDaily sunscreen is essential for preventing melasma worsening.",
+      "featuredImage": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200",
+      "category": "Skin Conditions",
+      "tags": ["melasma", "pigmentation", "skincare"],
+      "author": "John Smith",
+      "authorId": "usr_003",
+      "status": "draft",
+      "featured": false,
+      "views": 0,
+      "publishedDate": null,
+      "seo": {
+        "metaTitle": "Melasma Treatment Options | Dermatology Guide",
+        "metaDescription": "Comprehensive guide to understanding and treating melasma with expert dermatological advice.",
+        "keywords": ["melasma", "pigmentation", "skin treatment"]
+      },
+      "createdAt": "2026-01-18T16:00:00.000Z",
+      "updatedAt": "2026-01-18T16:00:00.000Z"
+    }
+  ],
+  "categories": [
+    "Skin Care",
+    "Treatments",
+    "Skin Conditions",
+    "Anti-Aging",
+    "Hair Care",
+    "Cosmetic Procedures"
+  ]
+}

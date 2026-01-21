@@ -4,10 +4,12 @@ import { ClinicsData } from "@/utils/constants";
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 import React from "react";
+import { useAppointmentBooking } from "@/contexts/AppointmentBookingContext";
 
 const ClinicDetailsPage = () => {
     const params = useParams();
     const slug = params.slug;
+    const { openModal } = useAppointmentBooking();
 
     const clinic = ClinicsData.find((c) => c.slug === slug);
 
@@ -79,9 +81,9 @@ const ClinicDetailsPage = () => {
                         </div>
 
                         <div className="mt-10">
-                            <Link href="/contact-us" className="inline-block bg-primary text-white font-montserratSemibold px-10 py-4 rounded-full shadow-xl hover:shadow-2xl hover:bg-primary/90 transition-all duration-300 transform hover:-translate-y-1">
+                            <button onClick={openModal} className="inline-block bg-primary text-white font-montserratSemibold px-10 py-4 rounded-full shadow-xl hover:shadow-2xl hover:bg-primary/90 transition-all duration-300 transform hover:-translate-y-1">
                                 Book Appointment
-                            </Link>
+                            </button>
                         </div>
                     </div>
 

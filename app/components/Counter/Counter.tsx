@@ -2,9 +2,11 @@
 import { AnimatedNumber, Icon } from "@/components";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useAppointmentBooking } from "@/contexts/AppointmentBookingContext";
 
 export const Counter = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { openModal } = useAppointmentBooking();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -148,13 +150,13 @@ export const Counter = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end pt-4">
-              <Link href="/contact-us" className="group relative px-8 py-4 bg-primary text-white font-montserratBold rounded-full overflow-hidden shadow-[0_0_20px_rgba(216,141,127,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(216,141,127,0.6)]">
+              <button onClick={openModal} className="group relative px-8 py-4 bg-primary text-white font-montserratBold rounded-full overflow-hidden shadow-[0_0_20px_rgba(216,141,127,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(216,141,127,0.6)]">
                 <span className="relative z-10 flex items-center gap-3">
                   Book Consultation
                   <Icon iconName="caretRight" className="text-xl group-hover:translate-x-1 transition-transform" />
                 </span>
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              </Link>
+              </button>
             </div>
           </div>
 

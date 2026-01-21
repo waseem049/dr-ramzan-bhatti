@@ -1,0 +1,70 @@
+{
+  "records": [
+    {
+      "id": "rec_001",
+      "patientId": "pat_001",
+      "patientName": "John Doe",
+      "date": "2026-01-20",
+      "type": "consultation",
+      "chiefComplaint": "Severe acne on face and back",
+      "symptoms": ["Acne", "Redness", "Inflammation"],
+      "diagnosis": "Acne Vulgaris - Grade III",
+      "prescriptions": [
+        {
+          "medication": "Isotretinoin 20mg",
+          "dosage": "1 capsule daily",
+          "duration": "3 months",
+          "instructions": "Take with food, avoid sun exposure"
+        },
+        {
+          "medication": "Benzoyl Peroxide Gel 5%",
+          "dosage": "Apply topically",
+          "duration": "Ongoing",
+          "instructions": "Apply twice daily after cleansing"
+        }
+      ],
+      "treatmentPlan": "Start with Isotretinoin therapy. Follow-up in 4 weeks. Recommend chemical peel after 2 months.",
+      "vitalSigns": {
+        "bloodPressure": "120/80",
+        "pulse": "72",
+        "temperature": "98.6°F",
+        "weight": "75kg"
+      },
+      "notes": "Patient advised about side effects of Isotretinoin. Pregnancy test negative. Signed consent form.",
+      "followUpDate": "2026-02-20",
+      "doctorId": "usr_001",
+      "doctorName": "Dr. Ramzan Bhatti",
+      "createdAt": "2026-01-20T10:30:00.000Z",
+      "updatedAt": "2026-01-20T10:30:00.000Z"
+    },
+    {
+      "id": "rec_002",
+      "patientId": "pat_002",
+      "patientName": "Jane Smith",
+      "date": "2026-01-19",
+      "type": "treatment",
+      "chiefComplaint": "Laser hair removal session 3",
+      "symptoms": [],
+      "diagnosis": "Hirsutism - undergoing laser treatment",
+      "prescriptions": [],
+      "treatmentPlan": "Continuing with Diode laser hair removal. 3 more sessions recommended.",
+      "procedureDetails": {
+        "procedure": "Diode Laser Hair Removal",
+        "area": "Full legs",
+        "settings": "755nm, 30J/cm²",
+        "duration": "45 minutes",
+        "anesthesia": "Topical numbing cream"
+      },
+      "vitalSigns": {
+        "bloodPressure": "118/75",
+        "pulse": "68"
+      },
+      "notes": "Session completed successfully. Mild redness observed, will subside in 24 hours. No adverse reactions.",
+      "followUpDate": "2026-02-16",
+      "doctorId": "usr_001",
+      "doctorName": "Dr. Ramzan Bhatti",
+      "createdAt": "2026-01-19T14:30:00.000Z",
+      "updatedAt": "2026-01-19T14:30:00.000Z"
+    }
+  ]
+}
