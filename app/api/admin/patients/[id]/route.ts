@@ -4,11 +4,12 @@ import { patientsDB, getCurrentTimestamp } from '@/lib/json-db';
 // GET - Fetch single patient
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const data = await patientsDB.read();
-    const patient = data.patients?.find((p) => p.id === params.id);
+    const patient = data.patients?.find((p) => p.id === id);
 
     if (!patient) {
       return NextResponse.json(
@@ -33,12 +34,13 @@ export async function GET(
 // PATCH - Update patient
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
     const data = await patientsDB.read();
-    const index = data.patients?.findIndex((p) => p.id === params.id);
+    const index = data.patients?.findIndex((p) => p.id === id);
 
     if (index === undefined || index === -1) {
       return NextResponse.json(
@@ -51,7 +53,7 @@ export async function PATCH(
     data.patients[index] = {
       ...data.patients[index],
       ...body,
-      id: params.id, // Ensure ID doesn't change
+      id, // Ensure ID doesn't change
       updatedAt: getCurrentTimestamp(),
     };
 
@@ -73,11 +75,12 @@ export async function PATCH(
 // DELETE - Delete patient
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const data = await patientsDB.read();
-    const index = data.patients?.findIndex((p) => p.id === params.id);
+    const index = data.patients?.findIndex((p) => p.id === id);
 
     if (index === undefined || index === -1) {
       return NextResponse.json(

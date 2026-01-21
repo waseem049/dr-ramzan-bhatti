@@ -1,27 +1,30 @@
+export const runtime = 'nodejs';
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+
+import fs from 'node:fs/promises';
+import path from 'node:path';
 
 const BLOGS_FILE = path.join(process.cwd(), 'data/blogs.json');
 
 // GET - Fetch single published blog post by slug
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params;
     // Read blogs data
     const data = await fs.readFile(BLOGS_FILE, 'utf-8');
     const blogsData = JSON.parse(data);
-    
+
     // Find published post by slug
     const post = blogsData.posts?.find(
-      (p: any) => p.slug === params.slug && p.status === 'published'
+      (p: any) => p.slug === slug && p.status === 'published'
     );
 
     if (!post) {
       return NextResponse.json(
-        { 
+        {
           success: false,
           error: 'Blog post not found',
           blog: null,
@@ -32,7 +35,7 @@ export async function GET(
 
     // Increment view count
     post.views = (post.views || 0) + 1;
-    
+
     // Save updated view count
     try {
       await fs.writeFile(BLOGS_FILE, JSON.stringify(blogsData, null, 2), 'utf-8');
@@ -66,7 +69,7 @@ export async function GET(
   } catch (error) {
     console.error('Error fetching blog:', error);
     return NextResponse.json(
-      { 
+      {
         success: false,
         error: 'Failed to fetch blog post',
         blog: null,

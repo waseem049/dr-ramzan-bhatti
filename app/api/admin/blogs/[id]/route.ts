@@ -1,6 +1,8 @@
+export const runtime = 'nodejs';
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+
+import fs from 'node:fs/promises';
+import path from 'node:path';
 
 const BLOGS_FILE = path.join(process.cwd(), 'data/blogs.json');
 
@@ -22,11 +24,12 @@ async function writeBlogs(data: any) {
 // GET - Fetch single blog
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const data = await readBlogs();
-    const post = data.posts?.find((p: any) => p.id === params.id);
+    const post = data.posts?.find((p: any) => p.id === id);
 
     if (!post) {
       return NextResponse.json(
@@ -51,12 +54,13 @@ export async function GET(
 // PATCH - Update blog
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
     const data = await readBlogs();
-    const index = data.posts?.findIndex((p: any) => p.id === params.id);
+    const index = data.posts?.findIndex((p: any) => p.id === id);
 
     if (index === undefined || index === -1) {
       return NextResponse.json(
@@ -69,7 +73,8 @@ export async function PATCH(
     data.posts[index] = {
       ...data.posts[index],
       ...body,
-      id: params.id, // Ensure ID doesn't change
+      ...body,
+      id, // Ensure ID doesn't change
       updatedAt: new Date().toISOString(),
     };
 
@@ -91,11 +96,12 @@ export async function PATCH(
 // DELETE - Delete blog
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const data = await readBlogs();
-    const index = data.posts?.findIndex((p: any) => p.id === params.id);
+    const index = data.posts?.findIndex((p: any) => p.id === id);
 
     if (index === undefined || index === -1) {
       return NextResponse.json(

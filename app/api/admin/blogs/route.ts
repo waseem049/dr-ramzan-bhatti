@@ -1,6 +1,8 @@
+export const runtime = 'nodejs';
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+
+import fs from 'node:fs/promises';
+import path from 'node:path';
 
 const BLOGS_FILE = path.join(process.cwd(), 'data/blogs.json');
 

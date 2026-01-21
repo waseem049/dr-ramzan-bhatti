@@ -1,6 +1,8 @@
+export const runtime = 'nodejs';
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+
+import fs from 'node:fs/promises';
+import path from 'node:path';
 
 const BLOGS_FILE = path.join(process.cwd(), 'data/blogs.json');
 
@@ -16,13 +18,13 @@ export async function GET(request: NextRequest) {
     // Read blogs data
     const data = await fs.readFile(BLOGS_FILE, 'utf-8');
     const blogsData = JSON.parse(data);
-    
+
     // Only return published posts
     let posts = blogsData.posts?.filter((post: any) => post.status === 'published') || [];
 
     // Filter by category
     if (category && category !== 'all') {
-      posts = posts.filter((post: any) => 
+      posts = posts.filter((post: any) =>
         post.category.toLowerCase() === category.toLowerCase().replace('-', ' ')
       );
     }
@@ -75,7 +77,7 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error('Error fetching blogs:', error);
     return NextResponse.json(
-      { 
+      {
         success: false,
         error: 'Failed to fetch blogs',
         blogs: [],

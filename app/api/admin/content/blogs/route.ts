@@ -1,7 +1,9 @@
+export const runtime = 'nodejs';
 import { NextRequest, NextResponse } from 'next/server';
+
 import { glob } from 'glob';
-import fs from 'fs/promises';
-import path from 'path';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import matter from 'gray-matter';
 
 const BLOGS_DIR = path.join(process.cwd(), 'content/blogs');
@@ -14,7 +16,7 @@ export async function GET(request: NextRequest) {
 
     // Read all markdown files from blogs directory
     const files = await glob(`${BLOGS_DIR}/*.md`);
-    
+
     const blogs = await Promise.all(
       files.map(async (file) => {
         const content = await fs.readFile(file, 'utf-8');

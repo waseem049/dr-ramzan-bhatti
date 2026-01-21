@@ -1,27 +1,38 @@
 import { ContactDataDto } from "./dto";
 
 export enum BlogStatus {
-  DRAFT = "DRAFT",
-  PUBLISHED = "PUBLISHED",
-  WITHDRAWN = "WITHDRAWN",
+  DRAFT = "draft",
+  PUBLISHED = "published",
+  WITHDRAWN = "withdrawn",
 }
+
+export type SEO = {
+  metaTitle: string;
+  metaDescription: string;
+  keywords: string;
+};
 
 export type Blog = {
   id: string;
   slug: string;
   title: string;
-  subTitle: string;
+  subTitle?: string;
   content: string;
-  coverImage: string | null;
-  category: string | null;
-  media: string[];
+  coverImage?: string | null;
+  featuredImage?: string | null;
+  category: string;
+  media?: string[];
   author: string;
   excerpt: string;
-  isFeatured: boolean;
+  isFeatured?: boolean;
+  featured?: boolean;
   tags: string[];
-  status: BlogStatus;
-  createdAt: Date;
-  updatedAt: Date;
+  status: BlogStatus | string;
+  views?: number;
+  publishedDate?: string | null;
+  seo?: SEO;
+  createdAt: string | Date;
+  updatedAt: string | Date;
 };
 
 export type Contact = {

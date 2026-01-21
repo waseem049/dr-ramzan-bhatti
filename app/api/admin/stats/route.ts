@@ -1,7 +1,9 @@
+export const runtime = 'nodejs';
 import { NextResponse } from 'next/server';
+
 import { appointmentsDB, patientsDB } from '@/lib/json-db';
-import fs from 'fs/promises';
-import path from 'path';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 
 // GET - Fetch dashboard statistics
 export async function GET() {
@@ -53,24 +55,24 @@ export async function GET() {
       newPatients: patients.filter((p: any) => {
         const createdDate = new Date(p.createdAt);
         const now = new Date();
-        return createdDate.getMonth() === now.getMonth() && 
-               createdDate.getFullYear() === now.getFullYear();
+        return createdDate.getMonth() === now.getMonth() &&
+          createdDate.getFullYear() === now.getFullYear();
       }).length,
       treatmentsPerformed: appointments.filter((apt: any) => apt.status === 'completed').length,
       revenueGenerated: appointments.filter((apt: any) => apt.status === 'completed').length * 150,
-      
+
       // Receptionist stats
       todayAppointments: appointments.filter((apt: any) => apt.date === today).length,
       pendingAppointments: appointments.filter((apt: any) => apt.status === 'pending').length,
       totalPatients: patients.length,
       newInquiries: 5, // Mock data
-      
+
       // Editor stats
       totalBlogs: blogPosts.length,
       publishedTreatments: 8, // Mock data (will be updated when treatments API is built)
       pendingReviews: draftBlogs,
       mediaUploads: 45, // Mock data (will be updated when media API is built)
-      
+
       // Shared stats
       unreadNotifications: 7,
       recentAppointments,

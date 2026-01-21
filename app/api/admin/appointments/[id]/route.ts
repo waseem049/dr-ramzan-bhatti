@@ -4,11 +4,12 @@ import { appointmentsDB, getCurrentTimestamp } from '@/lib/json-db';
 // GET - Fetch single appointment
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const data = await appointmentsDB.read();
-    const appointment = data.appointments?.find((apt) => apt.id === params.id);
+    const appointment = data.appointments?.find((apt) => apt.id === id);
 
     if (!appointment) {
       return NextResponse.json(
@@ -33,12 +34,13 @@ export async function GET(
 // PATCH - Update appointment
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
     const data = await appointmentsDB.read();
-    const index = data.appointments?.findIndex((apt) => apt.id === params.id);
+    const index = data.appointments?.findIndex((apt) => apt.id === id);
 
     if (index === undefined || index === -1) {
       return NextResponse.json(
@@ -51,7 +53,7 @@ export async function PATCH(
     data.appointments[index] = {
       ...data.appointments[index],
       ...body,
-      id: params.id, // Ensure ID doesn't change
+      id, // Ensure ID doesn't change
       updatedAt: getCurrentTimestamp(),
     };
 
@@ -73,11 +75,12 @@ export async function PATCH(
 // DELETE - Delete appointment
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const data = await appointmentsDB.read();
-    const index = data.appointments?.findIndex((apt) => apt.id === params.id);
+    const index = data.appointments?.findIndex((apt) => apt.id === id);
 
     if (index === undefined || index === -1) {
       return NextResponse.json(
